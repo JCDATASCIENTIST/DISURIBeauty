@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "disuri-content-calendar", "runs": [{"id": "eval-1-april-launch-with_skill", "prompt": "I need a content calendar for April 2026. I'm launching the new DISURI Vitamin C serum mid-month and want to build hype. Also it's my birthday on April 15th and I want to do a flash sale. Give me the full month.", "eval_id": 1, "outputs": [{"name": "calendar.md", "type": "text", "content": "# DISURI Beauty \u2014 April 2026 Content Calendar\n\n**Month:** April 2026\n**Special Events:** Vitamin C Serum Launch (April 15) + Birthday Flash Sale (April 15)\n**Overall Theme:** Spring Renewal + Vitamin C Revolution + Celebration Mode\n**Total Posts:** 48 platform pieces (~12-14 per week) created from 8-10 original batches\n\n---\n\n## Monthly Content Strategy\n\n### Week-by-Week Pillar Rotation\n\n| Week | Primary Pillar | Secondary Pillar | Product Focus | Event Integration |\n|------|---------------|-----------------|---------------|--------------------|\n| Week 1 (Apr 1-6) | Results & Transformations | Routine Building | Triple Collagen line | Spring renewal angle |\n| Week 2 (Apr 7-13) | Barrier Science | Urban Skin Survival | Snail Mucin Cream | Pre-launch hype building |\n| Week 3 (Apr 14-20) | K-Beauty Authority | Results & Transformations | **NEW: Vitamin C Serum** | LAUNCH WEEK + Birthday sale |\n| Week 4 (Apr 21-30) | Community & Queens | Myth-Busting | Vitamin C + Bundles | Post-launch momentum |\n\n---\n\n## WEEK 1: Spring Renewal Glow-Up\n**Apr 1-6**\n\n**Primary Pillar:** Results & Transformations\n**Secondary Pillar:** Routine Building\n**Product Focus:** Triple Collagen line + Ultimate Snail Mucin Cream\n**Batch Day:** Saturday, Mar 30 (or Sun, Mar 31) \u2014 Film 4 videos, write 5 captions\n\n### Daily Calendar\n\n| Date | Day | Platform | Content Type | Hook | Script/Copy | Hashtags | Notes |\n|------|-----|----------|-------------|------|------------|----------|-------|\n| Apr 1 | Tue | Instagram | Carousel (6 slides) | \"April energy = skin transformation season. Here's how.\" | **Slide 1:** \"April means NEW skin energy. Literally.\" **Slide 2:** \"Spring humidity is up. That means your barrier needs prep.\" **Slide 3:** \"This is the 3-step that changed everything for me.\" **Slide 4:** Show Triple Collagen Toner, Snail Mucin Cream, one serum/essence. **Slide 5:** \"Apply in THIS order for max glow.\" **Slide 6:** \"Ready to glow like you own the city? Let's go. \ud83c\udf19\" | #DIsuriGlow #KBeauty #SpringSkincare #BarrierRepair #GlowUp #Skincare101 | Batch filmed content |\n| Apr 1 | Tue | YouTube | Short (45s) | \"The exact order that changes everything\" | **[Intro card: \"The Order That Changes Everything\"]** \"Spring skin needs a reset. Here's the exact routine Korean women swear by. Step 1: Toner preps your barrier. Step 2: Snail mucin rebuilds what stress damaged. Step 3: One lightweight serum locks it in. That's it. No 10-step confusion. Just results. Made in Korea, proven on real skin. This is your spring reset.\" | N/A | Repurposed from carousel content |\n| Apr 2 | Wed | TikTok | Video (28s) | \"POV: You finally understand why your skin glows on vacation\" | **[On camera, casual]** \"You know that glow you get on vacation? It's not the sun. It's lowered cortisol. But you can't vacation every month. So here's what I did instead: I copied the Korean woman's routine that has zero stress. Just barrier love. Toner, snail mucin, one serum. Three minutes. Skin glowing by day 3. The difference is WILD. Spring reset = skin reset. Made in Korea, tested on my sensitive skin.\" **[Cut to product shots]** \"This combo? Changed my April.\" | #FYP #SkincareHack #KBeautySecrets #BarrierRepair #GlowUp #DIsuriBeauty | Film on batch day |\n| Apr 2 | Wed | Instagram | Reel (38s) | \"Your vacation glow, without the vacation\" | [Same as TikTok, slightly longer pacing] Captions: \"POV: You finally figured out the glow hack. (Spoiler: It's barrier love, not sun damage.)\" | #DIsuriGlow #KBeauty #SkincareRoutine #BarrierHealth #SpringSkincare #Glowing | Repurposed from Wed TikTok |\n| Apr 3 | Thu | Instagram | Story Series (5 frames) | \"Real skin check: Spring breakouts or barrier breaking down?\" | **Story 1:** \"Real talk: Is your spring skin acting up?\" **Story 2:** Barrier check image + text: \"If you're breaking out in spring, it's often barrier damage + humidity clash, not just acne.\" **Story 3:** \"Barrier damage looks like: irritation, redness, breakouts, sensitivity.\" **Story 4:** \"Here's how Korean women fix it fast: [show Snail Mucin Cream]\" **Story 5:** Poll: \"Is your spring skin struggling? Swipe up to reset.\" | N/A | Authentic, no-makeup vibe |\n| Apr 3 | Thu | YouTube | Short (42s) | \"Barrier damage or just spring breakouts? Here's how to tell\" | \"Spring humidity + weakened barrier = the breakout spiral. Here's how to tell the difference. Barrier damage = sensitivity, redness, rough texture, breakouts happen everywhere. Regular breakouts = localized, usually chin or jawline. If it's all over and you're red? Barrier. Here's the fix: Skip actives for one week. Use snail mucin to rebuild. Then reintroduce slowly. Made in Korea, dermatologist-approved approach. Your skin will thank you by week 2.\" | N/A | Story expansion |\n| Apr 4 | Fri | TikTok | Video (32s) | \"My dermatologist was shocked I fixed this WITHOUT tretinoin\" | **[On camera]** \"I went to my derm with barrier damage. She expected me to pause everything and do the boring routine. Instead, I used snail mucin for one month. She literally asked me what I changed. No tretinoin. No prescriptions. Just barrier love. 92% snail secretion every single day. That's the Korean approach: Prevention beats treatment. The glow came back. Made in Korea. I'm obsessed.\" **[Product close-up]** | #SkincareHack #NoTretinoin #BarrierRepair #KBeauty #DIsuriBeauty #FYP | Film on batch day |\n| Apr 4 | Fri | Instagram | Reel (44s) | \"Barrier damage or just dry skin? A derm weighs in\" | Same as TikTok with slightly slower pacing and text overlays. Caption: \"Barrier repair without actives. That's the Korean secret.\" | #DIsuriGlow #DermApproved #BarrierRepair #SkincareHack #KBeautyWin #SpringSkincare | Repurposed from Fri TikTok |\n| Apr 5 | Sat | Instagram | Static Post + Carousel option | \"Real results from real DISURI people\" | **[User testimonial post with before/after images]** Caption: \"Sarah's spring skin transformation using Triple Collagen Toner + Snail Mucin Cream. Week 1: 'Finally stopped being red.' Week 3: 'My texture is GONE.' Week 4: 'I'm glowing like I own the city.' \u2014 Sarah, Chicago. Not Photoshopped. Just barrier love. [Shop the routine]\" | #DIsuriResults #RealSkin #RealResults #BarrierRepair #SpringGlow #KBeautyWorks | User-generated content (UGC) featured |\n| Apr 5 | Sat | TikTok | Video (26s) | \"Every dermatologist needs to see this barrier repair timeline\" | **[Voiceover with product + skin footage]** \"Day 1: Red, irritated, sensitive. Day 7: Redness fading. Day 14: Texture smoothing. Day 21: People ask what I changed. Day 30: Barrier finally healed. No prescriptions. No expensive treatments. Just snail mucin. 92% snail secretion doing the heavy lifting. This is what barrier repair actually looks like. Made in Korea. This is your April glow-up.\" | #FYP #DermApproved #BarrierRepair #SkincareResults #BeforeAndAfter #KBeauty | Film on batch day |\n| Apr 6 | Sun | Instagram | Carousel (5 slides) | \"The spring skincare reset checklist (use this every April)\" | **Slide 1:** \"Spring Skincare Reset Checklist \u2014 Your April Glow-Up Guide\" **Slide 2:** \"[ ] Stop using actives for one week (tretinoin, acids, Vitamin C takes a pause)\" **Slide 3:** \"[ ] Rebuild with snail mucin every AM + PM for 14 days\" **Slide 4:** \"[ ] Add a hydrating toner before moisturizer (this changes everything)\" **Slide 5:** \"[ ] By week 3, reintroduce actives slowly. Your barrier says thanks. Made in Korea. Save this post.\" | #DIsuriGlow #SkincareRoutine #BarrierRepair #SpringSkincare #KBeauty #SaveThis | Evergreen reference content |\n\n### Week 1 Email (Tue or Thu send)\n**Subject:** \"Your spring skin reset (it's not what you think)\"\n\n**Content:** \"Spring = humidity spike + temperature changes + temptation to over-exfoliate. Result? Barrier breakdown. Here's what works instead: This week, we're resetting. No actives, no complexity. Just: Toner \u2192 Snail Mucin \u2192 One serum. That's it. This is how Korean women approach seasonal transitions. It's called 'barrier first.' By day 7, redness fades. By day 14, texture smooths. By day 30, your skin is 10 steps ahead of where it was. Ready to reset? [CTA: Shop the Spring Reset Kit] Made in Korea. Tested on real skin.\"\n\n**CTA:** Shop Spring Reset Bundle\n\n---\n\n## WEEK 2: Pre-Launch Hype \u2014 \"New Ingredient, Same Results\"\n**Apr 7-13**\n\n**Primary Pillar:** Barrier Science\n**Secondary Pillar:** Urban Skin Survival\n**Product Focus:** Snail Mucin Cream + HA Cream + Tease the Vitamin C\n**Batch Day:** Saturday, Apr 5 or Sunday, Apr 6 \u2014 Film 4 videos, write 5 captions + tease copy\n\n### Daily Calendar\n\n| Date | Day | Platform | Content Type | Hook | Script/Copy | Hashtags | Notes |\n|------|-----|----------|-------------|------|------------|----------|-------|\n| Apr 7 | Mon | TikTok | Video (30s) | \"The ingredient dermatologists are obsessed with right now (and it's not what you think)\" | **[On camera, excited energy]** \"Everyone's talking about this ingredient. But it's not niacinamide. It's not hyaluronic acid. It's something that's been working for Korean women for YEARS. And next week, we're launching it in our line. Can't say the name yet, but it's the ingredient dermatologists whisper about. It brightens. It firms. It defends. The wait is almost over. Made in Korea. [Next week changes everything.]\" **[Quick product tease shot]** | #FYP #SkincareHype #NewLaunch #KBeauty #DIsuriBeauty #ComingSoon | Film on batch day \u2014 tease energy |\n| Apr 7 | Mon | Instagram | Story Series (6 frames) | \"Guess the ingredient: Your skin's new obsession is coming\" | **Story 1:** \"Something new is dropping next week.\" **Story 2:** \"And dermatologists are already asking about it.\" **Story 3:** \"It brightens. It firms. It protects.\" **Story 4:** \"Hints: NOT retinol. NOT niacinamide. Something way more powerful.\" **Story 5:** \"Made in Korea. Tested on real skin.\" **Story 6:** \"Can you guess it? Comment your guess. Reveal April 15. \ud83d\udd2e\" | N/A | Build mystery |\n| Apr 8 | Tue | Instagram | Carousel (6 slides) | \"Why Korean women have glowing skin (barrier science explained)\" | **Slide 1:** \"Why do Korean women glow like that? Barrier science.\" **Slide 2:** \"The skin barrier = lipid shield. Most skincare breaks it. Koreans rebuild it.\" **Slide 3:** \"Barrier + humidity = glow. Barrier damage + humidity = sensitivity + breakouts.\" **Slide 4:** \"Here's what Western skincare gets wrong: Treating barrier damage with MORE actives.\" **Slide 5:** \"Here's what Korean skincare gets right: Supporting barrier FIRST, then adding actives.\" **Slide 6:** \"Next week we're launching the ingredient that changes this game. Made in Korea.\" | #KBeauty #BarrierScience #DIsuriBeauty #SkincareEducation #GlowUpTips #ComingSoon | Educational authority piece |\n| Apr 8 | Tue | YouTube | Short (48s) | \"Barrier science: Why Korean women glow\" | \"The Western approach to skincare? Break the barrier with actives, then moisturize. The Korean approach? Strengthen the barrier FIRST, then add power ingredients. This is why Korean women glow effortlessly. It's not genetics. It's barrier-first strategy. Here's the science: A strong barrier = more glow, less sensitivity, better ingredient absorption. Weak barrier = irritation, breakouts, dull skin. This is the foundation. And next week, we're launching the ingredient that speeds this up. Made in Korea. Everything changes April 15.\" | N/A | Barrier authority content |\n| Apr 9 | Wed | TikTok | Video (26s) | \"Wait until you see what's launching April 15\" | **[Casual, teasing tone]** \"Okay so I'm sitting on the biggest launch of my year. And I literally cannot tell you what it is yet. But if you've ever asked me, 'What ingredient would make your skin glow year-round?' \u2014 the answer is coming. April 15. Made in Korea. Your skin is about to level up. DM me your guess. I'll give you a hint: Your favorite Korean actress probably uses it. Not tretinoin. Not Vitamin C. Something way more...\"  **[Teases out]** | #FYP #ComingSoonLaunch #DIsuriBeauty #KBeautySecret #LaunchDayHype #SaveTheDate | Film on batch day |\n| Apr 9 | Wed | Instagram | Reel (42s) | \"The ingredient your favorite Korean actress swears by (coming April 15)\" | [Same as TikTok with IG energy] Caption: \"The launch that changes everything. April 15. You'll see why.\" | #DIsuriBeauty #ComingSoon #KBeautySecret #LaunchHype #SkincareRevolution #April15 | Repurposed from Wed TikTok |\n| Apr 10 | Thu | Instagram | Story Series (5 frames) | \"Pre-launch Q&A: Your questions answered\" | **Story 1:** \"You've been asking about the launch. Here's what I can say:\" **Story 2:** \"Q: Is it another moisturizer? A: Nope. Different format.\" **Story 3:** \"Q: Will it work with my routine? A: Yes. Even simplifies it.\" **Story 4:** \"Q: What's the price? A: Competitive. Launching at $48.99.\" **Story 5:** Poll: \"Most hyped for launch? This vs. collagen line?\" | N/A | Engagement + education |\n| Apr 10 | Thu | YouTube | Short (44s) | \"This ingredient is why Korean women have the best skin\" | \"There's one ingredient that K-beauty icons won't shut up about. It's been used in Korean skincare for decades. Western skincare is just catching up. It brightens without irritation. Firms without drying. Protects from environmental stress. And next week, we're launching it. This ingredient works because it's gentle + powerful \u2014 a combination most Western products fail at. Made in Korea. Launching April 15. Your skin is about to change.\" | N/A | Educational hype build |\n| Apr 11 | Fri | TikTok | Video (29s) | \"POV: You're about to know why everyone on TikTok is glowing\" | **[Voiceover + product hints]** \"POV: You're three days away from understanding why Korean women have skin that looks like they paid $5K for treatments. It's not a treatment. It's an ingredient. Launching April 15. Made in Korea. This is going to be the thing everyone asks about at brunch. The answer? It's not retinol. It's not Vitamin C. It's something they've been sleeping on. But you'll know in 72 hours.\" **[Teases new product bottle]** | #FYP #LaunchHype #DIsuriBeauty #ComingSoon #SkincareRevolution #April15 | Film on batch day |\n| Apr 11 | Fri | Instagram | Reel (46s) | \"Three days until your skin changes\" | Same as TikTok with slightly extended pacing. Caption: \"The launch that changes everything. April 15. Clear your calendar.\" | #DIsuriGlow #LaunchDay #ComingSoon #SkincareHype #April15 #ReadyForChange | Repurposed from Fri TikTok |\n| Apr 12 | Sat | Instagram | Static Post | \"The science behind the launch (no spoilers, just facts)\" | Caption: \"In 48 hours, we're launching the ingredient that's been the secret in Korean skincare for YEARS. It addresses: \u2705 Uneven texture \u2705 Loss of firmness \u2705 Environmental stress \u2705 Dullness \u2014 All WITHOUT irritation. Made in Korea. April 15. Your glow-up starts then. [Notify Me] \ud83c\udf19\" | #DIsuriBeauty #LaunchHype #BarrierScience #KBeauty #ComingSoon #April15 | Simple, impactful |\n| Apr 12 | Sat | TikTok | Video (23s) | \"If you use ONE product for the next 30 days, use this (launching tomorrow)\" | **[Product reveal start]** \"If you could only use ONE product for the next month to transform your skin, what would it be? Retinol? Vitamin C? Nope. It's the one that launches in 24 hours. Made in Korea. It does what most $200 products try to do. But it actually WORKS. Your barrier thanks it. Your skin glows. Everything changes April 15. DM to pre-order.\" | #FYP #ComingSoonLaunch #DIsuriBeauty #MustHave #April15 #SkincareRevolution | Film on batch day \u2014 excitement energy |\n| Apr 13 | Sun | Instagram | Carousel (5 slides) | \"Launch day is TOMORROW. Here's your April 15 timeline\" | **Slide 1:** \"\u23f0 LAUNCH DAY TIMELINE \u2014 April 15, 2026\" **Slide 2:** \"10 AM PT / 1 PM ET: Site goes live + email announcement\" **Slide 3:** \"10 AM-4 PM: Flash sale LIVE (birthday special \ud83c\udf82)\" **Slide 4:** \"4 PM: Story takeover + live Q&A\" **Slide 5:** \"Midnight: Flash sale ends. But the glow-up? Forever. Made in Korea. \ud83c\udf19 [Notify Me to Shop First]\" | #DIsuriBeauty #LaunchDay #April15 #BirthdaySale #ComingSoon #GetReady | Anticipation + logistics |\n\n### Week 2 Email (Tue or Thu send)\n**Subject:** \"The ingredient everyone's asking about (launching April 15)\"\n\n**Content:** \"Okay, I'm losing my mind over this launch. For months, dermatologists and K-beauty insiders have been asking when we're bringing this ingredient to DISURI. And on April 15, we finally are. Here's what you need to know: It brightens. It firms. It protects. And yes, it works alongside everything in your routine (it actually simplifies it). It's been the secret in Korean skincare for years. Western skincare is just catching up. Made in Korea. Launching April 15. [Save the Date]\"\n\n**CTA:** Notify Me for Launch Day\n\n---\n\n## WEEK 3: LAUNCH WEEK + BIRTHDAY CELEBRATION\n**Apr 14-20**\n\n**Primary Pillar:** K-Beauty Authority\n**Secondary Pillar:** Results & Transformations\n**Product Focus:** **NEW DISURI Vitamin C Serum** + Birthday Flash Sale + Bundle Strategy\n**Special Event:** Product Launch (April 15) + Birthday Flash Sale (April 15, ends midnight)\n**Batch Day:** Fri, Apr 11 + Mon, Apr 14 \u2014 Film 5 videos (launch celebration content), write 7 captions\n\n**LAUNCH DAY FLOW (April 15):**\n- 10 AM PT: Email announcement + site goes live\n- 10 AM-4 PM: Flash sale active (birthday special: 20% off all products + free gift with Vitamin C purchase)\n- 4 PM: Instagram Stories takeover + live Q&A\n- 8 PM: TikTok launch celebration reel\n- Midnight: Flash sale ends\n\n### Daily Calendar\n\n| Date | Day | Platform | Content Type | Hook | Script/Copy | Hashtags | Notes |\n|------|-----|----------|-------------|------|------------|----------|-------|\n| Apr 14 | Mon | TikTok | Video (31s) | \"The day we've been building to (tomorrow changes everything)\" | **[Voiceover, building energy]** \"Tomorrow. One ingredient. One launch. One moment that changes everything. We've been talking about barrier science all month. Tomorrow, we introduce the ingredient that proves it. Made in Korea. Tested on real skin. Launching in 18 hours. Your skin will never look at Vitamin C the same way again. [Tomorrow at 10 AM]\" **[Product bottle reveal]** | #FYP #LaunchDayHype #DIsuriBeauty #VitaminCRevolution #KBeauty #Tomorrow | Film on batch day |\n| Apr 14 | Mon | Instagram | Story Series (6 frames) | \"24 hours until launch: Your questions answered\" | **Story 1:** \"It's really happening in 24 hours.\" **Story 2:** \"Your #1 question: Can I use it with retinol? Yes. (Here's how)\" **Story 3:** \"Your #2 question: Morning or night? Both. It's that gentle.\" **Story 4:** \"Your #3 question: Price? $48.99 (way less than you think)\" **Story 5:** \"Your #4 question: Flash sale details? 20% off + free gift. Midnight cutoff.\" **Story 6:** \"See you at 10 AM PT tomorrow. This is going to be wild. \ud83d\ude80\" | N/A | Hype + FAQ |\n| Apr 15 | Tue | Instagram | Carousel (7 slides) | \"LAUNCH DAY + BIRTHDAY SALE \u2014 Everything you need to know\" | **Slide 1:** \"IT'S HERE. DISURI Vitamin C Serum \u2014 Meet Your New Glow Standard\" **Slide 2:** \"The Ingredient: 15% stabilized Vitamin C + barrier-supporting ferments\" **Slide 3:** \"The Hero Claims: \u2705 Brightens dull skin \u2705 Supports firmness \u2705 Protects from environmental stress \u2705 Works with everything\" **Slide 4:** \"How It Works: Apply 2-3 drops after toner, before moisturizer. Once daily (AM recommended)\" **Slide 5:** \"$48.99 | 30 mL | Made in Korea | Ships within 48 hours\" **Slide 6:** \"FLASH SALE TODAY: 20% off all products + FREE gift with Vitamin C | Ends midnight PT\" **Slide 7:** \"This is 4 years of R&D. It's finally here. Thank you for believing in this brand. Made in Korea. \ud83c\udf19 [SHOP NOW]\" | #DIsuriBeauty #LaunchDay #VitaminCSerum #BirthdayShout #FlashSale #KBeautyWin | MAIN LAUNCH POST |\n| Apr 15 | Tue | YouTube | Short (52s) | \"The Vitamin C serum that changes the game (we finally launched it)\" | **[Intro card: \"DISURI Vitamin C Serum \u2014 Now Live\"]** \"Four years. That's how long we've been developing this. Not because Vitamin C is hard to formulate. Because we wanted it RIGHT. 15% stabilized Vitamin C + fermented botanicals + barrier-support science. This isn't just brightening. It's brightening WITHOUT irritation. Apply after toner, before moisturizer. One step. One serum. Everything changes. Made in Korea. And today? 20% off everything + free gift with purchase (ends midnight). This is it.\" **[Product beauty shots + demo]** | N/A | Launch announcement video |\n| Apr 15 | Tue | Instagram | Reel (48s) | \"The moment we've been waiting for (+ birthday surprise for you)\" | [Same as carousel + Reel pacing] Caption: \"It's here. It's real. It's time. DISURI Vitamin C Serum launches TODAY with 20% off + free gift. Until midnight. Made in Korea. \ud83c\udf82 [Shop the Launch]\" | #DIsuriBeauty #LaunchDay #VitaminC #BirthdayShout #FlashSale #April15 | MAIN LAUNCH REEL |\n| Apr 15 | Tue | TikTok | Video (35s) | \"POV: You're about to use the Vitamin C serum that doesn't sting\" | **[On camera, holding serum]** \"POV: You finally found the Vitamin C that brightens WITHOUT the sting. Literally. Most Vitamin C serums? pH so low they burn. Ours? Stabilized at 15% in a fermented botanical base. Brightens, firms, protects. Zero irritation. Zero burnage. Your barrier loves it. Your glow loves it. Today only: 20% off all products + free gift. Made in Korea. [Link in bio to shop]\" **[Quick application demo]** | #FYP #VitaminCSerum #DIsuriBeauty #NoStingVitaminC #LaunchDay #BirthdayShout | Film on batch day \u2014 celebration energy |\n| Apr 15 | Tue | TikTok | Video (28s) | \"If you buy ONE thing today, buy this\" | **[Quick cuts, high energy]** \"If you're going to buy one skincare product today, buy the one we spent four years developing. DISURI Vitamin C Serum. Brightens. Firms. Protects. Doesn't sting. Launched 2 hours ago and it's going fast. 20% off today (midnight cutoff). Made in Korea. This is it. [Bio to shop]\" | #FYP #LaunchDay #MustBuy #DIsuriBeauty #VitaminC #BirthdaySale | Film on batch day \u2014 urgency energy |\n| Apr 15 | Tue | Instagram | Stories (Takeover Series) | \"Live Q&A + Launch Celebration (4 PM PT)\" | **[Multiple story frames throughout the day]** **10 AM:** \"\ud83d\ude80 LIVE NOW on site + email\" **1 PM:** \"You're asking the BEST questions [Story quote of question]\" **2 PM:** \"Real talk: This took 4 years because...\" **3 PM:** \"Stock update: [Number] bottles left in first hour\" **4 PM:** \"Going live for Q&A in Stories. Ask anything.\" **7 PM:** \"Thank you for the insane support today \ud83d\ude4f [numbers/results]\" **11:55 PM:** \"\u23f0 5 minutes until flash sale ends. Last chance.\" | N/A | Real-time engagement |\n| Apr 16 | Wed | Instagram | Reel (44s) | \"Real people, real results: Vitamin C first week glow\" | **[Customer testimonial / before-after]** \"Sarah used DISURI Vitamin C Serum for 7 days straight. Day 1: Applied, no stinging. Day 3: Skin brighter. Day 7: 'My texture is completely different.' Not filtered. Just Vitamin C + barrier love. Made in Korea. [Get yours]\" | #DIsuriBeauty #RealResults #VitaminCResults #CustomerLove #PostLaunchGlow #WeekOneWin | UGC content |\n| Apr 16 | Wed | TikTok | Video (30s) | \"Everyone who bought yesterday is asking the same question\" | **[Voiceover + show comments/DMs]** \"So everyone who bought the Vitamin C yesterday is asking: 'When should I use it?' Simple: After toner, before moisturizer. Morning or night (we recommend morning). Layer under sunscreen in AM. Use alongside everything \u2014 retinol? Fine. Niacinamide? Fine. Benzoyl peroxide? Fine. This Vitamin C plays well with others. Made in Korea. [Already glowing yet?]\" | #FYP #DIsuriBeauty #VitaminCTips #SkincareHowTo #NewProduct #ApplyHow | Film on batch day |\n| Apr 17 | Thu | Instagram | Story Series (5 frames) | \"Post-launch thank you + testimonial highlights\" | **Story 1:** \"I'm still in shock about yesterday. \ud83d\ude4f\" **Story 2:** \"[Screenshot of customer]: 'I'm only 3 days in and my skin is brighter'\" **Story 3:** \"[Screenshot of customer]: 'Finally a Vitamin C that doesn't sting'\" **Story 4:** \"[Screenshot of customer]: 'Ordering the bundle for my sister'\" **Story 5:** \"Thank you for believing in this. Made in Korea. Let's go. \ud83c\udf19\" | N/A | Gratitude + social proof |\n| Apr 17 | Thu | YouTube | Short (46s) | \"How to layer the Vitamin C with your current routine\" | \"Just launched the Vitamin C. Now you're asking: Does it work with my retinol? My niacinamide? My sunscreen? Yes to all. Here's the order: Cleanser \u2192 Toner \u2192 Vitamin C (wait 60 seconds) \u2192 Other serums/essences \u2192 Moisturizer \u2192 SPF. The Vitamin C goes early, before heavier actives. This order keeps your barrier happy while maximizing results. Made in Korea. Questions? DM them.\" | N/A | How-to guidance |\n| Apr 18 | Fri | TikTok | Video (32s) | \"Dermatologist reacts to our Vitamin C formula (she approves)\" | **[Expert interview format \u2014 quick cuts]** Derm: \"This formulation is interesting. 15% is the sweet spot.\" You: \"And the fermented base?\" Derm: \"Supports barrier instead of disrupting it. That's the Korean approach.\" You: \"Better than L-Ascorbic Acid?\" Derm: \"Different benefits. This is gentler, more skin-friendly.\" You: \"Bottom line?\" Derm: \"I'd use it. And recommend it.\" Made in Korea. [Link in bio] | #FYP #DIsuriBeauty #DermApproved #VitaminC #SkincareScience #ExpertReaction | Film on batch day \u2014 authority content |\n| Apr 18 | Fri | Instagram | Reel (46s) | \"Expert breakdown: Why this Vitamin C is different\" | [Same as TikTok] Caption: \"Dermatologist-approved formula. Made in Korea. Working with your barrier, not against it. [Shop Vitamin C]\" | #DIsuriBeauty #DermApproved #VitaminC #SkincareScience #KBeauty #ExpertVote | Repurposed from Fri TikTok |\n| Apr 19 | Sat | Instagram | Carousel (6 slides) | \"Vitamin C 101: Everything your skin needs to know\" | **Slide 1:** \"Confused about Vitamin C? Let's break it down.\" **Slide 2:** \"What it does: Brightens, firms, protects from environmental damage\" **Slide 3:** \"Why ours is different: Stabilized at 15% + fermented base = no irritation\" **Slide 4:** \"Morning or night? Both. But AM is ideal (brightening + protection)\" **Slide 5:** \"Timeline to results: Week 1 = brighter, Week 3 = firmer, Week 8 = completely transformed\" **Slide 6:** \"Made in Korea. Proven on real skin. [Get your bottle]\" | #DIsuriBeauty #VitaminC #SkincareEducation #DIsuriGlow #MadeInKorea #ShopNow | Educational content |\n| Apr 19 | Sat | TikTok | Video (27s) | \"Stop wasting money on Vitamin C if you're not doing this\" | **[Quick PSA format]** \"You're wasting your Vitamin C if you: 1) Using it on wet skin (it dilutes). 2) Mixing with other actives (use separately). 3) Skipping SPF (Vitamin C needs SPF to work). 4) Using old/oxidized formula (it turns brown). Here's the right way: Tone. Apply to dry skin. Wait 60 seconds. Moisturize. SPF if morning. This Vitamin C is stable and fresh when it arrives. [Don't waste it]. Made in Korea.\" | #FYP #DIsuriBeauty #SkincareHacks #VitaminCTips #DontWasteMoney #SaveThis | Film on batch day |\n| Apr 20 | Sun | Instagram | Static Post | \"One week of Vitamin C serum: The results are wild\" | **[Customer testimonial with clear before/after]** Caption: \"One week in and the glow is UNREAL. 'I expected subtle. Instead my skin is noticeably brighter AND firmer. No irritation. Just results.' \u2014 Jordan, NYC. This is what four years of R&D looks like. Made in Korea. Glowing yet? [Shop the serum]\" | #DIsuriBeauty #RealResults #VitaminCResults #OneWeekGlow #CustomerLove #MadeInKorea | UGC showcase |\n\n### Week 3 Email (Tue - LAUNCH DAY email + Thu - Follow-up)\n**LAUNCH DAY EMAIL \u2014 Tuesday, April 15**\n**Subject:** \"DISURI Vitamin C Serum is LIVE (+ birthday flash sale inside)\"\n\n**Content:** \"Four years. Today marks four years of research, testing, and refinement. DISURI Vitamin C Serum is finally here. Here's what makes it different: 15% stabilized Vitamin C in a fermented botanical base. Translation? It brightens WITHOUT irritation. Your barrier loves it. Your skin glows. And yes, it works with everything in your routine (retinol, niacinamide, sunscreen \u2014 all compatible). **BIRTHDAY FLASH SALE:** Today only, 20% off everything + free gift with Vitamin C purchase. This ends at midnight PT. It's time to upgrade your glow. Made in Korea. [SHOP THE LAUNCH]\"\n\n**CTA:** Shop Vitamin C Serum + Get 20% Off (Ends Midnight)\n\n---\n\n**FOLLOW-UP EMAIL \u2014 Thursday, April 17**\n**Subject:** \"Real results from the first week of Vitamin C\"\n\n**Content:** \"Thank you for the wild launch day support. The Vitamin C sold 40% of first-week stock in the first 6 hours. Here's what people are saying: 'No sting. Just brightness.' 'My texture completely changed.' 'I'm ordering the bundle for my sister.' One week in, the results are real. If you ordered, use this guide for max results: Apply to dry skin (not wet), after toner, before moisturizer. Morning is ideal (+ SPF). Layer with anything. One step. Everything changes. Still thinking about it? We have limited stock. [SHOP VITAMIN C]\"\n\n**CTA:** Join the Vitamin C Revolution\n\n---\n\n## WEEK 4: Post-Launch Momentum \u2014 Bundles & Community\n**Apr 21-30**\n\n**Primary Pillar:** Community & Queens\n**Secondary Pillar:** Myth-Busting\n**Product Focus:** Vitamin C + Triple Collagen + Complete Bundle + Queens Program Spotlight\n**Batch Day:** Fri, Apr 18 or Sat, Apr 19 \u2014 Film 4 videos, write 6 captions\n\n### Daily Calendar\n\n| Date | Day | Platform | Content Type | Hook | Script/Copy | Hashtags | Notes |\n|------|-----|----------|-------------|------|------------|----------|-------|\n| Apr 21 | Mon | TikTok | Video (29s) | \"Stop believing this skincare lie\" | **[Direct camera, myth-busting energy]** \"Myth: You can't use Vitamin C and retinol together. Wrong. Myth: You need 10 steps for glow. Wrong. Myth: Vitamin C should sting. WRONG. This is what dermatologists actually know but skincare marketing hides. You CAN use Vitamin C AM + retinol PM. You SHOULD use 4-5 steps max. And good Vitamin C? Zero irritation. Made in Korea. This is basic skincare science that's finally here.\" | #FYP #SkincareMyths #DIsuriBeauty #MythBuster #RealScience #VitaminC | Film on batch day |\n| Apr 21 | Mon | Instagram | Story Series (5 frames) | \"Myth-busting Monday: Your skincare questions answered\" | **Story 1:** \"Skincare mythology is WILD. Here's what's actually true:\" **Story 2:** \"Myth: Vitamin C stings = working. Truth: Good VC shouldn't sting at all.\" **Story 3:** \"Myth: More steps = better results. Truth: Fewer, quality steps = everything.\" **Story 4:** \"Myth: You need separate AM/PM routines. Truth: Same routine both, just add retinol at night.\" **Story 5:** \"The science is clear. Marketing is confusing. We're changing that. Made in Korea. \ud83d\udd2c\" | N/A | Authority education |\n| Apr 22 | Tue | Instagram | Carousel (6 slides) | \"The anti-aging routine that actually works (spoiler: it's simple)\" | **Slide 1:** \"Anti-aging Routine \u2014 Simplified\" **Slide 2:** \"Step 1: Cleanser (removes pollution + makeup)\" **Slide 3:** \"Step 2: Toner (preps barrier)\" **Slide 4:** \"Step 3: Vitamin C OR retinol (brightening or renewal \u2014 choose one per day)\" **Slide 5:** \"Step 4: Moisturizer (seals everything in)\" **Slide 6:** \"That's it. 4 steps. 5 minutes. Made in Korea. This is the routine.\" | #DIsuriBeauty #AntiAging #SkincareRoutine #Simple #MadeInKorea #GlowUp | Evergreen reference |\n| Apr 22 | Tue | YouTube | Short (50s) | \"The exact routine dermatologists recommend (it's not what you think)\" | \"Dermatologists don't recommend 10-step routines. They recommend this: Step 1 = Cleanser (AM + PM). Step 2 = Toner (hydrating, barrier-prepping). Step 3 = Active (Vitamin C AM, retinol PM \u2014 your choice). Step 4 = Moisturizer (non-negotiable). Step 5 = SPF (AM only). That's it. Everything else is extra. This is clinical dermatology. Made in Korea. Questions? [Comment below]\" | N/A | Authority content |\n| Apr 23 | Wed | TikTok | Video (31s) | \"This is what a DISURI Queen looks like (and she's glowing)\" | **[Feature customer \u2014 testimonial style]** \"This is Maya. She joined the DISURI Queens program 8 months ago. Now she's helping her community find their glow while building something meaningful. No 'join my team' pressure. Just: Share what you love. Earn real money. Keep your integrity. She's made $2,400 this quarter. She uses everything. Her skin glows. She's living it. Want in? We're recruiting. Made in Korea. [Apply to be a Queen]\" **[Quick clips of Maya's impact]** | #FYP #DIsuriBeauty #QueensProgram #Community #EmpowermentNotMLM #RealResults | Film on batch day \u2014 community focus |\n| Apr 23 | Wed | Instagram | Reel (44s) | \"Meet a DISURI Queen (and hear how she's building her thing)\" | [Same as TikTok with IG pacing] Caption: \"This is what community looks like. Real women, real results, real impact. Interested in becoming a DISURI Queen? [Learn More]\" | #DIsuriBeauty #QueensProgram #Community #Empowerment #RealResults #SupportWomen | Repurposed from Wed TikTok |\n| Apr 24 | Thu | Instagram | Story Series (6 frames) | \"Why we created the Queens program (+ what it actually is)\" | **Story 1:** \"Real question I get: What's the Queens program?\" **Story 2:** \"It's NOT MLM. NOT 'join my team' pressure.\" **Story 3:** \"It IS: Share your glow. Earn commissions. Keep full integrity.\" **Story 4:** \"Current Queens have made between $800-$5K this year. Some part-time. Some full-time.\" **Story 5:** \"We're recruiting 15 new Queens this month. DM 'QUEEN' for application.\" **Story 6:** \"This program exists because skincare is better when it's word-of-mouth. Made in Korea. \ud83c\udf19\" | N/A | Recruitment + transparency |\n| Apr 24 | Thu | YouTube | Short (48s) | \"The skincare lie everyone believes (and how to break it)\" | \"The biggest skincare lie: You need complicated routines to get results. The truth? Simple routines with quality products beat complicated routines every time. This is why Korean women glow \u2014 they use 4-5 products. Cleanser, toner, serum/vitamin, moisturizer, SPF. That's it. Everything else is marketing. This is the philosophy of DISURI. Made in Korea. Quality over complexity. Results over noise.\" | N/A | Authority myth-busting |\n| Apr 25 | Fri | TikTok | Video (33s) | \"The bundle everyone's sleeping on (and why you need it)\" | **[Showing bundle contents]** \"Okay so we put together the Complete Bundle: Toner + Vitamin C + Collagen cream + Eye cream. Together? $89.99 (normally $126). This is the full skincare routine. Everything your skin needs. One order. Locked in. This is what I use. This is what I recommend. This is the 'I'm serious about my glow' bundle. Made in Korea. [Shop bundles]\" | #FYP #DIsuriBeauty #BundleDeal #VitaminC #SkincareRoutine #SaveMoney | Film on batch day |\n| Apr 25 | Fri | Instagram | Reel (46s) | \"The skincare bundle that's actually worth it\" | [Same as TikTok] Caption: \"Complete bundle = Complete glow. Everything your skin needs. One price. Made in Korea. [Shop Bundles]\" | #DIsuriBeauty #Bundle #SkincareRoutine #SaveMoney #GlowUp #WorthIt | Repurposed from Fri TikTok |\n| Apr 26 | Sat | Instagram | Carousel (6 slides) | \"Bundle breakdown: Which one is right for you?\" | **Slide 1:** \"Confused about bundles? Let's match you.\" **Slide 2:** \"STARTER BUNDLE ($69.99) \u2014 For new DISURI users. Toner + Essence + Moisturizer\" **Slide 3:** \"COMPLETE BUNDLE ($89.99) \u2014 For committed glow-getters. Toner + Vitamin C + Moisturizer + Eye cream\" **Slide 4:** \"ULTIMATE BUNDLE ($129.99) \u2014 For the whole routine. Everything + 2 bonus items\" **Slide 5:** \"Each bundle saves you $25-35 vs. buying separately.\" **Slide 6:** \"Which one speaks to you? [Shop bundles now]\" | #DIsuriBeauty #Bundle #SkincareRoutine #SaveMoney #GlowUp #April #Sale | Comparison content |\n| Apr 26 | Sat | TikTok | Video (26s) | \"POV: You finally bought the bundle\" | **[Satisfaction/celebration energy]** \"POV: You finally committed to your skin and bought the complete bundle. Now you're checking off: Toner \u2713 Vitamin C \u2713 Moisturizer \u2713 Eye cream \u2713 Everything you need \u2713 You're doing it right. Made in Korea. Your skin is about to thank you for April.\" | #FYP #DIsuriBeauty #Bundle #Commitment #SelfCare #GlowUp | Film on batch day |\n| Apr 27 | Sun | Instagram | Static Post | \"April wins: Your glow-ups this month\" | **[Testimonial collage or screenshot compilation]** Caption: \"April was WILD. Vitamin C launch, birthday celebration, and YOUR glow-ups. Thank you for 1,000+ transformations this month. 'Started with the Starter Bundle. Now I'm Complete Bundle obsessed.' \u2014 Alex. 'Finally a Vitamin C that works.' \u2014 Jordan. 'My barrier is HEALED.' \u2014 Casey. This is why we do this. Made in Korea. [Keep glowing]. \ud83c\udf19\" | #DIsuriBeauty #AprilWins #Community #RealResults #GlowUp | Celebration + gratitude |\n| Apr 28 | Mon | TikTok | Video (30s) | \"April's biggest moments (thank you for this)\" | **[Montage of month highlights]** \"April was: Launch hype + birthday sale + your glow-ups + 1,000+ new people finding DISURI. We're a month old with Vitamin C. And you showed up. Made in Korea. Here's May's promise: More content, more launches, more glow. You in? \ud83c\udf19\" | #FYP #DIsuriBeauty #April #ThankYou #GrowthMoment #CommunityLove | Film on batch day \u2014 reflection |\n| Apr 28 | Mon | Instagram | Story Series (5 frames) | \"April recap + May sneak peek\" | **Story 1:** \"April was EVERYTHING. Here's the recap:\" **Story 2:** \"[Numbers]: 1,000+ new customers + 40% Vitamin C sales week-one + 50K engaged followers\" **Story 3:** \"May brings: New Queen recruitment drive + Product expansion teases + Community spotlights\" **Story 4:** \"You made this possible. From solopreneur to community. \ud83d\ude4f\" **Story 5:** \"Ready for May? Let's glow. Made in Korea. \ud83c\udf19\" | N/A | Reflection + anticipation |\n| Apr 29 | Tue | Instagram | Carousel (5 slides) | \"May preview: What's coming (+ how you can be part of it)\" | **Slide 1:** \"May is going to be HUGE. Here's the teaser:\" **Slide 2:** \"\u2728 New shade in Triple Collagen Eye Cream (coming mid-May)\" **Slide 3:** \"\u2728 Vitamin C customer challenge (30-day transformation showcase)\" **Slide 4:** \"\u2728 Queens program expansion (20 new spots, first come)\" **Slide 5:** \"Made in Korea. Same glow. New energy. [Stay tuned]. \ud83c\udf19\" | #DIsuriBeauty #MayIsHere #ComingSoon #NewProducts #QueensProgram #StayTuned | Anticipation building |\n| Apr 29 | Tue | YouTube | Short (44s) | \"April's biggest win (and May's promise)\" | \"April was the Vitamin C launch month. And you showed up. 1,000+ new glow-getters. 40% of first-week sales in the first 6 hours. Dermatologists asking about the formula. This is community-built momentum. May brings new products, new opportunities to become a Queen, and new glow-ups. Made in Korea. Are you ready? [Subscribe for May]\" | N/A | Reflection + momentum |\n| Apr 30 | Wed | Instagram | Reel (48s) | \"See you in May (April's final glow-up)\" | **[Montage of month highlights + testimonials + product shots]** Caption: \"April was legendary. Thank you for the love, the support, the glow. See you in May. This is DISURI. Made in Korea. \ud83c\udf19 #DIsuriBeauty #April #Community #Glow\" | #DIsuriBeauty #April #Community #Glow #MadeInKorea #SeeyouInMay | Final month-end post |\n| Apr 30 | Wed | TikTok | Video (28s) | \"This is what April looked like (thank you)\" | **[Quick montage + voiceover]** \"April looked like: Launch day hype + birthday celebration + 1,000+ glow-ups + community building. This month we proved that glow is a community thing. Not a solo thing. Thank you for being part of this. Made in Korea. See you in May. \ud83c\udf19\" | #FYP #DIsuriBeauty #April #Community #Glow #Grateful | Film on batch day |\n\n### Week 4 Email (Tue or Thu send)\n**Subject:** \"The bundle that's changing the game (+ May teases)\"\n\n**Content:** \"One week post-launch and here's what we're seeing: Vitamin C + Toner + Moisturizer is the holy trinity. Customers are buying the Complete Bundle and saying things like 'I finally have a full routine' and 'This is the only 4 products I'll ever need.' We loved it so much, we made it a bundle at a $35 discount. Here's the breakdown: Complete Bundle includes Toner (barrier prep), Vitamin C (brightening + firmness), Moisturizer (hydration lock), and Eye Cream (your most delicate skin). $89.99 total. Made in Korea. This is the routine. [GET THE BUNDLE] P.S. May is bringing new products and 20 new Queen spots. DM 'QUEEN' if you're interested. The glow continues.\"\n\n**CTA:** Shop the Complete Bundle\n\n---\n\n## BATCH DAY FILMING SCHEDULE\n\n### Week 1 Batch Days\n**Film Day:** Saturday, Mar 30 or Sunday, Mar 31\n**Edit + Write Day:** Monday, Apr 1\n\n**Videos to Film (4 total):**\n1. \"POV: Vacation glow without vacation\" (30s) \u2014 On camera, casual setting, talking about barrier love\n2. \"My derm was shocked I fixed this without tretinoin\" (32s) \u2014 Expert testimonial style or direct camera\n3. \"Barrier repair timeline\" (26s) \u2014 Visual montage with voiceover (products + skin transformation clips)\n4. \"Dermatologist needs to see this\" (26s) \u2014 Quick cuts with voiceover + product + before/after\n\n**Settings:** Home bathroom setup (consistent background), one outfit change, natural lighting\n\n---\n\n### Week 2 Batch Days\n**Film Day:** Saturday, Apr 5 or Sunday, Apr 6\n**Edit + Write Day:** Monday, Apr 7\n\n**Videos to Film (4 total):**\n1. \"The ingredient dermatologists are obsessed with\" (30s) \u2014 Mysterious, teasing energy, on camera with product hints\n2. \"Wait until you see what's launching\" (26s) \u2014 Casual, excited, teasing bottle/packaging\n3. \"POV: You're about to know why everyone on TikTok is glowing\" (29s) \u2014 Teasing content, product shot, voiceover\n4. \"If you use ONE product\" (23s) \u2014 High energy, product reveal, excitement\n\n**Settings:** Same home setup, different outfit, teasing energy throughout\n\n---\n\n### Week 3 Batch Days\n**Film Day:** Friday, Apr 11 + Monday, Apr 14 (split shoot for celebration energy)\n**Edit + Write Day:** Tuesday, Apr 15 (launch day) + Wed, Apr 16\n\n**Videos to Film (5 total):**\n1. \"The day we've been building to\" (31s) \u2014 Building energy, product reveal, voiceover\n2. \"POV: You're about to use VC that doesn't sting\" (35s) \u2014 On camera holding product, demo application\n3. \"If you buy ONE thing today\" (28s) \u2014 Quick cuts, high urgency, celebration tone\n4. \"Everyone who bought yesterday is asking the same question\" (30s) \u2014 FAQ format, showing real comments\n5. \"Dermatologist reacts\" (32s) \u2014 Interview format or expert approval clips\n\n**Settings:** Launch day setup (can be slightly more polished), normal clothing, celebration + education mix\n\n---\n\n### Week 4 Batch Days\n**Film Day:** Friday, Apr 18 or Saturday, Apr 19\n**Edit + Write Day:** Monday, Apr 21\n\n**Videos to Film (4 total):**\n1. \"Stop believing this skincare lie\" (29s) \u2014 Myth-busting energy, on camera, direct\n2. \"This is what a DISURI Queen looks like\" (31s) \u2014 Customer feature, testimonial style\n3. \"The bundle everyone's sleeping on\" (33s) \u2014 Product showcase, value emphasis\n4. \"April recap + Community energy\" (30s) \u2014 Montage, voiceover, gratitude tone\n\n**Settings:** Normal home setup, mix of on-camera and product/testimonial content, reflective energy\n\n---\n\n## Hashtag Strategy by Week\n\n**Week 1 (Barrier Focus):** #DIsuriGlow #KBeauty #BarrierRepair #SpringSkincare #SkincareEducation #ResultsDriven\n\n**Week 2 (Launch Hype):** #DIsuriBeauty #ComingSoon #LaunchHype #KBeautySecret #VitaminCRevolution #DIsuriFamily\n\n**Week 3 (Launch + Sale):** #LaunchDay #BirthdayShout #FlashSale #DIsuriBeauty #VitaminC #April15 #MadeInKorea\n\n**Week 4 (Community + Bundles):** #DIsuriBeauty #QueensProgram #Community #Bundle #RealResults #MadeInKorea\n\n---\n\n## Compliance Checklist \u2014 April Calendar\n\n**FDA (Product Claims):**\n- All claims use \"supports,\" \"helps improve the appearance of,\" \"promotes\"\n- No claims of \"treatment,\" \"cure,\" \"anti-aging\" as medical\n- Vitamin C claims: \"Brightens,\" \"firms,\" \"supports environmental defense\"\n- Snail Mucin: \"Supports barrier repair,\" \"helps improve appearance of irritation\"\n\n**FTC (Queens Program):**\n- \"Earn through product sales\" language (NOT \"passive income,\" \"financial freedom,\" \"team building\")\n- Income disclosures clear: \"$800-$5K this year\" based on individual Queens' sales\n- No \"join my team\" pressure language \u2014 all community-focused\n\n**Platform-Specific:**\n- TikTok: No medical/treatment claims in voiceovers or text overlays\n- Instagram: All product posts clear on benefits (brightening, firming) without medical claims\n- YouTube: Disclaimer approach: \"This is skincare education, not medical advice\"\n- Email: CAN-SPAM ready (physical address, unsubscribe links required in footer)\n\n**Brand Voice:**\n- \"Made in Korea\" appears at least once per week, often per post\n- Tone: Empowering, science-backed, direct, culturally fluent\n- Energy: Urban, confident, never spa-whisper or corporate-bland\n- Tagline used: \"Glow Like You Own The City\"\n\n---\n\n## April 2026 Content Summary\n\n| Metric | Count |\n|--------|-------|\n| **Total Platform Posts** | 48 pieces |\n| Instagram Posts (Reels + Carousels + Stories) | 22 |\n| TikTok Videos | 18 |\n| YouTube Shorts | 8 |\n| Email Sends | 4 |\n| **Original Content Batches** | 8-10 filming sessions |\n| **Repurposing Ratio** | 1 original \u2192 3 platform versions |\n| **Hours to Create (est.)** | 16-20 hours total (2-3 per week batch) |\n| **Special Events** | 1 product launch + 1 birthday flash sale |\n| **Product Focus** | Vitamin C Serum (new) + Triple Collagen + Snail Mucin |\n\n---\n\n## Key Success Metrics to Track (April)\n\n1. **Vitamin C Launch Day:** Target 200+ units in first 24 hours\n2. **Flash Sale Conversion:** 25% of visitors to cart (birthday urgency)\n3. **Email Open Rate:** Target 35%+ (launch excitement + list growth)\n4. **TikTok Engagement:** Target 3-5% comment rate on launch videos\n5. **Instagram Reel Reach:** Target 5K+ reach on top 3 posts\n6. **Queens Program Recruitment:** Target 15 new Queens (from 20 spots)\n7. **Customer Retention:** Track bundle buyers (indicator of routine commitment)\n\n---\n\n## Notes for Joel (Solopreneur Operations)\n\n1. **Batch filming:** Two 90-minute sessions per week gets you through the month with room for flexibility\n2. **Repurposing saves time:** One 60-second video becomes 3 platform versions; one carousel becomes 3 social pieces\n3. **Vitamin C launch is the centerpiece:** Week 3 is your busiest but most important. Film extra content before Apr 15\n4. **Birthday angle doubles impact:** The 20% off + free gift creates urgency. Midnight cutoff is key\n5. **Queens recruitment in Week 4:** Position this as community-building, not MLM. The language matters\n6. **Email cadence:** Tue or Thu sends work best. Launch emails are exception (immediate send)\n7. **Stories are low-effort wins:** Use them for Q&A, polls, testimonials \u2014 they feel authentic and require minimal editing\n8. **Evergreen content in Week 4:** Carousel breakdowns and \"how-to\" videos work year-round; repurpose in future months\n\n---\n\n**Made in Korea. Glow Like You Own The City. \ud83c\udf19**\n\n*Calendar created: March 7, 2026 | Next month planning: Begins April 25*\n"}], "grading": null}, {"id": "eval-1-april-launch-without_skill", "prompt": "I need a content calendar for April 2026. I'm launching the new DISURI Vitamin C serum mid-month and want to build hype. Also it's my birthday on April 15th and I want to do a flash sale. Give me the full month.", "eval_id": 1, "outputs": [{"name": "calendar.md", "type": "text", "content": "# DISURI Beauty - April 2026 Content Calendar\n## \"Glow Like You Own The City\"\n\n**Campaign Focus:** Vitamin C Serum Launch (Mid-Month) + Birthday Flash Sale (April 15th)\n\n---\n\n## WEEK 1: April 1-5 (Launch Hype Begins)\n\n### April 1 (Tuesday)\n**Theme:** Brand Introduction / Month Teaser\n\n- **Instagram (Feed Post):** \"April is HERE and we're bringing the GLOW \ud83c\udf1f New launch incoming mid-month. Are you ready?\" + carousel of existing bestsellers\n- **TikTok (Short Video):** Quick 15-sec transition video showing current skincare routine with DISURI products\n- **YouTube (Community Post):** Poll - \"What's your #1 skincare concern? Vote so we can address it in April!\"\n- **Email:** \"April Announcements - Mark Your Calendars \ud83d\udcc5\" - tease the upcoming Vitamin C serum and birthday celebration\n\n### April 2 (Wednesday)\n**Theme:** Educational Content / Ingredient Spotlight\n\n- **Instagram (Reel):** \"Vitamin C Skincare 101: Why Your Skin Needs It\" (educational, 1-2 min)\n- **TikTok:** Before/Afters with current HA Cream - customer testimonial format\n- **YouTube:** Start filming/schedule \"Why K-Beauty Loves Vitamin C\" deep-dive video\n- **Email:** Product Education - \"Hydration is Key: Meet our HA Cream\" (spotlight on $39.99 HA Cream)\n\n### April 3 (Thursday)\n**Theme:** Community Engagement\n\n- **Instagram (Stories):** Behind-the-scenes content - \"Day in the life\" of DISURI team\n- **TikTok:** Duet/Stitch opportunity - skincare routine trends\n- **Instagram (Feed Post):** User-generated content repost - customer glow-ups\n- **Email:** N/A (don't over-email)\n\n### April 4 (Friday)\n**Theme:** Product Spotlight & Promotion\n\n- **Instagram (Carousel Post):** All 7 Products Spotlight - introduce entire line with prices and benefits\n- **TikTok:** \"Skincare Starter Kit\" - recommend beginner-friendly products (Foam Cleanser $14.99 + Toner $27.99)\n- **YouTube (Short/Community):** \"5 Signs Your Skin Needs Our Products\"\n- **Email:** \"Weekend Skincare Routine\" - feature Foam Cleanser + Triple Collagen Cream combo\n\n### April 5 (Saturday)\n**Theme:** Engagement + Wellness\n\n- **Instagram (Reel):** \"K-Beauty Skincare Routine\" - 60-second full routine walkthrough\n- **TikTok:** Lifestyle content - morning/evening routine split screen\n- **Instagram (Stories):** Polls & Q&A - \"What's your skin type?\" to build database\n- **Email:** N/A\n\n---\n\n## WEEK 2: April 6-12 (Build Anticipation)\n\n### April 6 (Sunday)\n**Theme:** Teaser Campaign Launch\n\n- **Instagram (Feed Post):** First Vitamin C Serum teaser - blurred/artistic image + cryptic caption \"Something revolutionary is coming April 15...\"\n- **TikTok:** Behind-the-scenes product development tease (30 sec)\n- **YouTube (Community Post):** \"Guess what's launching mid-month and win a prize!\"\n- **Email:** Exclusive VIP Alert - \"You're Invited to Something Special\" (subscriber-only sneak peek)\n\n### April 7 (Monday)\n**Theme:** Educational Series - Vitamin C Benefits\n\n- **Instagram (Carousel):** \"Vitamin C Benefits You Need to Know: Brightening, Anti-Aging, Antioxidant Protection\"\n- **TikTok:** Educational short - \"Why Dermatologists Love Vitamin C\"\n- **Instagram (Reel):** \"Transform Your Skin in 30 Days\" - skincare consistency motivation\n- **Email:** N/A\n\n### April 8 (Tuesday)\n**Theme:** Customer Success Stories\n\n- **Instagram (Feed Post):** Customer Testimonial - dramatic before/after with Triple Collagen Cream ($44.99)\n- **TikTok:** Customer review video - real person sharing results\n- **YouTube (Short):** 30-second customer testimonial reel\n- **Email:** \"These 3 Products Changed Everything\" - bestseller spotlight bundle\n\n### April 9 (Wednesday)\n**Theme:** Ingredient Deep Dive\n\n- **Instagram (Reel):** \"Snail Mucin Explained: The K-Beauty Ingredient Everyone's Talking About\"\n- **TikTok:** Trending audio + Snail Mucin Cream ($34.99) product demo\n- **Instagram (Stories):** \"Swipe up to learn about snail mucin\" (if verified)\n- **Email:** N/A\n\n### April 10 (Thursday)\n**Theme:** Vitamin C Hype Week Continues\n\n- **Instagram (Carousel):** \"The Vitamin C Launch is TOMORROW! Here's What to Expect...\" + countdown\n- **TikTok:** Countdown video - 48-hour hype build\n- **YouTube (Community Post):** \"48 Hours Until the Big Reveal!\"\n- **Email:** \"The Wait is Almost Over! \ud83c\udf1f Vitamin C Serum Launches Tomorrow\"\n\n### April 11 (Friday)\n**Theme:** Final Build-Up + Birthday Tease\n\n- **Instagram (Stories):** Countdown stickers - 24-hour launch countdown\n- **Instagram (Feed Post):** \"It's almost here... AND it's my birthday! \ud83c\udf89 Double celebration happening tomorrow!\"\n- **TikTok:** Hype video - excited energy, countdown\n- **Email:** \"24 Hours Away: Vitamin C Serum + Birthday Surprise Flash Sale\"\n\n### April 12 (Saturday)\n**Theme:** Engagement & Wellness Content\n\n- **Instagram (Reel):** \"Morning vs. Night Skincare Routine\" - feature multiple products\n- **TikTok:** Lifestyle video - natural skin content, no heavy selling\n- **Instagram (Stories):** Fun filters + giveaway teaser for tomorrow\n- **Email:** N/A\n\n---\n\n## WEEK 3: April 13-19 (LAUNCH WEEK + BIRTHDAY SALE)\n\n### April 13 (Sunday)\n**Theme:** Pre-Launch Final Hype\n\n- **Instagram (Feed Post):** \"Tomorrow is the day! \u2728 New Vitamin C Serum + Exclusive Birthday Flash Sale\"\n- **TikTok:** Final hype video - energy and excitement\n- **YouTube (Community Post):** \"Set a reminder! Going LIVE tomorrow for the launch\"\n- **Email:** Subject: \"Tomorrow: Vitamin C Serum + 24-Hour Birthday Flash Sale! \ud83c\udf89\"\n\n### April 14 (Monday) - VITAMIN C SERUM LAUNCH DAY\n**Theme:** Official Launch + Sale Begins\n\n- **Instagram (Feed Post - Main Launch):** High-quality product photography + detailed caption about Vitamin C Serum benefits, price point, and ingredients\n- **Instagram (Reel):** Product unboxing/reveal video - cinematic, professional\n- **Instagram (Stories):** Launch announcement + direct product photos + \"Shop Now\" links\n- **TikTok (Multiple Videos):**\n  - Product reveal (15 sec)\n  - Product demo/how to use (30 sec)\n  - \"Get ready for glowing skin\" aesthetic video\n- **YouTube (Video):** \"DISURI's New Vitamin C Serum - Everything You Need to Know\" (3-5 min deep dive)\n- **YouTube (Community Post):** Launch announcement + link to video\n- **Email:** LAUNCH EMAIL - \"The Moment You've Been Waiting For: Vitamin C Serum is HERE!\"\n  - Product details, benefits, price\n  - Link to shop\n  - Teaser: \"Birthday surprise tomorrow!\"\n\n### April 15 (Tuesday) - BIRTHDAY FLASH SALE DAY \u2b50\n**Theme:** Birthday Celebration + Exclusive Flash Sale\n\n- **Instagram (Feed Post - Birthday Announcement):** Personal birthday post celebrating with followers + announce 24-hour flash sale\n  - \"It's my birthday and YOU get the gifts! \ud83c\udf82 Exclusive 24-hour flash sale: 20% OFF everything!\"\n- **Instagram (Reel):** Birthday celebration video + sale announcement\n- **Instagram (Stories):** Birthday countdown timer + sale countdown + products on sale\n- **Instagram (Stories - Hourly Updates):** Urgent sale reminders throughout the day (before it ends at midnight)\n- **TikTok (Multiple Videos):**\n  - Birthday celebration video (personal touch)\n  - Flash sale announcement + urgency\n  - \"Last chance!\" if posted later in the day\n- **YouTube (Community Post):** Birthday announcement + flash sale link\n- **Email (Morning Send):** \"Happy Birthday to Me! \ud83c\udf89 Celebrate with 20% OFF Everything (24 Hours Only!)\"\n  - Include full product lineup with new prices\n  - Emphasize urgency: \"Ends tonight at midnight!\"\n  - Personal touch: birthday message from founder\n- **Email (Evening Send - 6pm):** \"\u23f0 LAST 6 HOURS: 20% Off Birthday Sale Ends Tonight!\"\n  - Urgency-focused\n  - Best-selling products highlighted\n  - Direct \"Shop Now\" CTA\n\n### April 16 (Wednesday)\n**Theme:** Flash Sale Wrap-up + Thank You\n\n- **Instagram (Feed Post):** \"Thank you for celebrating my birthday! \ud83d\ude4f Flash sale ended but here's what's still available...\"\n- **Instagram (Reel):** Customer reactions from the flash sale (if available)\n- **TikTok:** Thank you video + \"What sold out\" + \"What's still available\"\n- **Email:** \"Thank You! Here's What Sold Out (And What's Still Available)\"\n  - Restock notifications for sold-out items\n  - Continue promoting Vitamin C Serum as new hero product\n  - Thank customers for birthday celebration\n\n### April 17 (Thursday)\n**Theme:** Post-Launch Customer Testimonials\n\n- **Instagram (Carousel):** Early Vitamin C Serum reviews/testimonials\n- **TikTok:** Customer unboxing + first impressions\n- **YouTube (Short):** Quick customer testimonial (15-30 sec)\n- **Email:** N/A\n\n### April 18 (Friday)\n**Theme:** Educational + Community Building\n\n- **Instagram (Reel):** \"How to Layer Your Vitamin C Serum with Other Products\" - tutorial\n- **TikTok:** Skincare layering trend video\n- **Instagram (Stories):** Q&A about Vitamin C Serum - answer customer questions\n- **Email:** \"The Ultimate Vitamin C Serum Routine\" - product bundle recommendations\n\n### April 19 (Saturday)\n**Theme:** Lifestyle Content\n\n- **Instagram (Reel):** Weekend self-care routine featuring Vitamin C Serum\n- **TikTok:** Aesthetic lifestyle video - natural lighting, calming vibe\n- **YouTube (Community Post):** \"Weekend Glow-Up Routine\" link to full video\n- **Email:** N/A\n\n---\n\n## WEEK 4: April 20-30 (Sustain Momentum)\n\n### April 20 (Sunday)\n**Theme:** User-Generated Content Spotlight\n\n- **Instagram (Feed Post):** Repost UGC - customer skincare results with #DisuriBeuty hashtag\n- **TikTok:** Creator collaboration - send Vitamin C Serum to micro-influencers\n- **Instagram (Stories):** Feature customer photos + celebrate community\n- **Email:** \"You Made April Amazing! Customer Spotlight\" - feature 3-4 customer stories\n\n### April 21 (Monday)\n**Theme:** Educational Content - Extended Skincare\n\n- **Instagram (Carousel):** \"Vitamin C + Hyaluronic Acid: The Powerhouse Duo\" (pair HA Cream with Vitamin C)\n- **TikTok:** Product pairing educational content\n- **YouTube (Short):** Quick pairing tip video\n- **Email:** \"The Perfect Pair: Vitamin C Serum + HA Cream Bundle Recommendation\"\n\n### April 22 (Tuesday)\n**Theme:** Ingredient Spotlight - Eye Area\n\n- **Instagram (Reel):** \"Eye Cream 101: Why Your Eyes Need Special Care\" - feature Eye Cream ($33.99)\n- **TikTok:** Eye care routine trend\n- **Instagram (Feed Post):** Close-up product photography of Eye Cream\n- **Email:** N/A\n\n### April 23 (Wednesday)\n**Theme:** Skincare Science\n\n- **Instagram (Carousel):** \"The 4-Step K-Beauty Routine Explained\" - show how to use all products\n- **TikTok:** Simplified skincare routine for beginners\n- **YouTube (Community Post):** Link to full skincare routine video\n- **Email:** \"Build Your Perfect Routine: Product Guide Inside\"\n\n### April 24 (Thursday)\n**Theme:** Community Engagement\n\n- **Instagram (Stories):** Poll - \"What's your biggest skincare concern?\"\n- **TikTok:** Trending audio + product feature\n- **Instagram (Feed Post):** \"This is YOUR favorite product (poll results)\" - data-driven post\n- **Email:** N/A\n\n### April 25 (Friday)\n**Theme:** Weekend Prep + Mini Promotion\n\n- **Instagram (Reel):** \"Friday Night Skincare Prep\" - calming, aesthetic\n- **TikTok:** Friday self-care lifestyle video\n- **YouTube (Short):** Quick weekend skincare tip\n- **Email:** \"Weekend Glow: Product Recommendations for Your Skin Goals\"\n\n### April 26 (Saturday)\n**Theme:** Educational Depth\n\n- **Instagram (Carousel):** \"The Science Behind Snail Mucin: Why K-Beauty Swears By It\"\n- **TikTok:** Trending skincare science content\n- **Instagram (Stories):** Behind-the-scenes content\n- **Email:** N/A\n\n### April 27 (Sunday)\n**Theme:** Launch Recap + Looking Forward\n\n- **Instagram (Feed Post):** \"April Recap: We Launched Vitamin C, Celebrated Together, and Hit Milestone!\" - month summary\n- **TikTok:** April recap video montage\n- **YouTube (Community Post):** \"April Recap Video\" link\n- **Email:** \"April Recap: Thank You for an Amazing Month! What's Next?\" - tease May plans\n\n### April 28 (Monday)\n**Theme:** Skincare Tips for Seasonal Change\n\n- **Instagram (Reel):** \"Spring Skincare Adjustments: Why Your Skin Needs Change with Seasons\"\n- **TikTok:** Seasonal skincare trend\n- **Instagram (Carousel):** Detailed guide on spring skincare\n- **Email:** N/A\n\n### April 29 (Tuesday)\n**Theme:** Product Showcase - Foam Cleanser (Most Affordable)\n\n- **Instagram (Reel):** \"The Best Budget Skincare: Foam Cleanser Deep Clean Demo\"\n- **TikTok:** Affordable skincare solutions content\n- **Instagram (Feed Post):** Close-up product shot - Foam Cleanser ($14.99)\n- **Email:** \"Quality Skincare Doesn't Have to Be Expensive: Our Foam Cleanser is Proof\"\n\n### April 30 (Wednesday)\n**Theme:** Month Transition + May Teaser\n\n- **Instagram (Feed Post):** \"April was INCREDIBLE! Here's what's coming in May... \ud83d\udd2e\"\n- **Instagram (Reel):** Montage of April highlights + May tease\n- **TikTok:** Month transition video\n- **YouTube (Community Post):** May preview announcement\n- **Email:** \"May is Coming: Here's What We Have Planned for You!\" - exclusive preview for subscribers\n\n---\n\n## CONTENT CALENDAR SUMMARY\n\n### Total Posts by Platform:\n- **Instagram:** 30 Feed Posts + 16 Reels + Daily Stories (varies)\n- **TikTok:** 27 Videos\n- **YouTube:** 1 Long-form Launch Video + 8 Community Posts + 6 Shorts\n- **Email:** 16 Strategic Sends (not overly frequent)\n\n### Key Campaign Dates:\n- **April 14:** Vitamin C Serum Launch\n- **April 15:** Birthday Flash Sale (20% OFF Everything)\n- **April 15:** Birthday Flash Sale Ends (Midnight)\n\n### Product Promotion Rotation:\n- **Vitamin C Serum (NEW):** Featured April 13-18 (launch week + post-launch)\n- **HA Cream ($39.99):** Featured April 2, 18, 21\n- **Snail Mucin Cream ($34.99):** Featured April 9, 26\n- **Triple Collagen Cream ($44.99):** Featured April 4, 8\n- **Eye Cream ($33.99):** Featured April 22\n- **Foam Cleanser ($14.99):** Featured April 4, 29\n- **Toner ($27.99):** Featured April 4, 23\n- **Essence ($19.99):** Featured once in routine content\n\n### Hashtag Strategy:\nUse consistently across all platforms:\n- #DisuriBeuty\n- #GlowLikeYouOwnTheCity (brand tagline)\n- #KBeautyLover\n- #SkincareRoutine\n- #VitaminCSerum (for launch week)\n- #BirthdayFlashSale (April 15)\n\n### Content Pillars:\n1. **Educational** (40%) - Ingredient info, skincare science, routines\n2. **Product-Focused** (30%) - Launches, features, benefits\n3. **Community** (20%) - UGC, testimonials, engagement\n4. **Lifestyle** (10%) - Wellness, self-care, aesthetic content\n\n### Engagement Goals:\n- Build anticipation for Vitamin C launch (Week 1-2)\n- Maximize conversions during launch week (April 14-18)\n- Capitalize on birthday flash sale for revenue spike (April 15)\n- Post-launch: Sustain momentum with testimonials and education\n- End of month: Preview May to keep audience engaged\n\n---\n\n## NOTES FOR EXECUTION\n\n1. **Posting Times:** Schedule most posts for 10 AM, 2 PM, and 7 PM EST (adjust based on analytics)\n2. **Email Frequency:** Max 2 emails per day during sale periods; 1-2 per week otherwise\n3. **TikTok Strategy:** Prioritize trending sounds and hashtags; post 2-3x daily for algorithm favor\n4. **Instagram Stories:** Post 3-5x daily during major promotional periods (launch week + birthday)\n5. **Batch Content:** Film Reels and TikToks in batches to maintain consistency\n6. **Engagement:** Reply to all comments within 4 hours on launch posts\n7. **Analytics:** Track which products generate most interest for future promotions\n8. **Inventory:** Ensure adequate stock for Vitamin C Serum launch and potential flash sale sellouts\n9. **Customer Service:** Have team ready for surge in DMs during April 14-15\n10. **Backup Content:** Keep 5-10 posts ready in case of trends you want to capitalize on\n\n---\n\n**Brand Tagline Integration:** \"Glow Like You Own The City\" should appear in bios, email signatures, and key promotional posts throughout the month.\n"}], "grading": null}, {"id": "eval-2-burnout-week-with_skill", "prompt": "what should i post this week? im feeling burnt out and dont have much time. maybe 2 hours total for content this week. focus on snail mucin cream since its our bestseller", "eval_id": 2, "outputs": [{"name": "weekly-plan.md", "type": "text", "content": "# DISURI Weekly Content Plan: Burnout Edition\n**Week of March 7-13, 2026**\n\n**Theme:** Barrier Repair Hero\n**Primary Pillar:** Barrier Science\n**Product Focus:** Ultimate Snail Mucin Cream (92% snail secretion \u2014 our bestseller)\n**Time Budget:** 2 hours total\n\n---\n\n## The Strategy: Do Less, Repeat Smart\n\nThis week, you're doing **ONE filming session (45 min) + ONE edit/caption session (75 min)**. That's it. Everything else is strategic repurposing. You're creating **2 original videos** that become **6 platform posts**. No new ideas, no daily stress\u2014just smart reuse.\n\n**Key Concept:** Snail mucin as a barrier repair powerhouse. Lean on the science, show results, keep it simple.\n\n---\n\n## Batch Day: Monday (45 minutes)\n**Film 2 videos in one sitting**\n\n### Video 1: \"92% Snail Mucin \u2014 Why Your Dermatologist Isn't Surprised\"\n**Length:** 60 seconds (raw footage)\n**Setup:** Phone propped up, good lighting, you in a plain background (bedroom, kitchen fine)\n**Outfit:** Whatever you'd normally wear\u2014no need to change\n\n**Script (talking points, keep it natural):**\n- Hook (first 3 sec): \"Your barrier is literally crying for this.\"\n- Middle: \"This is 92% snail secretion. Here's what that means\u2014snails produce mucin to heal their own shells. It's literally a repair substance. Your skin barrier is basically a wall. When it's damaged, you get irritation, dryness, sensitivity.\"\n- \"Snail mucin floods damaged barrier cells with amino acids and glycoproteins. It's not magic\u2014it's biology.\"\n- Close (last 5 sec): \"Ultimate Snail Mucin Cream. Made in Korea. This is what barrier repair actually looks like.\"\n- End with you applying a tiny bit to your cheek, quick close-up of texture.\n\n**Notes:**\n- Don't worry about perfect lighting or music. Raw is authentic.\n- One take is fine. Just keep talking if you mess up\u2014we'll edit around it.\n- Show the product at the start and end.\n\n---\n\n### Video 2: \"Week 2 vs Week 4 With Snail Mucin\"\n**Length:** 60 seconds (raw footage)\n**Setup:** Same as Video 1 (no outfit/background change needed\u2014film back-to-back)\n**Voiceover style:** More casual, testimonial vibe\n\n**Script (talking points):**\n- Hook (first 3 sec): \"Here's what happens to your skin on snail mucin.\"\n- Show a before selfie or reference one (you can talk about it): \"Week 2: Barrier starting to feel more resilient. Less reactive.\"\n- \"Week 4: Okay, that's glow. Not the fake Instagram kind\u2014actual visible firmness and smoothness.\"\n- \"This cream rebuilds. It doesn't just sit on top.\"\n- Close: \"Ultimate Snail Mucin Cream. Made in Korea. Brilla como due\u00f1a de la ciudad.\"\n- Quick shot of you applying it again.\n\n**Notes:**\n- If you don't have before/after pics, that's fine\u2014just describe the transformation verbally.\n- Keep it conversational. You're talking to someone who's frustrated with their barrier, not selling.\n\n**Total filming time: 45 minutes**\n\n---\n\n## Edit + Write Day: Thursday (75 minutes)\n\n**Edit both videos (40 min):**\n- Trim to 30-35 seconds each (TikTok friendly)\n- Add 1-2 text overlays per video (e.g., \"Barrier repair\" or \"92% snail secretion\")\n- Keep the tone warm and unpolished\u2014perfectionism is your enemy this week\n- Add captions for accessibility (you can use auto-captions, just correct 2-3 words)\n- Background music optional (TikTok trending audio is fine, keeps it simple)\n\n**Write captions + emails (35 min):**\n- Write platform-specific captions below\n- Draft the email by Thursday evening\n\n---\n\n## Weekly Content Calendar\n\n| Day | Platform | Content Type | Repurposed From | Hook | Caption | Notes |\n|-----|----------|--------------|-----------------|------|---------|-------|\n| **Mon** | TikTok | Video (30-35s) | Original Video 1 | \"92% snail mucin. Yes, really. Here's why it works.\" | \"Your barrier is crying for this. Snail mucin is literally repair juice\u2014it's what snails use to heal their own shells. Your skin barrier works the same way. It needs amino acids and glycoproteins to rebuild.\\n\\nUltimate Snail Mucin Cream. 92% snail secretion. Made in Korea. Your barrier will feel the difference by week 2.\\n\\nGlow Like You Own The City \ud83d\udc9a\" | PUBLISHED |\n| **Tue** | Instagram | Reel (30s) | Video 1 (repurposed) | \"92% snail mucin. Yes, really. Here's why it works.\" | Same as TikTok but add: \"#SnailMucinCream #BarrierRepair #KoreanSkincare #GlowLikeYouOwnTheCity #Made in Korea\" | SCHEDULED |\n| **Tue** | Email | Educational | Video 1 concept | Subject: \"Your barrier just called. It needs snail mucin.\" | **Email Body:** \"Hey!\\n\\nIf your skin feels tight, reactive, or just... mad at you, your barrier is probably damaged.\\n\\nHere's what most people don't know: snail mucin is literally what snails use to heal their own shells. It's packed with amino acids and glycoproteins\u2014the exact building blocks your barrier needs to rebuild.\\n\\nOur Ultimate Snail Mucin Cream is 92% snail secretion. That's not filler. That's science.\\n\\nMost people see results in 2 weeks: less irritation, more resilience, that real glow.\\n\\nReady to stop fighting your barrier and start rebuilding it?\\n\\n[SHOP SNAIL MUCIN CREAM]\\n\\n\u2014 DISURI Beauty\\nGlow Like You Own The City\" | DRAFT NOW, SEND TUESDAY |\n| **Wed** | TikTok | Video (25-30s) | Original Video 2 | \"Week 2 vs Week 4 with snail mucin\" | \"Snail mucin doesn't just sit on your skin\u2014it rebuilds your barrier from the inside out.\\n\\nWeek 2: Less reactive. Your skin finally feels safe again.\\nWeek 4: That's glow. Real, visible firmness.\\n\\nUltimate Snail Mucin Cream. Made in Korea. Try it. Your barrier will thank you.\\n\\nGlow Like You Own The City \ud83d\udc9a\" | PUBLISHED |\n| **Thu** | Instagram | Carousel (5 slides) | Video 2 concept | \"What your barrier looks like on snail mucin\" | **Slide 1 (Title):** \"What Snail Mucin Actually Does\\n\\n**Slide 2:** \"Your barrier is a wall. When it's damaged\u2014irritation, sensitivity, dryness, redness\u2014the bricks are crumbling.\\n\\n**Slide 3:** \"Snail mucin = repair juice. It's packed with amino acids and glycoproteins that literally rebuild those bricks.\\n\\n**Slide 4:** \"Week 2: Resilience returns. Less reactive.\\nWeek 4: Glow. Firmness. Smoothness.\\n\\n**Slide 5 (CTA):** \"Ready to rebuild?\\nUltimate Snail Mucin Cream. 92% snail secretion.\\nMade in Korea. Link in bio.\" | SCHEDULED |\n| **Fri** | YouTube | Short (40s) | Video 1 repurposed | \"Why dermatologists recommend snail mucin\" | \"Snails produce mucin to heal their own shells. It's a repair substance that works at the cellular level.\\n\\nYour skin barrier works the same way. When it's damaged, you need amino acids and glycoproteins to rebuild it.\\n\\nOur Ultimate Snail Mucin Cream is 92% snail secretion. That's not hype\u2014that's pure barrier repair.\\n\\nMade in Korea. Glow Like You Own The City.\\n\\n[Link to product in description]\" | SCHEDULED |\n| **Sat** | Instagram | Story Series (3-4 frames) | Your phone camera | \"Real talk: Your barrier is probably damaged\" | **Frame 1:** \"Does your skin feel like this?\" [Screenshot or text: Tight / Irritated / Reactive / Red]\\n\\n**Frame 2:** \"Damaged barrier. Not your fault\u2014pollution, climate, over-exfoliating.\\n\\n**Frame 3:** \"Here's the fix: Snail mucin. It's literally what snails use to heal their shells.\\n\\n**Frame 4:** \"Ultimate Snail Mucin Cream. 92% snail secretion. Made in Korea. [Link to product]\" | LIVE STORIES (low effort, authentic) |\n| **Sun** | Instagram | Static Post + Caption | Your photo or product shot | \"Snail mucin isn't trendy. It's just science.\" | \"Your skin barrier protects everything else. When it's strong, you glow. When it's damaged, everything feels worse.\\n\\nSnail mucin rebuilds. It's not a trend\u2014it's biology. Snails literally use it to heal their own shells.\\n\\nOur Ultimate Snail Mucin Cream is 92% snail secretion. No filler. Just repair.\\n\\nMade in Korea. This is what barrier health actually looks like.\\n\\n[SHOP NOW]\\n\\n#SnailMucinCream #BarrierRepair #KoreanSkincare #GlowLikeYouOwnTheCity #SkincareScience\" | SCHEDULED |\n\n---\n\n## Repurposing Map (What You're Actually Creating)\n\n**Original Content Created: 2 videos (90 seconds total filming)**\n\n1. **Video 1: \"92% Snail Mucin\"** \u2192 Becomes:\n   - TikTok post (Mon)\n   - Instagram Reel (Tue)\n   - YouTube Short (Fri)\n   - Email hook (Tue)\n\n2. **Video 2: \"Week 2 vs Week 4\"** \u2192 Becomes:\n   - TikTok post (Wed)\n   - Instagram Carousel (Thu) \u2014 concept reframed as educational breakdown\n\n3. **Bonus Original (Stories):**\n   - Sunday stories filmed fresh in 10 min on your phone (no editing needed, raw is authentic)\n\n**Platform posts this week: 8 pieces of content**\n**Original content created: 2 videos + email concept + stories**\n**Editing + writing time: 75 minutes**\n\n---\n\n## Time Breakdown (2 hours total)\n\n- **Monday (45 min):** Film 2 videos back-to-back\n- **Thursday (75 min):** Edit both videos (40 min) + Write all captions & email (35 min)\n- **Sunday (10 min, optional):** Film stories on your phone while having coffee\n\n**Total: ~2 hours. Done.**\n\n---\n\n## What To Do Right Now\n\n1. **Pick a clean space** (bedroom, kitchen, blank wall\u2014anywhere with good window light)\n2. **Prop your phone** so it's filming your face\n3. **Monday morning: Record both videos.** One take each is fine. Just be yourself\u2014talk about snail mucin like you're texting a friend who's stressed about their skin.\n4. **Thursday evening: Edit (40 min) + Caption (35 min)** while listening to a podcast or music. Keep perfectionism out.\n5. **Schedule everything** in Later or native apps by Friday morning.\n6. **Send email Tuesday morning** before your first coffee.\n\n---\n\n## Why This Works When You're Burnt Out\n\n\u2705 **One idea, many angles** \u2014 You're not inventing 8 different concepts\n\u2705 **Batch filming** \u2014 Film once, post all week\n\u2705 **Repurposing science** \u2014 Let the algorithm do the heavy lifting\n\u2705 **Evergreen content** \u2014 Snail mucin is always relevant; no trend chasing\n\u2705 **Real talk, not perfection** \u2014 Raw videos outperform polished ones on TikTok anyway\n\u2705 **Clear winner** \u2014 Focusing on your bestseller means you're not spreading yourself thin\n\n---\n\n## Compliance Check\n\n\u2705 All claims use \"helps improve\" or \"supports\" language (not \"treats\" or \"cures\")\n\u2705 \"Made in Korea\" mentioned in every platform\n\u2705 Product name + benefit always paired\n\u2705 Email is educational first, promotional second\n\u2705 No medical claims in video voiceovers\n\n---\n\n## Monday Morning Pep Talk\n\nYou're not running a 12-post production studio. You're creating one focused idea and letting the system amplify it. Your audience doesn't need daily novelty\u2014they need consistency and authenticity.\n\nTwo hours. One idea. Snail mucin. You've got this.\n\n**Glow Like You Own The City \ud83d\udc9a**\n"}], "grading": null}, {"id": "eval-2-burnout-week-without_skill", "prompt": "what should i post this week? im feeling burnt out and dont have much time. maybe 2 hours total for content this week. focus on snail mucin cream since its our bestseller", "eval_id": 2, "outputs": [], "grading": null}, {"id": "eval-3-batch-filming-with_skill", "prompt": "Give me a batch filming shot list for next week. The theme is K-Beauty Authority and I want to focus on the Triple Collagen line. I can film for about 90 minutes on Sunday.", "eval_id": 3, "outputs": [{"name": "shot-list.md", "type": "text", "content": "# DISURI Beauty | Batch Filming Shot List\n**Week of March 10-16, 2026**\n**Theme:** K-Beauty Authority\n**Product Focus:** Triple Collagen Line\n**Batch Day:** Sunday \u2014 90 minutes\n**Tagline:** \"Glow Like You Own The City\"\n\n---\n\n## Filming Overview\n\n**Total Shots:** 4 hero videos\n**Estimated Time:** 85-90 minutes (including setup changes)\n**Output:** 12-14 platform pieces across TikTok, Instagram, YouTube, and email\n\n**Repurposing Plan:**\n- Shot 1 \u2192 TikTok (30s) + Instagram Reel (45s) + YouTube Short (45s)\n- Shot 2 \u2192 TikTok (25s) + Instagram Reel (30s) + YouTube Short (40s)\n- Shot 3 \u2192 TikTok (30s) + Instagram Reel (45s) + YouTube Short (50s)\n- Shot 4 \u2192 TikTok (20s reactive) + Instagram Carousel script\n\n---\n\n## Setup & Wardrobe\n\n**Location:** [Choose consistent background \u2014 natural light preferred]\n\n**Wardrobe Changes:**\n- **Shot 1:** Neutral tone (beige/cream) \u2014 K-Beauty authority vibe\n- **Shot 2:** White/light tone \u2014 clinical/educational feel\n- **Shot 3:** Black or jewel tone \u2014 premium/luxury angle\n- **Shot 4:** Earth tone (caramel/bronze) \u2014 lifestyle/results angle\n\n**Props on Hand:**\n- Triple Collagen Firming Cream (hero product)\n- Triple Collagen Toner\n- Triple Collagen Eye Cream\n- Triple Collagen Foam (for context shots)\n- Mirror or reflective surface\n- Clean hands/arm for application demo\n- Optional: K-Beauty props (jade roller, gua sha)\n\n---\n\n## Shot List (In Filming Order)\n\n### **Shot 1: \"Korean Formulation Authority\"**\n**Pillar:** K-Beauty Authority\n**Time:** 20 minutes (includes setup change)\n\n**Hook:** \"Why Korean skincare formulates collagen differently\"\n\n**Script:**\n\"Korean beauty brands don't just add collagen \u2014 they engineer it. Here's the difference. Triple Collagen Firming Cream packs 3,500ppm of hydrolyzed collagen. That's specific, that's measurable, that's made in Korea. American brands? Vague. Korean formulations absorb better because they understand skin barrier architecture. This cream doesn't sit on top \u2014 it penetrates. That's the K-beauty edge.\"\n\n**Visual Breakdown:**\n- 0-2s: Close-up of cream texture (swipe to show consistency)\n- 2-4s: You holding the product, camera tilted (confidence angle)\n- 4-6s: Apply to face/arm in upward motion (massage technique)\n- 6-8s: Skin glow/absorption moment (after 5-10 seconds)\n- 8-10s: Product shot + text overlay: \"3,500ppm Hydrolyzed Collagen\"\n- 10-12s: Your face/arm close-up showing radiance\n\n**Text Overlays for Each Platform:**\n- TikTok: \"Made in Korea hits different\"\n- Instagram: \"Why Korean formulations absorb better\"\n- YouTube: \"The K-Beauty Secret to Firmer Skin\"\n\n**Compliance Check:** \u2705 No medical claims. \"Helps improve appearance of firmness.\"\n\n---\n\n### **Shot 2: \"The Triple Collagen Routine Order\"**\n**Pillar:** Routine Building (secondary to K-Beauty)\n**Time:** 18 minutes (outfit change)\n\n**Hook:** \"The order that changes everything\"\n\n**Script:**\n\"Collagen works best when layered right. Step 1: Triple Collagen Foam \u2014 cleanse without stripping. Step 2: Triple Collagen Toner \u2014 prep the barrier with 10,000ppm HA. Step 3: Triple Collagen Firming Cream \u2014 lock in hydration and firmness. That's the order. That's the magic. Miss any step, you miss the results. This is how Korean women do it.\"\n\n**Visual Breakdown:**\n- 0-2s: All three products arranged on clean surface\n- 2-4s: Pick up Foam, demonstrate lather (quick demo clip)\n- 4-6s: Wipe clean, transition to Toner bottle\n- 6-8s: Pour/dispense Toner, apply with patting motion\n- 8-10s: Show Cream, apply upward massage\n- 10-12s: Time-lapse of skin absorption (sped up 2-3x)\n- 12-15s: Final glow reveal + text: \"The Order Matters\"\n\n**Text Overlays:**\n- TikTok: \"You're layering wrong. Here's the fix.\"\n- Instagram: \"3 products. 5 minutes. Real results.\"\n- YouTube: \"The Complete Triple Collagen Routine\"\n\n**Compliance Check:** \u2705 Educational, no medical claims.\n\n---\n\n### **Shot 3: \"Collagen Myth-Busting: Does It Actually Work?\"**\n**Pillar:** Myth-Busting (secondary to K-Beauty)\n**Time:** 22 minutes (wardrobe + background shift)\n\n**Hook:** \"Collagen creams don't work? Wrong.\"\n\n**Script:**\n\"Myth: Collagen molecules are too big to absorb. Fact: Korean brands hydrolyzed collagen into micro-peptides specifically so it penetrates. Myth: You need a dermatologist procedure. Fact: 3,500ppm collagen in cream form shows measurable firmness in 4-6 weeks. Myth: All collagen is the same. Fact: Triple Collagen's patented formula + HA + niacinamide work synergistically. I'm not asking you to believe hype. I'm asking you to trust the formulation science. Made in Korea.\"\n\n**Visual Breakdown:**\n- 0-2s: \"Myth\" text appears, you look skeptical\n- 2-4s: Hold up cream, close-up of texture\n- 4-6s: Apply to arm/face, massage in\n- 6-8s: \"Fact\" text appears, you explain (direct to camera)\n- 8-10s: Show ingredient list or product spec sheet (if available)\n- 10-12s: Before/after reference or glow moment\n- 12-14s: \"Trust the formulation\" closing statement\n\n**Text Overlays:**\n- TikTok: \"Stop believing this skincare lie\"\n- Instagram: \"The ingredient you're scared of for no reason\"\n- YouTube: \"The Truth About Collagen in Skincare\"\n\n**Compliance Check:** \u2705 Science-backed claims only. No false before/afters.\n\n---\n\n### **Shot 4: \"Urban Glow with K-Beauty\" (Lifestyle/Results)**\n**Pillar:** K-Beauty Authority + Results & Transformations\n**Time:** 20 minutes (final wardrobe + lifestyle framing)\n\n**Hook:** \"Made in Korea hits different. Let me show you.\"\n\n**Script (for Instagram Carousel + Email expansion):**\n\"This is what K-beauty authority looks like on real skin. Not filtered, not touched up \u2014 just the Triple Collagen system working. Glow doesn't come from one product. It comes from understanding how to layer hydration, firmness, and protection the Korean way.\n\nKey benefits you'll notice:\n- Smoother texture by day 3\n- Visibly firmer appearance in 4-6 weeks\n- Dewy, lit-from-within radiance\n- All-day hydration in dry climates\n\nThis is why Korean women invest in skincare like it's non-negotiable. Because it works. Glow Like You Own The City.\"\n\n**Visual Breakdown:**\n- 0-2s: You doing normal activity (applying makeup, getting ready, in sunlight)\n- 2-4s: Quick flash of Triple Collagen products\n- 4-6s: Close-up of your skin/glow (radiance moment)\n- 6-8s: Wide shot showing confidence/urban setting\n- 8-10s: Product arrangement beauty shot\n- 10-12s: Text overlay: \"Made in Korea\" + tagline\n\n**TikTok Version (20-25s):**\nQuick-cut energy, trending audio optional, rapid product shots.\n\n**Instagram Carousel Script (5 slides):**\n- Slide 1: Glow close-up + \"K-Beauty Made the Difference\"\n- Slide 2: Ingredient highlight: \"3,500ppm Collagen\"\n- Slide 3: Routine order graphic: Foam \u2192 Toner \u2192 Cream\n- Slide 4: \"What users report after 4-6 weeks\" (list benefits)\n- Slide 5: CTA with links to shop\n\n**Email Integration:**\n\"What Korean women know that you don't: Collagen isn't a miracle ingredient \u2014 it's a system. The right formula + the right order + the right layering = radiant, firm skin. This week we're breaking down the Triple Collagen system and why K-beauty formulations absorb better than their Western counterparts.\"\n\n**Compliance Check:** \u2705 \"Helps improve appearance of firmness and hydration.\" No medical claims.\n\n---\n\n## Filming Checklist\n\n- [ ] Lighting test (natural window light preferred)\n- [ ] Phone/camera fully charged\n- [ ] All Triple Collagen products visible and in reach\n- [ ] Wardrobe pieces separated by shot\n- [ ] Mirror or reflective surface prepped\n- [ ] Hands/arms clean before filming\n- [ ] Test audio (quiet background)\n- [ ] Film Shot 1 (20 min)\n- [ ] Wardrobe change + reset (5 min)\n- [ ] Film Shot 2 (18 min)\n- [ ] Wardrobe change + reset (5 min)\n- [ ] Film Shot 3 (22 min)\n- [ ] Wardrobe change + reset (5 min)\n- [ ] Film Shot 4 (20 min)\n- [ ] Final review of all footage (5 min)\n\n**Total Estimated Time: 90 minutes**\n\n---\n\n## Post-Filming Workflow\n\n**Edit + Write Day (within 48 hours):**\n1. Review all 4 raw videos\n2. Create 4 TikTok edits (add trending sound, text overlays, cuts)\n3. Create 4 Instagram Reel versions (softer transitions, IG hashtags)\n4. Create 4 YouTube Short versions (add intro card if needed)\n5. Write 5-slide carousel script for Instagram (Shot 4)\n6. Write email copy integrating Shot 1 + Shot 4 insights\n7. Schedule via Later, Planoly, or native apps\n\n**Platform Schedule (March 10-16):**\n- **Monday:** TikTok (Shot 1) \u2014 \"Korean Formulation Authority\"\n- **Tuesday:** Instagram Carousel (Shot 4 expansion) + YouTube Short (Shot 1)\n- **Tuesday:** Email send \u2014 \"What Korean Women Know About Collagen\"\n- **Wednesday:** Instagram Reel (Shot 2) + TikTok (Shot 2)\n- **Thursday:** YouTube Short (Shot 2)\n- **Friday:** TikTok (Shot 3) \u2014 \"Collagen Myth-Busting\"\n- **Saturday:** Instagram Reel (Shot 3) + YouTube Short (Shot 3)\n- **Sunday:** Instagram Story series (lifestyle/glow moments) + TikTok (Shot 4 reactive/trending)\n\n---\n\n## Content Mix This Week\n\n| Type | Count | Pillar |\n|------|-------|--------|\n| Educational (Hero Videos) | 4 | K-Beauty Authority, Myth-Busting, Routine Building |\n| Entertaining (Reactive TikTok) | 1 | K-Beauty Authority |\n| Promotional (Carousel) | 1 | K-Beauty Authority + Product Focus |\n| Community (Stories) | 1 | Lifestyle/Connection |\n\n**Coverage:** 40% educational, 20% entertaining, 25% promotional, 15% community\n\n---\n\n## Key Messaging for Week\n\n\u2728 **\"Made in Korea\"** appears in all 4 videos\n\u2728 **Triple Collagen** is the featured product across all platforms\n\u2728 **K-Beauty Authority pillar** establishes expertise and edge\n\u2728 **Myth-busting** counters skepticism about collagen efficacy\n\u2728 **Routine building** teaches the order and system\n\n**Tagline:** \"Glow Like You Own The City\" (close every content piece with this or visual equivalent)\n\n---\n\n## Notes for Joel\n\n- This is high-leverage content: 4 filming hours \u2192 12-14 posts across 4 platforms\n- Group all talking points and scripts in one place so you can stay in character across all 4 shots\n- Change backgrounds/outfits between shots so content feels fresh across the week\n- The Triple Collagen line is deep (7 products) \u2014 this week showcases the core routine (Foam, Toner, Firming Cream)\n- Consider featuring user testimonials or your own results in the following week to build on this authority foundation\n- Email this week is education-heavy; next week can shift to promotional (Queens program, bundle offer) to balance the month\n\n---\n\n**Generated:** March 7, 2026\n**Theme:** K-Beauty Authority + Triple Collagen Line\n**Duration:** 90-minute batch filming session (Sunday)\n**Ready to film!**\n"}], "grading": null}, {"id": "eval-3-batch-filming-without_skill", "prompt": "Give me a batch filming shot list for next week. The theme is K-Beauty Authority and I want to focus on the Triple Collagen line. I can film for about 90 minutes on Sunday.", "eval_id": 3, "outputs": [{"name": "shot-list.md", "type": "text", "content": "# DISURI Beauty - Triple Collagen Line\n## Batch Filming Shot List: Sunday Session\n**Theme:** K-Beauty Authority | **Duration:** 90 minutes | **Tagline:** Glow Like You Own The City\n\n---\n\n## Pre-Production Checklist\n- [ ] All 5 products (Firming Cream, Foam Cleanser, Toner, Eye Cream, Essence)\n- [ ] Ring light or soft LED lighting setup\n- [ ] Phone/camera tripod and gimbal (optional but recommended)\n- [ ] Backdrop (neutral or city-inspired for \"own the city\" aesthetic)\n- [ ] Props: mirror, cotton pads, spray bottle, hand towel, makeup remover\n- [ ] Sound: lavalier mic or phone positioned for clear audio\n- [ ] Test shots and audio levels (5 minutes before filming)\n\n---\n\n## Shot List Overview\n**Total Shots: 18** | **Estimated Time Allocation: 90 minutes**\n- Intro/Branding: 10 minutes\n- Product Demos: 50 minutes\n- Educational Content: 20 minutes\n- Transitions/B-Roll: 10 minutes\n\n---\n\n## SEGMENT 1: INTRO & AUTHORITY POSITIONING (10 minutes)\n\n### Shot 1: Authority Intro (Instagram Reel/TikTok Opening)\n- **Duration:** 20 seconds\n- **Copy:** \"Let's talk collagen\u2014the K-beauty way. I'm [Your Name], and DISURI is your authority on clinically-formulated skincare.\"\n- **Setup:** Close-up, looking at camera, natural lighting on face\n- **Framing:** Head and shoulders, confident expression\n- **Color:** Makeup featuring the Toner (natural glow) for authenticity\n- **Purpose:** Build authority, establish expertise\n\n### Shot 2: Flat Lay - Triple Collagen Lineup\n- **Duration:** 10 seconds\n- **Setup:** All 5 products arranged on white surface, shot from above\n- **Styling:** Add a subtle city/Seoul aesthetic (maybe small city skyline prop or metallic accents)\n- **Lighting:** Soft diffused light to showcase product design\n- **B-Roll Usage:** Can loop or use as transition between product segments\n- **Purpose:** Show the complete line, visual appeal\n\n### Shot 3: Tagline Reveal\n- **Duration:** 5 seconds\n- **Copy:** Overlay text: \"Glow Like You Own The City\"\n- **Setup:** Product line in background (slightly blurred), tagline animated in\n- **Visual:** Subtle city lights or glow effect in background\n- **Purpose:** Brand reinforcement, memorable messaging\n\n---\n\n## SEGMENT 2: PRODUCT DEMONSTRATIONS (50 minutes)\n\n### Shot 4: Foam Cleanser - Step 1 (Educational)\n- **Duration:** 2 minutes\n- **Copy:** \"Start with the Foam Cleanser. 3,000ppm collagen for gentle cleansing without stripping. Watch how it transforms your skin.\"\n- **Setup:** Hand applying cleanser to face, close-up of texture\n- **Key Moments:**\n  - Pour product into palm (show consistency)\n  - Wet face with water\n  - Massage face in circular motions (highlight gentle technique)\n  - Rinse thoroughly\n- **Lighting:** Highlight the foam texture\n- **Purpose:** Demonstrate proper usage, explain collagen benefit\n\n### Shot 5: Foam Cleanser - Before/After Closeup\n- **Duration:** 45 seconds\n- **Setup:** Close-up of skin texture before and after cleansing\n- **Framing:** Side-by-side comparison or quick transition\n- **Copy:** \"See how clean? No residue, just glowing skin ready for the next step.\"\n- **Purpose:** Show efficacy, build confidence in product\n\n### Shot 6: Toner Application (Hydration Focus)\n- **Duration:** 2 minutes\n- **Copy:** \"The Toner is where the magic happens. 10,000ppm hyaluronic acid\u2014that's our star ingredient here. This is hydration authority.\"\n- **Setup:**\n  - Pour toner into palm\n  - Pat into face (not swipe) to maximize absorption\n  - Close-up of skin absorbing product\n  - Optional: Use spray bottle to show layering technique\n- **Key Moments:**\n  - Product consistency\n  - Absorption into skin\n  - Glow/dewy finish\n- **Purpose:** Educate on HA benefits, demonstrate K-beauty patting technique\n\n### Shot 7: Essence - Lightweight Layer\n- **Duration:** 1.5 minutes\n- **Copy:** \"The Essence is 85% water base\u2014pure hydration. This is the secret to that dewy K-beauty glow. It's like drinking water for your skin.\"\n- **Setup:**\n  - Show product in bottle (translucent, water-like)\n  - Apply to face with fingers\n  - Show how quickly it absorbs\n  - Capture the dewy finish on cheeks/forehead\n- **Key Moments:**\n  - Product transparency\n  - Quick absorption\n  - Skin glow\n- **Lighting:** Highlight skin luminosity after application\n- **Purpose:** Position as essential hydration step, show results\n\n### Shot 8: Eye Cream - Delicate Application\n- **Duration:** 1.5 minutes\n- **Copy:** \"Eyes need special care. This Eye Cream targets fine lines and dark circles. Using your ring finger\u2014never your index\u2014gently dab around the orbital bone.\"\n- **Setup:**\n  - Close-up of eye area\n  - Show proper application technique (ring finger, gentle dabbing)\n  - Demonstrate \"press and hold\" method for better absorption\n- **Key Moments:**\n  - Proper finger selection\n  - Gentle technique\n  - Under-eye area looking brighter/more awake\n- **Lighting:** Soft light to show eye area clearly\n- **Purpose:** Educate on delicate application, position as specialized care\n\n### Shot 9: Firming Cream - The Powerhouse\n- **Duration:** 2 minutes\n- **Copy:** \"And here's the powerhouse\u2014Firming Cream with 3,500ppm collagen. This is your night-time secret weapon. Apply to face and neck, massage upward to boost firmness.\"\n- **Setup:**\n  - Show cream texture (rich but not greasy)\n  - Apply in upward motions\n  - Massage technique: fingers moving upward on jawline, cheeks, forehead\n  - Show final dewy finish\n- **Key Moments:**\n  - Product richness\n  - Massage technique\n  - Glowing finish\n- **Lighting:** Highlight skin luminosity\n- **Purpose:** Demonstrate complete routine, show premium positioning\n\n### Shot 10: Full Routine - Speed Runthrough\n- **Duration:** 1.5 minutes\n- **Copy:** \"Your 5-minute evening ritual: Cleanse, tone, essence, eye cream, moisturize. That's the DISURI Triple Collagen routine.\"\n- **Setup:** Quick edits of each step in sequence\n- **Pacing:** Fast-cut montage style (Instagram Reel/TikTok friendly)\n- **Visual Effects:** Smooth transitions between products\n- **Purpose:** Show complete routine, position as accessible\n\n### Shot 11: Skin Results Showcase\n- **Duration:** 1 minute\n- **Setup:** Close-up of face showing glow and firmness\n- **Framing:** Multiple angles\u2014full face, 3/4 profile, highlighting cheekbones and jawline\n- **Copy:** \"This is what consistency looks like. This is what the city glows with.\"\n- **Lighting:** Flattering, warm lighting to show skin radiance\n- **Purpose:** Show final results, emotional impact\n\n---\n\n## SEGMENT 3: EDUCATIONAL CONTENT (20 minutes)\n\n### Shot 12: K-Beauty Authority - Collagen Science\n- **Duration:** 2 minutes\n- **Copy:** \"Let's talk collagen. In K-beauty, it's not just an ingredient\u2014it's a proven pathway to firmness and elasticity. Our 3,000-3,500ppm concentrations are clinically significant.\"\n- **Setup:** Talking head, hold products while explaining\n- **Visual Support:** Show products, highlight ingredient callouts\n- **Purpose:** Build authority, educate audience\n\n### Shot 13: Why Hyaluronic Acid Matters\n- **Duration:** 1.5 minutes\n- **Copy:** \"10,000ppm hyaluronic acid can hold up to 1,000 times its weight in water. That's why our Toner is non-negotiable for the DISURI routine.\"\n- **Setup:** Talking head with Toner product visible\n- **Visual Support:** Animated text showing HA benefits or before/after hydration comparison\n- **Purpose:** Explain key ingredient, justify pricing\n\n### Shot 14: 85% Water Base Essence Explained\n- **Duration:** 1.5 minutes\n- **Copy:** \"The Essence is 85% water. Why? Because hydration is the foundation of every K-beauty routine. Everything else builds on this base.\"\n- **Setup:** Hold Essence up to light (show transparency), talking head\n- **Visual:** Close-up of product showing lightweight, watery consistency\n- **Purpose:** Explain product positioning, justify price point\n\n### Shot 15: The \"Glow Like You Own The City\" Philosophy\n- **Duration:** 2 minutes\n- **Copy:** \"K-beauty isn't about covering up\u2014it's about skin so healthy and glowing that makeup becomes optional. When you own your glow, you own the city.\"\n- **Setup:** Talking head with confident energy, optional: footage of you going about your day (brief clips)\n- **Visuals:** Show your glowing skin in different lighting\n- **Purpose:** Brand storytelling, emotional connection\n\n### Shot 16: Price Transparency & Value\n- **Duration:** 1.5 minutes\n- **Copy:** \"Let's talk value. Firming Cream $44.99 with 3,500ppm collagen. Eye Cream $33.99 for precision care. Toner $27.99 with 10,000ppm HA. Essence $19.99. Foam Cleanser $14.99. That's a complete K-beauty routine for under $150. That's authority.\"\n- **Setup:** Show each product while stating price\n- **Graphic:** Price breakdown animation or on-screen text\n- **Purpose:** Justify pricing, show value proposition\n\n### Shot 17: Common Mistakes in Collagen Skincare\n- **Duration:** 1.5 minutes\n- **Copy:** \"Three mistakes: First, using too much. A little goes a long way. Second, applying to damp skin\u2014pat dry first. Third, rushing the process. K-beauty is a ritual, not a race.\"\n- **Setup:** Talking head, demonstrate each mistake/correction\n- **Visual:** Quick cuts showing wrong vs. right technique\n- **Purpose:** Position as expert, build authority\n\n---\n\n## SEGMENT 4: CALLS-TO-ACTION & CLOSING (10 minutes)\n\n### Shot 18: CTA - Multi-Platform Closing\n- **Duration:** 90 seconds total (customize per platform)\n- **Setup:** You on camera, holding or surrounded by products\n- **Copy Options:**\n  - **Instagram/TikTok:** \"DM for the Triple Collagen routine. Link in bio.\"\n  - **YouTube:** \"Shop the full line below. Subscribe for more K-beauty authority content.\"\n  - **General:** \"Glow like you own the city. Use code CITYGLLOW15 for 15% off.\"\n- **Visual:** Product lineup, tagline animation\n- **Variants:** Create 3 versions (one per platform)\n- **Purpose:** Drive conversions, build community\n\n---\n\n## Technical Notes\n\n### Camera Settings\n- **Resolution:** 4K if available (upscales better to 1080p cuts)\n- **Frame Rate:** 24fps for cinematic feel, or 30fps for web\n- **Lighting:** 3-point setup (key light at 45\u00b0, fill light, back light for separation)\n- **Audio:** Record lavalier mic + phone mic for backup\n\n### Editing Recommendations\n- Quick cuts for Gen Z audience (2-3 second shots)\n- Trending audio (K-beauty or empowerment themes)\n- Text overlays for key claims (collagen concentrations, prices)\n- Color grade warm/golden for \"glow\" aesthetic\n- Subtitle all dialogue for accessibility\n\n### Platform-Specific Cuts\n- **TikTok:** 30-60 seconds (use Shots 1-3, 4-5, 18) \u2014 3-4 variations\n- **Instagram Reel:** 15-60 seconds (use Shots 1-3, 4-5, 11, 18) \u2014 2-3 variations\n- **YouTube Short:** 15-60 seconds (shorter educational content)\n- **YouTube Long-Form:** 8-12 minutes (full routine + education)\n\n---\n\n## Timeline for 90-Minute Session\n\n| Time | Shot(s) | Duration | Notes |\n|------|---------|----------|-------|\n| 0:00-0:05 | Setup & Testing | 5 min | Lighting check, audio test, practice takes |\n| 0:05-0:15 | Shots 1-3 | 10 min | Intro segment |\n| 0:15-1:05 | Shots 4-11 | 50 min | Product demos (10 min per product area) |\n| 1:05-1:25 | Shots 12-17 | 20 min | Educational content |\n| 1:25-1:30 | Shot 18 | 5 min | CTAs (3 variations for platforms) |\n\n---\n\n## Content Repurposing Strategy\n\n**From This Session, Create:**\n- 4 TikTok videos (30-60 sec each)\n- 3 Instagram Reels (30-60 sec each)\n- 2 YouTube Shorts (30-60 sec each)\n- 1 Long-form YouTube video (8-10 min)\n- 5 Instagram Stories (behind-the-scenes clips)\n- 1 Carousel Post (flat lay + results photos)\n\n**Engagement Hooks Embedded:**\n- \"Watch what happens to my skin...\" (Shot 4-5)\n- \"This is why K-beauty experts use...\" (Shot 12-14)\n- \"You've been applying this wrong...\" (Shot 17)\n- \"The secret to city glow is...\" (Shot 15)\n\n---\n\n## Brand Alignment Notes\n\n\u2713 **Authority:** Educational + expert positioning through ingredient explanations\n\u2713 **K-Beauty:** Traditional skincare routine structure, emphasis on hydration, multi-step philosophy\n\u2713 **Tagline Integration:** \"Glow Like You Own The City\" used in Shots 3, 11, 15, 18\n\u2713 **Price Transparency:** Shot 16 builds confidence in pricing\n\u2713 **Instagram/TikTok/YouTube Ready:** Multiple shot lengths and formats for multi-platform distribution\n\n---\n\n## Production Notes\n\n- **Keep energy high** during talking head segments\u2014confidence sells authority\n- **Show hands clearly** during application shots\u2014viewers learn by watching technique\n- **Repeat key phrases** (\"3,500ppm collagen,\" \"10,000ppm HA,\" \"K-beauty authority\") for memorability\n- **Use natural skin** in before/afters (no heavy makeup) to show product efficacy\n- **Film during golden hour** if possible for flattering lighting on skin\n- **Do multiple takes** of each shot (aim for 2-3 takes per segment)\n"}], "grading": null}], "previous_feedback": {}, "previous_outputs": {}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>
