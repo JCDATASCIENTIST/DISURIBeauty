@@ -1,0 +1,9 @@
+# Financial source documents -- sensitive, never commit
+DISURI Beauty/finance/source-docs/
+DISURI Beauty/finance/monthly-closes/
+
+# Exported financial data
+*.csv
+
+# OS files
+.DS_Store
