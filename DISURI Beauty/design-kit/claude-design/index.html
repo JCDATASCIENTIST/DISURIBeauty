@@ -1,0 +1,149 @@
+<!-- @startingPoint section="Storefront" subtitle="Editorial Shopify storefront, home, collection, PDP, cart with live catalog + bundles" viewport="1280x900" -->
+<!doctype html>
+<!-- @dsCard group="UI Kit, Shopify" name="Shopify UI kit" subtitle="Editorial e-commerce, home, collection, PDP, cart" viewport="1280x900" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>DISURI BEAUTY · Shopify UI Kit</title>
+<link rel="icon" href="../../assets/logos/favicon.svg" />
+<link rel="stylesheet" href="../../colors_and_type.css" />
+<link rel="stylesheet" href="shopify.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<div id="tweaks-root"></div>
+
+<!-- Product catalog: single source of truth lives in /data/catalog.js -->
+<script src="../../data/catalog.js"></script>
+
+<script type="text/babel" src="Atoms.jsx"></script>
+<script type="text/babel" src="Nav.jsx"></script>
+<script type="text/babel" src="KitProductCard.jsx"></script>
+<script type="text/babel" src="Screens.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<script type="text/babel">
+const { useState, useMemo, useEffect } = React;
+
+const App = () => {
+  const [route, setRouteRaw] = useState('home');
+  const [pdpId, setPdpId] = useState('snail');
+  const [cart, setCart] = useState({});
+  const [lang, setLangRaw] = useState(() => {
+    try { return localStorage.getItem('disuri-lang') || 'en'; } catch (e) { return 'en'; }
+  });
+  const setLang = (l) => {
+    setLangRaw(l);
+    document.documentElement.lang = l;
+    try { localStorage.setItem('disuri-lang', l); } catch (e) {}
+  };
+
+  const setRoute = (r) => {
+    setRouteRaw(r);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+  const openPDP = (id) => { setPdpId(id); setRoute('pdp'); };
+  const addToCart = (id) => {
+    setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
+    setRoute('cart');
+  };
+  const updateQty = (id, q) => setCart(c => {
+    const next = { ...c };
+    if (q <= 0) delete next[id]; else next[id] = q;
+    return next;
+  });
+  const removeLine = (id) => setCart(c => { const n = { ...c }; delete n[id]; return n; });
+
+  const cartCount = Object.values(cart).reduce((s, n) => s + n, 0);
+
+  // Hero headline style, set from the Tweaks panel (separate React root) via a window event.
+  const [heroStyle, setHeroStyle] = useState(() => {
+    try { return localStorage.getItem('disuri-herostyle') || 'rested'; } catch (e) { return 'rested'; }
+  });
+  useEffect(() => {
+    const h = (e) => setHeroStyle(e.detail);
+    window.addEventListener('disuri-herostyle', h);
+    return () => window.removeEventListener('disuri-herostyle', h);
+  }, []);
+
+  return (
+    <>
+      <Nav route={route} setRoute={setRoute} cartCount={cartCount} lang={lang} setLang={setLang} />
+      <main data-screen-label={`Shopify · ${route}`}>
+        {route === 'home' && <HomeScreen setRoute={setRoute} openPDP={openPDP} lang={lang} heroStyle={heroStyle} />}
+        {route === 'collection' && <CollectionScreen openPDP={openPDP} lang={lang} />}
+        {route === 'pdp' && <PDPScreen productId={pdpId} addToCart={addToCart} setRoute={setRoute} lang={lang} />}
+        {route === 'cart' && <CartScreen cart={cart} updateQty={updateQty} removeLine={removeLine} setRoute={setRoute} lang={lang} />}
+      </main>
+      {route !== 'cart' && <Footer lang={lang} />}
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+<script type="text/babel">
+// === Product-image Tweaks ===
+// Drives the --pimg-* CSS variables so you can dial in how product photos sit in
+// their frames without anything getting cropped.
+const IMG_TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "heroStyle": "rested",
+  "fit": "contain",
+  "ratio": "1 \/ 1",
+  "zoom": 1,
+  "focusY": 50,
+  "inset": 0,
+  "frame": "#FFFFFF"
+}/*EDITMODE-END*/;
+
+const HERO_STYLE_OPTIONS = ['rested', 'glass', 'ppm', 'origin', 'pov'];
+const HERO_STYLE_LABELS = { rested: 'Benefit', glass: 'Aspiration', ppm: 'Proof', origin: 'Origin', pov: 'Desire' };
+
+function ImageTweaks() {
+  const [t, setTweak] = useTweaks(IMG_TWEAK_DEFAULTS);
+  React.useEffect(() => {
+    const s = document.documentElement.style;
+    s.setProperty('--pimg-fit', t.fit);
+    s.setProperty('--pimg-ratio', t.ratio);
+    s.setProperty('--pimg-scale', String(t.zoom));
+    s.setProperty('--pimg-pos-y', t.focusY + '%');
+    s.setProperty('--pimg-pad', t.inset + '%');
+    s.setProperty('--pimg-bg', t.frame);
+  }, [t]);
+  React.useEffect(() => {
+    try { localStorage.setItem('disuri-herostyle', t.heroStyle); } catch (e) {}
+    window.dispatchEvent(new CustomEvent('disuri-herostyle', { detail: t.heroStyle }));
+  }, [t.heroStyle]);
+  return (
+    <TweaksPanel title="Tweaks">
+      <TweakSection label="Hero headline" />
+      <TweakSelect label="Copy style" value={t.heroStyle}
+        options={HERO_STYLE_OPTIONS.map(v => ({ value: v, label: HERO_STYLE_LABELS[v] }))}
+        onChange={(v) => setTweak('heroStyle', v)} />
+      <TweakSection label="Product images" />
+      <TweakRadio label="Fit" value={t.fit}
+        options={['contain', 'cover']}
+        onChange={(v) => setTweak('fit', v)} />
+      <TweakRadio label="Frame ratio" value={t.ratio}
+        options={['4 / 5', '1 / 1', '3 / 4']}
+        onChange={(v) => setTweak('ratio', v)} />
+      <TweakSlider label="Zoom" value={t.zoom} min={0.6} max={1.6} step={0.05} unit="x"
+        onChange={(v) => setTweak('zoom', v)} />
+      <TweakSlider label="Focal point" value={t.focusY} min={0} max={100} step={1} unit="%"
+        onChange={(v) => setTweak('focusY', v)} />
+      <TweakSlider label="Inset / padding" value={t.inset} min={0} max={18} step={1} unit="%"
+        onChange={(v) => setTweak('inset', v)} />
+      <TweakColor label="Frame background" value={t.frame}
+        options={['#FFFFFF', '#F4F2EE', '#EAE6DE']}
+        onChange={(v) => setTweak('frame', v)} />
+    </TweaksPanel>
+  );
+}
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<ImageTweaks />);
+</script>
+</body>
+</html>

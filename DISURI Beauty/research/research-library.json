@@ -1,0 +1,916 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-06-25",
+  "sources": [
+    {
+      "id": "ha-topical-lmw-dry-skin-2024",
+      "approved": true,
+      "title": "Effectiveness of topical hyaluronic acid of different molecular weights in xerosis cutis treatment in elderly: a double-blind, randomized controlled trial",
+      "authors": "Parikesit Muhammad et al.",
+      "year": 2024,
+      "journal": "Archives of Dermatological Research",
+      "study_type": "rct",
+      "citation_count": 10,
+      "url": "https://consensus.app/papers/details/ab5b897079145caa9194a8ff9648dcb9/?utm_source=disuri",
+      "summary_en": "In a double-blind RCT on dry skin in adults 60–80, a moisturizer with low-molecular-weight hyaluronic acid improved measured skin hydration more than high-MW HA or vehicle after four weeks — with no reported side effects.",
+      "summary_es": "En un ECA doble ciego en piel seca en adultos de 60–80 años, un humectante con ácido hialurónico de bajo peso molecular mejoró la hidratación medida más que HA de alto peso molecular o vehículo tras cuatro semanas, sin efectos secundarios reportados.",
+      "tags": {
+        "concerns": [
+          "concern-dryness"
+        ],
+        "goals": [
+          "goal-sensitive",
+          "goal-antiaging"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "hyaluronic-acid"
+        ]
+      },
+      "disuri_products": [
+        "ha"
+      ]
+    },
+    {
+      "id": "ha-glycerin-centella-24h-2017",
+      "approved": true,
+      "title": "The 24-hour skin hydration and barrier function effects of a hyaluronic 1%, glycerin 5%, and Centella asiatica stem cells extract moisturizing fluid",
+      "authors": "M. Milani et al.",
+      "year": 2017,
+      "journal": "Clinical, Cosmetic and Investigational Dermatology",
+      "study_type": "rct",
+      "citation_count": 45,
+      "url": "https://consensus.app/papers/details/666a21435dfd57739adb8f15df7d679a/?utm_source=disuri",
+      "summary_en": "A single application of a topical fluid with 1% hyaluronic acid, 5% glycerin, and Centella extract significantly improved skin hydration for up to 24 hours and supported barrier recovery vs. untreated skin.",
+      "summary_es": "Una sola aplicación tópica con 1% ácido hialurónico, 5% glicerina y extracto de Centella mejoró significativamente la hidratación hasta 24 horas y apoyó la recuperación de la barrera frente a piel no tratada.",
+      "tags": {
+        "concerns": [
+          "concern-dryness",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-cream",
+          "type-essence"
+        ],
+        "ingredients": [
+          "hyaluronic-acid"
+        ]
+      },
+      "disuri_products": [
+        "ha",
+        "essence"
+      ]
+    },
+    {
+      "id": "ha-topical-review-2022",
+      "approved": true,
+      "title": "Benefits of topical hyaluronic acid for skin quality and signs of skin aging: From literature review to clinical evidence",
+      "authors": "B. Bravo et al.",
+      "year": 2022,
+      "journal": "Dermatologic Therapy",
+      "study_type": "literature review",
+      "citation_count": 136,
+      "url": "https://consensus.app/papers/details/8b48bdc522345622bec1788f52a80fa3/?utm_source=disuri",
+      "summary_en": "This review summarizes clinical evidence that topical hyaluronic acid in cosmeceuticals is well tolerated and supports skin hydration and the appearance of rejuvenated skin — a key role HA plays in the moisture matrix.",
+      "summary_es": "Esta revisión resume evidencia clínica de que el ácido hialurónico tópico en cosmeceúticos es bien tolerado y apoya la hidratación y la apariencia de piel más revitalizada — un papel clave del HA en la matriz de humedad.",
+      "tags": {
+        "concerns": [
+          "concern-dryness",
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging",
+          "goal-start"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "hyaluronic-acid"
+        ]
+      },
+      "disuri_products": [
+        "ha"
+      ]
+    },
+    {
+      "id": "ceramide-barrier-danby-2021",
+      "approved": true,
+      "title": "Enhancement of stratum corneum lipid structure improves skin barrier function and protects against irritation in adults with dry, eczema-prone skin",
+      "authors": "S. Danby et al.",
+      "year": 2021,
+      "journal": "The British Journal of Dermatology",
+      "study_type": "rct",
+      "citation_count": 57,
+      "url": "https://consensus.app/papers/details/b65135da9b99572d8f2fb7ab0c716be3/?utm_source=disuri",
+      "summary_en": "In adults with dry, eczema-prone skin, a cream with ceramides, triglycerides, and cholesterol improved barrier integrity, reduced water loss, and lowered irritation vs. a reference emollient over four weeks.",
+      "summary_es": "En adultos con piel seca propensa al eccema, una crema con ceramidas, triglicéridos y colesterol mejoró la integridad de la barrera, redujo la pérdida de agua y disminuyó la irritación frente a un emoliente de referencia en cuatro semanas.",
+      "tags": {
+        "concerns": [
+          "concern-dryness",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-sensitive",
+          "goal-start"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "ha",
+        "barrier-rescue"
+      ]
+    },
+    {
+      "id": "ceramide-sensitive-nojiri-2018",
+      "approved": true,
+      "title": "Amelioration of lactic acid sensations in sensitive skin by stimulating the barrier function and improving the ceramide profile",
+      "authors": "H. Nojiri et al.",
+      "year": 2018,
+      "journal": "Archives of Dermatological Research",
+      "study_type": "rct",
+      "citation_count": 24,
+      "url": "https://consensus.app/papers/details/0879ae0d699b54deb35d12e107a8ead6/?utm_source=disuri",
+      "summary_en": "A ceramide-complex cream reduced stinging from lactic acid patch tests in women with self-reported sensitive skin, alongside higher stratum corneum ceramide levels and improved barrier measurements vs. placebo.",
+      "summary_es": "Una crema con complejo de ceramidas redujo el escozor en pruebas de ácido láctico en mujeres con piel sensible autorreportada, con mayores niveles de ceramidas en la capa córnea y mejoras en la barrera frente a placebo.",
+      "tags": {
+        "concerns": [
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "ha",
+        "snail",
+        "barrier-rescue"
+      ]
+    },
+    {
+      "id": "ceramide-moisturizer-spada-2018",
+      "approved": true,
+      "title": "Skin hydration is significantly increased by a cream formulated to mimic the skin's own natural moisturizing systems",
+      "authors": "Fabrizio Spada et al.",
+      "year": 2018,
+      "journal": "Clinical, Cosmetic and Investigational Dermatology",
+      "study_type": "rct",
+      "citation_count": 75,
+      "url": "https://consensus.app/papers/details/5b3dd57a59e2516fb352a442ddc16ab3/?utm_source=disuri",
+      "summary_en": "A ceramide-based cream mimicking natural moisturizing factors increased hydration for 24 hours after one application and reduced transepidermal water loss — suggesting value for dry-skin routines.",
+      "summary_es": "Una crema con ceramidas que imita los factores naturales de humectación aumentó la hidratación durante 24 horas tras una aplicación y redujo la pérdida transepidérmica de agua — útil en rutinas para piel seca.",
+      "tags": {
+        "concerns": [
+          "concern-dryness",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-start",
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "ha",
+        "barrier-rescue"
+      ]
+    },
+    {
+      "id": "ceramide-niacinamide-acne-2024",
+      "approved": true,
+      "title": "Efficacy of ceramides and niacinamide-containing moisturizer versus hydrophilic cream in combination with topical anti-acne treatment in mild to moderate acne vulgaris",
+      "authors": "T. Tempark et al.",
+      "year": 2024,
+      "journal": "Journal of Cosmetic Dermatology",
+      "study_type": "rct",
+      "citation_count": 15,
+      "url": "https://consensus.app/papers/details/24a2e1b8ae8a5ac5a43b353a328dd0c2/?utm_source=disuri",
+      "summary_en": "In an 8-week split-face RCT, a ceramide + niacinamide moisturizer used alongside acne treatment improved lesion counts and skin biophysical measures vs. a basic hydrophilic cream — with good tolerability.",
+      "summary_es": "En un ECA split-face de 8 semanas, un humectante con ceramidas y niacinamida junto al tratamiento del acné mejoró lesiones y parámetros biofísicos frente a una crema hidrofílica básica, con buena tolerabilidad.",
+      "tags": {
+        "concerns": [
+          "concern-texture",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-teens",
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide",
+          "niacinamide"
+        ]
+      },
+      "disuri_products": [
+        "snail",
+        "toner",
+        "foam"
+      ]
+    },
+    {
+      "id": "ceramide-acne-adjunct-draelos-2023",
+      "approved": true,
+      "title": "Ceramide-Containing Adjunctive Skin Care for Skin Barrier Restoration During Acne Vulgaris Treatment",
+      "authors": "Z. Draelos et al.",
+      "year": 2023,
+      "journal": "Journal of Drugs in Dermatology",
+      "study_type": "rct",
+      "citation_count": 11,
+      "url": "https://consensus.app/papers/details/e3fca2a22e3a57348198838ab8137b98/?utm_source=disuri",
+      "summary_en": "When paired with prescription-strength acne gel, a ceramide cleanser + moisturizer kept barrier water loss lower and reduced dryness, redness, and scaling vs. a basic wash over 12 weeks.",
+      "summary_es": "Junto a un gel antiacné de prescripción, un limpiador y humectante con ceramidas mantuvieron menor pérdida de agua de la barrera y redujeron sequedad, enrojecimiento y descamación frente a un lavado básico en 12 semanas.",
+      "tags": {
+        "concerns": [
+          "concern-texture",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-teens"
+        ],
+        "types": [
+          "type-cleanser",
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "foam",
+        "toner"
+      ]
+    },
+    {
+      "id": "snail-photoaged-review-2021",
+      "approved": true,
+      "title": "The effect of snail secretion filtrate on photoaged skin",
+      "authors": "Justyna Wojnarowicz et al.",
+      "year": 2021,
+      "journal": "Journal of Face Aesthetics",
+      "study_type": "literature review",
+      "citation_count": 6,
+      "url": "https://consensus.app/papers/details/26d633bea9d656db880b744a078d05e1/?utm_source=disuri",
+      "summary_en": "Literature on snail mucus notes ingredients like allantoin, glycolic acid, and collagen-related proteins; studies report improved hydration, skin structure, and the appearance of photoaging-related changes with topical use.",
+      "summary_es": "La literatura sobre mucina de caracol cita alantoína, ácido glicólico y proteínas relacionadas con el colágeno; estudios reportan mejor hidratación, estructura cutánea y apariencia de cambios por fotoenvejecimiento con uso tópico.",
+      "tags": {
+        "concerns": [
+          "concern-dullness",
+          "concern-texture",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-antiaging",
+          "goal-bestsellers"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "snail-mucin"
+        ]
+      },
+      "disuri_products": [
+        "snail"
+      ]
+    },
+    {
+      "id": "snail-aging-rct-lim-2020",
+      "approved": true,
+      "title": "Efficacy and Safety of a New Cosmeceutical Regimen Based on the Combination of Snail Secretion Filtrate and Snail Egg Extract to Improve Signs of Skin Aging",
+      "authors": "V. Lim et al.",
+      "year": 2020,
+      "journal": "The Journal of Clinical and Aesthetic Dermatology",
+      "study_type": "rct",
+      "citation_count": 12,
+      "url": "https://consensus.app/papers/details/935596e394a05ed1a6399cf4429f9436/?utm_source=disuri",
+      "summary_en": "In a 3-month RCT in women 45–65, a daily routine with snail secretion filtrate improved measured roughness, firmness, elasticity, and fine lines vs. vehicle — with no adverse events reported.",
+      "summary_es": "En un ECA de 3 meses en mujeres de 45–65, una rutina diaria con filtrado de secreción de caracol mejoró rugosidad, firmeza, elasticidad y líneas finas medidas frente a vehículo, sin eventos adversos.",
+      "tags": {
+        "concerns": [
+          "concern-firmness",
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging",
+          "goal-bestsellers"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "snail-mucin"
+        ]
+      },
+      "disuri_products": [
+        "snail"
+      ]
+    },
+    {
+      "id": "snail-cream-kim-2015",
+      "approved": true,
+      "title": "Use of Cream Containing Mucus Secreted by Snails Has an Anti-aging Effect on Skin",
+      "authors": "B. Kim et al.",
+      "year": 2015,
+      "journal": "Journal of Clinical Dermatology",
+      "study_type": "rct",
+      "citation_count": 7,
+      "url": "https://consensus.app/papers/details/122f1ba1c4635e1a90122eafdb4b1d2c/?utm_source=disuri",
+      "summary_en": "After four weeks of twice-daily snail-mucus cream on the face, measured wrinkles, elasticity, dermal density, and skin tightening improved significantly vs. baseline in a small clinical study.",
+      "summary_es": "Tras cuatro semanas de crema con mucus de caracol dos veces al día en el rostro, arrugas, elasticidad, densidad dérmica y tensión cutánea mejoraron significativamente vs. línea base en un estudio clínico pequeño.",
+      "tags": {
+        "concerns": [
+          "concern-firmness",
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "snail-mucin"
+        ]
+      },
+      "disuri_products": [
+        "snail"
+      ]
+    },
+    {
+      "id": "snail-review-singh-2024",
+      "approved": true,
+      "title": "Snail extract for skin: A review of uses, projections, and limitations",
+      "authors": "Nupur Singh et al.",
+      "year": 2024,
+      "journal": "Journal of Cosmetic Dermatology",
+      "study_type": "literature review",
+      "citation_count": 29,
+      "url": "https://consensus.app/papers/details/dd124719c3b254d4b84d4f8428cfd0cd/?utm_source=disuri",
+      "summary_en": "This review maps cosmetic uses of snail mucin — hydration, the appearance of aging, texture, and post-blemish marks — and notes that larger clinical trials are still needed to confirm many claims.",
+      "summary_es": "Esta revisión describe usos cosméticos de la mucina de caracol — hidratación, apariencia del envejecimiento, textura y marcas post-brotes — y señala que aún faltan ensayos clínicos más amplios.",
+      "tags": {
+        "concerns": [
+          "concern-texture",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-teens",
+          "goal-sensitive",
+          "goal-bestsellers"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "snail-mucin"
+        ]
+      },
+      "disuri_products": [
+        "snail"
+      ]
+    },
+    {
+      "id": "snail-hydration-rct-2021",
+      "approved": true,
+      "title": "Snail Soothing and Repairing Cream Improves Skin Hydration after Ablative Fractional CO2 Laser",
+      "authors": "Chinathip Theerawattanawit et al.",
+      "year": 2021,
+      "journal": "Skin Pharmacology and Physiology",
+      "study_type": "rct",
+      "citation_count": 9,
+      "url": "https://consensus.app/papers/details/c785f06c77015cb79638baedd1e2c23d/?utm_source=disuri",
+      "summary_en": "In a split-face RCT after laser resurfacing, a snail-based repair cream significantly improved corneometry (hydration) vs. placebo at day 14, supporting barrier-repair and hydration roles for snail mucin formulas.",
+      "summary_es": "En un ECA split-face tras láser, una crema reparadora con caracol mejoró significativamente la cornemetría (hidratación) frente a placebo al día 14, apoyando roles de reparación de barrera e hidratación.",
+      "tags": {
+        "concerns": [
+          "concern-barrier",
+          "concern-dryness"
+        ],
+        "goals": [
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "snail-mucin"
+        ]
+      },
+      "disuri_products": [
+        "snail"
+      ]
+    },
+    {
+      "id": "collagen-meta-de-miranda-2021",
+      "approved": true,
+      "title": "Effects of hydrolyzed collagen supplementation on skin aging: a systematic review and meta-analysis",
+      "authors": "Roseane B de Miranda et al.",
+      "year": 2021,
+      "journal": "International Journal of Dermatology",
+      "study_type": "meta-analysis",
+      "citation_count": 111,
+      "url": "https://consensus.app/papers/details/08d060aea2aa54ab9e1c96f7fcf15aec/?utm_source=disuri",
+      "summary_en": "This meta-analysis of 19 RCTs found oral hydrolyzed collagen was associated with improvements in skin hydration, elasticity, and wrinkle appearance vs. placebo over ~90 days. Note: DISURI collagen cream is topical; this supports collagen as a skin-appearance ingredient class.",
+      "summary_es": "Este metaanálisis de 19 ECA encontró que el colágeno hidrolizado oral se asoció con mejoras en hidratación, elasticidad y apariencia de arrugas vs. placebo en ~90 días. Nota: la crema DISURI es tópica; esto apoya el colágeno como clase de ingrediente para la apariencia cutánea.",
+      "tags": {
+        "concerns": [
+          "concern-firmness",
+          "concern-dullness",
+          "concern-dryness"
+        ],
+        "goals": [
+          "goal-antiaging",
+          "goal-bestsellers"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "collagen"
+        ]
+      },
+      "disuri_products": [
+        "collagen",
+        "anti-aging-duo"
+      ]
+    },
+    {
+      "id": "collagen-marine-rct-evans-2020",
+      "approved": true,
+      "title": "A randomized, triple-blind, placebo-controlled, parallel study to evaluate the efficacy of a freshwater marine collagen on skin wrinkles and elasticity",
+      "authors": "M. Evans et al.",
+      "year": 2020,
+      "journal": "Journal of Cosmetic Dermatology",
+      "study_type": "rct",
+      "citation_count": 82,
+      "url": "https://consensus.app/papers/details/3587cc24f4965e67b1f7f897b438a31f/?utm_source=disuri",
+      "summary_en": "Women 45–60 taking marine collagen daily for 12 weeks showed significant wrinkle-score reductions and reported improvements in elasticity, hydration, radiance, and firmness vs. placebo.",
+      "summary_es": "Mujeres de 45–60 que tomaron colágeno marino diario durante 12 semanas mostraron reducciones significativas en puntuación de arrugas y mejoras reportadas en elasticidad, hidratación, luminosidad y firmeza vs. placebo.",
+      "tags": {
+        "concerns": [
+          "concern-firmness",
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging",
+          "goal-bestsellers"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "collagen"
+        ]
+      },
+      "disuri_products": [
+        "collagen"
+      ]
+    },
+    {
+      "id": "collagen-topical-review-al-atif-2022",
+      "approved": true,
+      "title": "Collagen Supplements for Aging and Wrinkles: A Paradigm Shift in the Fields of Dermatology and Cosmetics",
+      "authors": "Hend Al-Atif",
+      "year": 2022,
+      "journal": "Dermatology Practical & Conceptual",
+      "study_type": "literature review",
+      "citation_count": 99,
+      "url": "https://consensus.app/papers/details/599e53f20705547a9cda349a9dcdb860/?utm_source=disuri",
+      "summary_en": "Review of RCTs suggests both oral and topical collagen approaches may support skin moisture, elasticity, and a smoother-looking surface — framing collagen as a widely studied anti-aging cosmetic ingredient.",
+      "summary_es": "Una revisión de ECA sugiere que el colágeno oral y tópico puede apoyar la humedad, elasticidad y una superficie más lisa — enmarcando el colágeno como ingrediente antiedad ampliamente estudiado.",
+      "tags": {
+        "concerns": [
+          "concern-firmness",
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging"
+        ],
+        "types": [
+          "type-cream",
+          "type-eye"
+        ],
+        "ingredients": [
+          "collagen"
+        ]
+      },
+      "disuri_products": [
+        "collagen",
+        "eye"
+      ]
+    },
+    {
+      "id": "adenosine-cream-kang-2018",
+      "approved": true,
+      "title": "Adenosine-loaded dissolving microneedle patches to improve skin wrinkles, dermal density, elasticity and hydration (vs. adenosine cream)",
+      "authors": "G. Kang et al.",
+      "year": 2018,
+      "journal": "International Journal of Cosmetic Science",
+      "study_type": "rct",
+      "citation_count": 47,
+      "url": "https://consensus.app/papers/details/a6f6ce22e1b057768aca83bb0d6be43c/?utm_source=disuri",
+      "summary_en": "An 8-week crow's-feet study compared adenosine delivery methods; adenosine cream improved wrinkle depth, dermal density, elasticity, and hydration vs. baseline — relevant to DISURI's adenosine-containing firming cream.",
+      "summary_es": "Un estudio de 8 semanas en patas de gallo comparó métodos de adenosina; la crema con adenosina mejoró profundidad de arrugas, densidad dérmica, elasticidad e hidratación vs. línea base — relevante para la crema reafirmante DISURI.",
+      "tags": {
+        "concerns": [
+          "concern-firmness",
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging"
+        ],
+        "types": [
+          "type-cream",
+          "type-eye"
+        ],
+        "ingredients": [
+          "adenosine",
+          "collagen"
+        ]
+      },
+      "disuri_products": [
+        "collagen",
+        "eye",
+        "essence"
+      ]
+    },
+    {
+      "id": "vitamin-c-radiance-rct-2020",
+      "approved": true,
+      "title": "Anti-aging and brightening effects of a topical treatment containing vitamin C, vitamin E, and raspberry leaf cell culture extract",
+      "authors": "Pattarawan Rattanawiwatpong et al.",
+      "year": 2020,
+      "journal": "Journal of Cosmetic Dermatology",
+      "study_type": "rct",
+      "citation_count": 124,
+      "url": "https://consensus.app/papers/details/40a16961d9665bb9859e761546a94414/?utm_source=disuri",
+      "summary_en": "In a 2-month split-face RCT, a topical antioxidant serum improved measured elasticity, radiance, moisture, and wrinkle micro-topography vs. the untreated side — supporting antioxidant steps for dull-looking skin.",
+      "summary_es": "En un ECA split-face de 2 meses, un suero antioxidante tópico mejoró elasticidad, luminosidad, humedad y micro-topografía de arrugas vs. el lado no tratado — apoyando pasos antioxidantes para piel opaca.",
+      "tags": {
+        "concerns": [
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging"
+        ],
+        "types": [
+          "type-essence",
+          "type-cream"
+        ],
+        "ingredients": []
+      },
+      "disuri_products": [
+        "essence",
+        "toner"
+      ]
+    },
+    {
+      "id": "ceramide-clinical-review-kono-2021",
+      "approved": true,
+      "title": "Clinical significance of the water retention and barrier function-improving capabilities of ceramide-containing formulations: A qualitative review",
+      "authors": "T. Kono et al.",
+      "year": 2021,
+      "journal": "The Journal of Dermatology",
+      "study_type": "systematic review",
+      "citation_count": 32,
+      "url": "https://consensus.app/papers/details/82410855800b5e4a972b68f0d24b50a9/?utm_source=disuri",
+      "summary_en": "Review of 41 comparative studies: ceramide-containing topicals statistically improved dry skin and barrier function — a foundation for layered K-beauty routines that start with barrier support.",
+      "summary_es": "Revisión de 41 estudios comparativos: formulaciones con ceramidas mejoraron estadísticamente piel seca y función de barrera — base para rutinas K-beauty en capas que empiezan por la barrera.",
+      "tags": {
+        "concerns": [
+          "concern-barrier",
+          "concern-dryness"
+        ],
+        "goals": [
+          "goal-start",
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-set",
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "barrier-rescue",
+        "complete-system",
+        "ha"
+      ]
+    },
+    {
+      "id": "emollient-eczema-cochrane-2017",
+      "approved": true,
+      "title": "Emollients and moisturizers for eczema: abridged Cochrane systematic review",
+      "authors": "E. Zuuren et al.",
+      "year": 2017,
+      "journal": "British Journal of Dermatology",
+      "study_type": "systematic review",
+      "citation_count": 83,
+      "url": "https://consensus.app/papers/details/ac1ebb6d3a025d778eaeb35b5eef88dc/?utm_source=disuri",
+      "summary_en": "Cochrane abridged review: regular moisturizers improve dryness scores and reduce flare frequency — supporting a simple cleanse → treat → moisturize framework for beginners building a routine.",
+      "summary_es": "Revisión Cochrane abreviada: humectantes regulares mejoran puntuaciones de sequedad y reducen brotes — apoya un marco simple limpiar → tratar → humectuar para quienes empiezan una rutina.",
+      "tags": {
+        "concerns": [
+          "concern-dryness",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-start"
+        ],
+        "types": [
+          "type-set",
+          "type-cream",
+          "type-cleanser"
+        ],
+        "ingredients": []
+      },
+      "disuri_products": [
+        "complete-system",
+        "barrier-rescue"
+      ]
+    },
+    {
+      "id": "pseudo-ceramide-sensitive-2024",
+      "approved": true,
+      "title": "Efficacy of Pseudo-Ceramide Absorption Into the Stratum Corneum and Effects on Transepidermal Water Loss and the Ceramide Profile",
+      "authors": "Tomoki Akahane et al.",
+      "year": 2024,
+      "journal": "Journal of Cosmetic Dermatology",
+      "study_type": "rct",
+      "citation_count": 5,
+      "url": "https://consensus.app/papers/details/fc2f51969eeb5e0f87178384568fd1d1/?utm_source=disuri",
+      "summary_en": "In adults with self-perceived dry, sensitive skin, a pseudo-ceramide spray improved water content, reduced TEWL, and normalized ceramide profiles over four weeks vs. a spray without ceramides.",
+      "summary_es": "En adultos con piel seca y sensible autorreportada, un spray con pseudo-ceramida mejoró contenido de agua, redujo TEWL y normalizó perfiles de ceramidas en cuatro semanas vs. spray sin ceramidas.",
+      "tags": {
+        "concerns": [
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-cream",
+          "type-toner"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "ha",
+        "toner"
+      ]
+    },
+    {
+      "id": "ceramide-np-sensitive-2026",
+      "approved": true,
+      "title": "Monocentric study: Ceramide NP C15-containing emollient on skin microbiome and barrier function in sensitive skin",
+      "authors": "F. Dimmers et al.",
+      "year": 2026,
+      "journal": "Skin Pharmacology and Physiology",
+      "study_type": "rct",
+      "citation_count": 0,
+      "url": "https://consensus.app/papers/details/62a372482fa15825a701b02780828e6b/?utm_source=disuri",
+      "summary_en": "Double-blind RCT: a ceramide NP emollient improved barrier function (lower TEWL) in participants with impaired barriers and was associated with symptom relief in sensitive skin over six weeks.",
+      "summary_es": "ECA doble ciego: un emoliente con ceramida NP mejoró la función de barrera (menor TEWL) en participantes con barrera alterada y se asoció con alivio de síntomas en piel sensible en seis semanas.",
+      "tags": {
+        "concerns": [
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "ha",
+        "barrier-rescue"
+      ]
+    },
+    {
+      "id": "clascoterone-teens-acne-2020",
+      "approved": true,
+      "title": "Efficacy and Safety of Topical Clascoterone Cream, 1%, for Treatment in Patients With Facial Acne (ages 9+)",
+      "authors": "A. Hebert et al.",
+      "year": 2020,
+      "journal": "JAMA Dermatology",
+      "study_type": "rct",
+      "citation_count": 111,
+      "url": "https://consensus.app/papers/details/785eb11f36835905908ae00fe8b15ba1/?utm_source=disuri",
+      "summary_en": "Phase 3 RCTs included adolescents 9+ with moderate acne; effective topical treatment paired with a gentle, barrier-supporting routine is the standard approach for teen skin — context for DISURI's cleanse + toner + non-stripping moisturizer path.",
+      "summary_es": "ECA fase 3 incluyeron adolescentes de 9+ con acné moderado; tratamiento tópico eficaz junto a rutina suave que apoye la barrera es el enfoque estándar — contexto para la ruta limpiador + tónico + humectante DISURI.",
+      "tags": {
+        "concerns": [
+          "concern-texture"
+        ],
+        "goals": [
+          "goal-teens"
+        ],
+        "types": [
+          "type-cleanser",
+          "type-toner"
+        ],
+        "ingredients": []
+      },
+      "disuri_products": [
+        "foam",
+        "toner",
+        "snail"
+      ]
+    },
+    {
+      "id": "snail-maskne-rct-2022",
+      "approved": true,
+      "title": "Efficacy and safety of a facial serum containing snail secretion filtrate in the treatment of maskne",
+      "authors": "Thanaporn Puaratanaarunkon et al.",
+      "year": 2022,
+      "journal": "Journal of Cosmetic Dermatology",
+      "study_type": "rct",
+      "citation_count": 7,
+      "url": "https://consensus.app/papers/details/f372cb95c73e5543ad93cc0139fc2929/?utm_source=disuri",
+      "summary_en": "12-week RCT: a snail-secretion serum significantly reduced inflammatory acne lesions under mask-covered areas vs. placebo, with mild tolerability — relevant for teens dealing with occlusion-related breakouts.",
+      "summary_es": "ECA de 12 semanas: un suero con secreción de caracol redujo significativamente lesiones inflamatorias bajo áreas cubiertas por mascarilla vs. placebo, con tolerabilidad leve — relevante para adolescentes con brotes por oclusión.",
+      "tags": {
+        "concerns": [
+          "concern-texture"
+        ],
+        "goals": [
+          "goal-teens"
+        ],
+        "types": [
+          "type-cream",
+          "type-essence"
+        ],
+        "ingredients": [
+          "snail-mucin"
+        ]
+      },
+      "disuri_products": [
+        "snail",
+        "foam"
+      ]
+    },
+    {
+      "id": "restorative-emollient-danby-2020",
+      "approved": true,
+      "title": "An Investigation of the Skin Barrier Restoring Effects of a Cream and Lotion Containing Ceramides in a Multi-vesicular Emulsion (RESTORE Study)",
+      "authors": "S. Danby et al.",
+      "year": 2020,
+      "journal": "Dermatology and Therapy",
+      "study_type": "rct",
+      "citation_count": 28,
+      "url": "https://consensus.app/papers/details/1711df7736d1533ab13068633dfe35f4/?utm_source=disuri",
+      "summary_en": "Single application of a lipid-replenishing cream sustained clinically meaningful hydration for 24 hours on dry, eczema-prone legs — supporting complete multi-step systems over one-off products.",
+      "summary_es": "Una aplicación de crema repleta de lípidos mantuvo hidratación clínicamente significativa 24 horas en piernas secas propensas al eccema — apoya sistemas completos en varios pasos frente a un solo producto.",
+      "tags": {
+        "concerns": [
+          "concern-dryness",
+          "concern-barrier"
+        ],
+        "goals": [
+          "goal-start",
+          "goal-bestsellers"
+        ],
+        "types": [
+          "type-set"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "complete-system",
+        "barrier-rescue"
+      ]
+    },
+    {
+      "id": "collagen-cream-bianchi-2022",
+      "approved": true,
+      "title": "Evaluation of the Efficacy of a Hydrolyzed Collagen Supplement for Improving Skin Moisturization, Smoothness, and Wrinkles (topical hydrolyzed collagen arm)",
+      "authors": "F. Bianchi et al.",
+      "year": 2022,
+      "journal": "The Journal of Clinical and Aesthetic Dermatology",
+      "study_type": "rct",
+      "citation_count": 19,
+      "url": "https://consensus.app/papers/details/cd9ef42f78fb5402a7d1bdc058d7152d/?utm_source=disuri",
+      "summary_en": "56-day RCT: topical hydrolyzed collagen improved instrumentally measured moisturization, elasticity, and wrinkle depth vs. maltodextrin control — direct topical evidence for collagen in creams.",
+      "summary_es": "ECA de 56 días: colágeno hidrolizado tópico mejoró humectación, elasticidad y profundidad de arrugas medidas vs. control de maltodextrina — evidencia tópica directa del colágeno en cremas.",
+      "tags": {
+        "concerns": [
+          "concern-firmness",
+          "concern-dullness"
+        ],
+        "goals": [
+          "goal-antiaging",
+          "goal-bestsellers"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "collagen"
+        ]
+      },
+      "disuri_products": [
+        "collagen"
+      ]
+    },
+    {
+      "id": "ha-systematic-review-injectable-2023",
+      "approved": true,
+      "title": "The Effectiveness of Injectable Hyaluronic Acid in the Improvement of the Facial Skin Quality: A Systematic Review",
+      "authors": "A. S. Ghatge et al.",
+      "year": 2023,
+      "journal": "Clinical, Cosmetic and Investigational Dermatology",
+      "study_type": "systematic review",
+      "citation_count": 33,
+      "url": "https://consensus.app/papers/details/d895290fc6b85ca9b54e15e46896afd5/?utm_source=disuri",
+      "summary_en": "Systematic review of 13 studies: HA formulations improved hydration, firmness, brightness, texture, and elasticity appearance. Most studies used injectable HA; topical HA creams share the same humectant mechanism at the skin surface.",
+      "summary_es": "Revisión sistemática de 13 estudios: formulaciones con HA mejoraron apariencia de hidratación, firmeza, luminosidad, textura y elasticidad. La mayoría usó HA inyectable; las cremas tópicas comparten el mismo mecanismo humectante en la superficie.",
+      "tags": {
+        "concerns": [
+          "concern-dryness",
+          "concern-dullness",
+          "concern-firmness"
+        ],
+        "goals": [
+          "goal-antiaging"
+        ],
+        "types": [
+          "type-cream"
+        ],
+        "ingredients": [
+          "hyaluronic-acid"
+        ]
+      },
+      "disuri_products": [
+        "ha"
+      ]
+    },
+    {
+      "id": "barrier-repair-narrative-2024",
+      "approved": true,
+      "title": "Revitalizing the skin: Exploring the role of barrier repair moisturizers",
+      "authors": "N. Madnani et al.",
+      "year": 2024,
+      "journal": "Journal of Cosmetic Dermatology",
+      "study_type": "literature review",
+      "citation_count": 20,
+      "url": "https://consensus.app/papers/details/c3c8b44907d95ba08a4d633c2927dc38/?utm_source=disuri",
+      "summary_en": "Narrative review: moisturizers with physiological lipids (ceramides, fatty acids) help restore barrier function in dry, sensitive, or stressed skin — the science behind barrier-first K-beauty layering.",
+      "summary_es": "Revisión narrativa: humectantes con lípidos fisiológicos (ceramidas, ácidos grasos) ayudan a restaurar la barrera en piel seca, sensible o estresada — la ciencia detrás del layering K-beauty centrado en la barrera.",
+      "tags": {
+        "concerns": [
+          "concern-barrier",
+          "concern-dryness"
+        ],
+        "goals": [
+          "goal-start",
+          "goal-sensitive"
+        ],
+        "types": [
+          "type-set",
+          "type-cream"
+        ],
+        "ingredients": [
+          "ceramide"
+        ]
+      },
+      "disuri_products": [
+        "barrier-rescue",
+        "complete-system"
+      ]
+    }
+  ]
+}

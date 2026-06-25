@@ -1,0 +1,259 @@
+/* =========================================================
+   DISURI BEAUTY, Color + Type Tokens
+   Sourced from:
+   - Brand Voice Guidelines v3 (Mar 2026)
+   - Brand Style Guide PDF (Nov 2025)
+   - Digital Design System extension
+   ========================================================= */
+
+/* Licensed brand fonts (drop OTFs into fonts/). */
+@font-face {
+  font-family: 'Bodoni Book';
+  src: url('fonts/Bodoni_Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bodoni 72';
+  src: url('fonts/bodoni-72-oldstyle-book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mrs Eaves';
+  src: url('fonts/mrs-eaves-roman.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Frutiger';
+  src: url('fonts/frutiger-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Google Fonts substitutes, fallback for Mrs Eaves (→ Libre Baskerville)
+   and Frutiger (→ Cabin). Drop those licensed OTFs into fonts/ and add
+   @font-face rules above this @import. */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cabin:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- BRAND COLOR (7-color palette) ---------- */
+  --color-crimson:   #B82024;   /* Power Crimson, primary brand, CTAs, Triple Collagen family */
+  --color-midnight:  #1F3F5C;   /* Midnight Hydration Blue, HA family, science/trust signaling */
+  --color-noir:      #2A2A2A;   /* Deep Charcoal Noir, primary text, dark backgrounds */
+  --color-copper:    #B5673C;   /* Molten Copper, warm accent, icons, brand pillar markers */
+  --color-porcelain: #F4F2EE;   /* Soft Porcelain, default background (not pure white) */
+  --color-white:     #FFFFFF;
+  --color-black:     #000000;
+
+  /* Functional */
+  --color-hairline: rgba(42, 42, 42, 0.08);
+  --color-hairline-strong: rgba(42, 42, 42, 0.18);
+  --color-error: #9C2A2A;
+  --color-success: #2D6A4F;
+
+  /* Product family accents (per Brand Style Guide PDF) */
+  --color-family-collagen: var(--color-crimson);
+  --color-family-hydration: var(--color-midnight);
+  --color-family-snail: var(--color-copper);
+
+  /* Semantic */
+  --fg-1: var(--color-noir);
+  --fg-2: rgba(42, 42, 42, 0.72);
+  --fg-muted: rgba(42, 42, 42, 0.56);
+  --fg-inverse: var(--color-white);
+  --bg-1: var(--color-white);
+  --bg-2: var(--color-porcelain);
+  --bg-inverse: var(--color-noir);
+  --accent: var(--color-crimson);
+  --border-1: var(--color-hairline);
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display: 'Bodoni Book', 'Bodoni Moda', 'Bodoni 72', 'Didot', Georgia, serif;
+  --font-subhead: 'Mrs Eaves', 'Libre Baskerville', Baskerville, Georgia, serif;
+  --font-body:    'Mrs Eaves', 'Libre Baskerville', Baskerville, Georgia, serif;
+  --font-ui:      'Frutiger', 'Frutiger LT', 'Cabin', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Email-safe fallback stacks */
+  --font-email-display: 'Bodoni 72', 'Didot', Georgia, serif;
+  --font-email-body:    'Libre Baskerville', 'Baskerville', Georgia, 'Times New Roman', serif;
+  --font-email-ui:      'Helvetica Neue', Arial, sans-serif;
+
+  /* ---------- TYPE SCALE ---------- */
+  --text-display:    64px;  --lh-display:  72px;
+  --text-h1:         48px;  --lh-h1:       56px;
+  --text-h2:         32px;  --lh-h2:       40px;
+  --text-h3:         24px;  --lh-h3:       32px;
+  --text-body-lg:    18px;  --lh-body-lg:  28px;
+  --text-body:       16px;  --lh-body:     26px;
+  --text-caption:    13px;  --lh-caption:  18px;
+  --text-button:     14px;  --lh-button:   14px;
+
+  --tracking-button: 0.08em;
+  --tracking-badge:  0.10em;
+  --tracking-eyebrow: 0.10em;
+
+  /* ---------- SPACING (8pt grid) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ---------- RADIUS ---------- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-card: 0 1px 2px rgba(42,42,42,0.06), 0 4px 12px rgba(42,42,42,0.06);
+
+  /* ---------- GRID ---------- */
+  --grid-max: 1280px;
+  --grid-gutter-d: 80px;
+  --grid-col-gap: 24px;
+
+  /* ---------- ACCESSIBILITY ---------- */
+  --focus-ring: 0 0 0 2px var(--color-porcelain), 0 0 0 4px var(--color-crimson); /* @kind other */
+  --focus-ring-color: var(--color-crimson);
+  --tap-target-min: 44px; /* iOS/Android minimum hit target */
+
+  /* ---------- MOTION ---------- */
+  --ease-editorial: cubic-bezier(0.32, 0.08, 0.24, 1); /* @kind other */
+  --dur-fast: 160ms; /* @kind other */
+  --dur-base: 240ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+}
+
+/* =========================================================
+   SEMANTIC TYPE PRIMITIVES
+   ========================================================= */
+
+.d-display, h1.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-display);
+  line-height: var(--lh-display);
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+
+.d-h1, h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: -0.005em;
+  color: var(--fg-1);
+}
+
+.d-h2, h2 {
+  /* Per Brand Style Guide: H2 is Mrs Eaves for elegant emphasis. */
+  font-family: var(--font-subhead);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-h2);
+  line-height: var(--lh-h2);
+  color: var(--fg-1);
+}
+
+.d-h3, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-h3);
+  line-height: var(--lh-h3);
+  color: var(--fg-1);
+}
+
+.d-subhead-italic {
+  font-family: var(--font-subhead);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--fg-1);
+}
+
+.d-body-lg, p.lead {
+  font-family: var(--font-ui);
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-body-lg);
+  color: var(--fg-1);
+}
+
+.d-body, p {
+  /* Per Brand Style Guide: body text is Frutiger (humanist sans). */
+  font-family: var(--font-ui);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+}
+
+.d-caption, small, caption {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  line-height: var(--lh-caption);
+  color: var(--fg-2);
+}
+
+.d-label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--fg-1);
+}
+
+.d-button-text {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: var(--text-button);
+  line-height: var(--lh-button);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-button);
+}
+
+.d-badge-text {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-badge);
+}
+
+.d-eyebrow {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--fg-2);
+}
+
+/* Bilingual stack, EN above, ES below at 85% */
+.d-bilingual .en { display: block; }
+.d-bilingual .es {
+  display: block;
+  font-size: 0.85em;
+  line-height: 1.15;
+  margin-top: 0.3em;
+  color: inherit;
+  font-style: italic;
+  font-family: inherit;
+}

@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-06-25",
+  "filters": {
+    "type-cream": {
+      "headline_en": "Creams seal in hydration and active ingredients",
+      "headline_es": "Las cremas sellan la hidratación y los activos",
+      "intro_en": "Moisturizers are the last step that locks in toner and essence. Look for formulas that match your concern — HA for dryness, collagen peptides for firmness appearance, snail filtrate for texture and barrier support.",
+      "intro_es": "Los humectantes son el paso final que fija tónico y esencia. Busca fórmulas según tu preocupación: HA para sequedad, péptidos de colágeno para apariencia de firmeza, filtrado de caracol para textura y barrera."
+    },
+    "type-toner": {
+      "headline_en": "Toners prep skin for what comes next",
+      "headline_es": "Los tónicos preparan la piel para lo siguiente",
+      "intro_en": "After cleansing, a toner rebalances and delivers a first layer of hydration. In K-beauty, this step sets up better absorption for essence and cream.",
+      "intro_es": "Tras limpiar, un tónico reequilibra y aporta la primera capa de hidratación. En K-beauty, este paso prepara mejor la absorción de esencia y crema."
+    },
+    "type-essence": {
+      "headline_en": "Essences deliver lightweight active support",
+      "headline_es": "Las esencias aportan activos ligeros",
+      "intro_en": "Essences sit between toner and cream — thinner than a moisturizer but richer in targeted ingredients for radiance and firmness appearance.",
+      "intro_es": "Las esencias van entre tónico y crema: más ligeras que un humectante pero con ingredientes orientados a luminosidad y apariencia de firmeza."
+    },
+    "type-cleanser": {
+      "headline_en": "Gentle cleansing protects your barrier",
+      "headline_es": "Una limpieza suave protege tu barrera",
+      "intro_en": "The goal is to remove buildup without stripping lipids. A low-irritation cleanser supports every other step — especially if you are managing breakouts or sensitive skin.",
+      "intro_es": "El objetivo es eliminar impurezas sin arrastrar lípidos. Un limpiador de baja irritación apoya todos los demás pasos, especialmente con brotes o piel sensible."
+    },
+    "type-eye": {
+      "headline_en": "Eye care targets a thinner, delicate area",
+      "headline_es": "El contorno de ojos trata una zona más fina",
+      "intro_en": "The skin around the eyes often shows fine lines first. Peptide and adenosine formulas are commonly studied for wrinkle appearance and elasticity in this zone.",
+      "intro_es": "La piel del contorno suele mostrar primero líneas finas. Fórmulas con péptidos y adenosina se estudian por la apariencia de arrugas y elasticidad en esta zona."
+    },
+    "type-set": {
+      "headline_en": "Systems remove the guesswork from layering",
+      "headline_es": "Los sistemas quitan la duda del layering",
+      "intro_en": "Pre-built routines apply products in the order research supports: cleanse → treat → moisturize. Bundles are the fastest path from education to a complete ritual.",
+      "intro_es": "Las rutinas prearmadas aplican productos en el orden que respalda la investigación: limpiar → tratar → humectuar. Los bundles son el camino más rápido de la educación al ritual completo."
+    },
+    "concern-dryness": {
+      "headline_en": "Dryness often starts with a weakened moisture barrier",
+      "headline_es": "La sequedad suele empezar con una barrera débil",
+      "intro_en": "When skin loses water faster than it holds it, the surface can look dull and feel tight. Humectants like hyaluronic acid and barrier lipids like ceramides are among the most studied topical approaches.",
+      "intro_es": "Cuando la piel pierde agua más rápido de lo que la retiene, la superficie puede verse opaca y sentirse tirante. Humectantes como el ácido hialurónico y lípidos de barrera como ceramidas están entre los enfoques tópicos más estudiados."
+    },
+    "concern-texture": {
+      "headline_en": "Texture and breakouts need balance, not stripping",
+      "headline_es": "Textura y brotes piden equilibrio, no agresividad",
+      "intro_en": "Research on acne-prone skin consistently pairs active treatment with barrier-supporting moisturizers. Gentle cleansing and non-comedogenic hydration help skin recover while managing blemishes.",
+      "intro_es": "La investigación en piel propensa al acné combina tratamiento activo con humectantes que apoyan la barrera. Limpieza suave e hidratación no comedogénica ayudan mientras se manejan imperfecciones."
+    },
+    "concern-dullness": {
+      "headline_en": "Dullness is often about hydration and surface renewal",
+      "headline_es": "La opacidad suele relacionarse con hidratación y renovación",
+      "intro_en": "Dehydrated or uneven skin can look less radiant. Antioxidant essences, collagen-supporting creams, and consistent SPF (daytime) are common building blocks in the literature for a brighter-looking surface.",
+      "intro_es": "Piel deshidratada o irregular puede verse menos radiante. Esencias antioxidantes, cremas con soporte de colágeno y SPF constante (día) son bloques habituales en la literatura para una superficie más luminosa."
+    },
+    "concern-firmness": {
+      "headline_en": "Loss of firmness relates to collagen support and elasticity",
+      "headline_es": "La pérdida de firmeza se relaciona con colágeno y elasticidad",
+      "intro_en": "With age, skin may show less bounce and more visible lines. Collagen peptides, adenosine, and snail secretion filtrate are among ingredients with human studies on wrinkle appearance and elasticity.",
+      "intro_es": "Con la edad, la piel puede mostrar menos elasticidad y más líneas visibles. Péptidos de colágeno, adenosina y filtrado de caracol están entre ingredientes con estudios humanos sobre apariencia de arrugas y elasticidad."
+    },
+    "concern-barrier": {
+      "headline_en": "A stressed barrier needs lipids and gentle care",
+      "headline_es": "Una barrera estresada necesita lípidos y cuidado suave",
+      "intro_en": "Stinging, redness, or reactivity often tracks with increased water loss through the skin. Ceramide-rich moisturizers and minimalist routines are widely studied for restoring barrier function.",
+      "intro_es": "Escozor, enrojecimiento o reactividad suelen ir con mayor pérdida de agua cutánea. Humectantes ricos en ceramidas y rutinas minimalistas se estudian ampliamente para restaurar la barrera."
+    },
+    "goal-start": {
+      "headline_en": "Start with cleanse → treat → moisturize",
+      "headline_es": "Empieza con limpiar → tratar → humectuar",
+      "intro_en": "You do not need ten products. Research on moisturizers and barrier repair supports a simple three-step core. Our Complete System and Barrier Rescue bundles map to this framework.",
+      "intro_es": "No necesitas diez productos. La investigación sobre humectantes y reparación de barrera apoya un núcleo de tres pasos. Complete System y Barrier Rescue siguen este marco."
+    },
+    "goal-sensitive": {
+      "headline_en": "Sensitive skin rewards barrier-first formulas",
+      "headline_es": "La piel sensible responde a fórmulas que priorizan la barrera",
+      "intro_en": "Fewer irritants, more lipids. Studies on ceramide creams show reduced stinging and improved barrier markers in self-reported sensitive skin — patch test new products when in doubt.",
+      "intro_es": "Menos irritantes, más lípidos. Estudios con cremas de ceramidas muestran menos escozor y mejores marcadores de barrera en piel sensible — haz patch test ante la duda."
+    },
+    "goal-antiaging": {
+      "headline_en": "Anti-aging (30+) is a prevention + consistency game",
+      "headline_es": "Antiedad (30+) es prevención y constancia",
+      "intro_en": "Clinical studies on collagen, adenosine, HA, and snail filtrate focus on hydration, elasticity, and wrinkle appearance — not overnight change. Layer a routine and stay consistent.",
+      "intro_es": "Estudios clínicos sobre colágeno, adenosina, HA y filtrado de caracol se centran en hidratación, elasticidad y apariencia de arrugas — no en cambios de un día. Capas y constancia."
+    },
+    "goal-teens": {
+      "headline_en": "Teen skin needs gentle consistency, not harsh stripping",
+      "headline_es": "Piel adolescente: constancia suave, no agresividad",
+      "intro_en": "Adolescent acne studies emphasize effective cleansing plus barrier-supporting moisturizers alongside treatment. Avoid over-scrubbing — it can worsen irritation and texture.",
+      "intro_es": "Estudios en acné adolescente enfatizan limpieza eficaz más humectantes que apoyan la barrera junto al tratamiento. Evita exfoliar en exceso — puede empeorar irritación y textura."
+    },
+    "goal-bestsellers": {
+      "headline_en": "Bestsellers earn trust through results and routine fit",
+      "headline_es": "Los más vendidos ganan confianza con resultados y encaje en la rutina",
+      "intro_en": "Our most-chosen formulas — Snail Mucin Cream, Triple Collagen Firming Cream, and Complete System — map to the most-searched concerns: barrier support, firmness appearance, and full rituals.",
+      "intro_es": "Nuestras fórmulas más elegidas — crema de caracol, Triple Collagen y Complete System — corresponden a las preocupaciones más buscadas: barrera, apariencia de firmeza y rituales completos."
+    }
+  }
+}

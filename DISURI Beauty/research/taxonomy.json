@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-06-25",
+  "disclaimer_en": "Cosmetic products for external use only. They may help improve the appearance of skin with consistent use. They are not intended to diagnose, treat, cure, or prevent any disease.",
+  "disclaimer_es": "Productos cosméticos solo para uso externo. Pueden ayudar a mejorar la apariencia de la piel con uso continuo. No están destinados a diagnosticar, tratar, curar o prevenir ninguna enfermedad.",
+  "groups": {
+    "type": {
+      "type-cream": { "label_en": "Creams", "label_es": "Cremas" },
+      "type-toner": { "label_en": "Toner", "label_es": "Tónico" },
+      "type-essence": { "label_en": "Essence", "label_es": "Esencia" },
+      "type-cleanser": { "label_en": "Cleanser", "label_es": "Limpiador" },
+      "type-eye": { "label_en": "Eye cream", "label_es": "Contorno de ojos" },
+      "type-set": { "label_en": "Sets & systems", "label_es": "Sets y sistemas" }
+    },
+    "concern": {
+      "concern-dryness": { "label_en": "Dryness", "label_es": "Sequedad" },
+      "concern-texture": { "label_en": "Breakouts & texture", "label_es": "Brotes y textura" },
+      "concern-dullness": { "label_en": "Dullness", "label_es": "Opacidad" },
+      "concern-firmness": { "label_en": "Loss of firmness", "label_es": "Pérdida de firmeza" },
+      "concern-barrier": { "label_en": "Stressed barrier", "label_es": "Barrera estresada" }
+    },
+    "goal": {
+      "goal-start": { "label_en": "Where do I start?", "label_es": "¿Por dónde empiezo?" },
+      "goal-sensitive": { "label_en": "Sensitive skin", "label_es": "Piel sensible" },
+      "goal-antiaging": { "label_en": "Anti-aging (30+)", "label_es": "Antiedad (30+)" },
+      "goal-teens": { "label_en": "For teens", "label_es": "Para adolescentes" },
+      "goal-bestsellers": { "label_en": "Bestsellers", "label_es": "Más vendidos" }
+    }
+  },
+  "ingredients": {
+    "hyaluronic-acid": { "label_en": "Hyaluronic acid", "label_es": "Ácido hialurónico" },
+    "collagen": { "label_en": "Collagen peptides", "label_es": "Péptidos de colágeno" },
+    "snail-mucin": { "label_en": "Snail secretion filtrate", "label_es": "Filtrado de secreción de caracol" },
+    "adenosine": { "label_en": "Adenosine", "label_es": "Adenosina" },
+    "ceramide": { "label_en": "Ceramides", "label_es": "Ceramidas" },
+    "niacinamide": { "label_en": "Niacinamide", "label_es": "Niacinamida" }
+  }
+}

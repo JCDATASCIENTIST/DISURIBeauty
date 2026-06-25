@@ -7,3 +7,10 @@ DISURI Beauty/finance/monthly-closes/
 
 # OS files
 .DS_Store
+
+# Local Shopify credentials
+.env.local
+.env
+
+# Cursor local state
+.cursor/
