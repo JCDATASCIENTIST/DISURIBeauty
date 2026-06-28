@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISURI Klaviyo Weekly Gift Popup — Design Spec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --porcelain: #f4f2ee;
+      --crimson: #b82024;
+      --noir: #2a2a2a;
+      --body: #5c5c5c;
+      --eyebrow: #6b6b6b;
+      --hairline: rgba(42, 42, 42, 0.18);
+      --overlay: rgba(0, 0, 0, 0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Cabin, system-ui, sans-serif;
+      background: #e8e4df;
+      color: var(--noir);
+      padding: 48px 24px 80px;
+    }
+
+    h1.page-title {
+      font-family: "Bodoni Moda", Georgia, serif;
+      font-weight: 400;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    p.page-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--body);
+      margin-bottom: 48px;
+    }
+
+    .artboards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .artboard-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .artboard-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--eyebrow);
+    }
+
+    .artboard-size {
+      font-size: 12px;
+      color: var(--body);
+    }
+
+    /* Canvas frame (simulates browser + overlay) */
+    .canvas {
+      position: relative;
+      background: var(--overlay);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .canvas--desktop { width: 720px; height: 640px; }
+    .canvas--mobile { width: 390px; height: 720px; }
+
+    .canvas-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #ddd8d2 0%, #c8c2bb 100%);
+      opacity: 0.35;
+    }
+
+    .modal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--porcelain);
+      border-radius: 2px;
+      box-shadow: 0 4px 12px rgba(42, 42, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .modal--desktop { width: 480px; }
+    .modal--mobile { width: 340px; }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 22px;
+      line-height: 1;
+      color: rgba(42, 42, 42, 0.6);
+      font-weight: 400;
+      z-index: 2;
+      cursor: default;
+      user-select: none;
+    }
+
+    .modal-inner { padding: 32px; }
+
+    .gift-image {
+      width: calc(100% + 64px);
+      margin: -32px -32px 0;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      background: #fff;
+    }
+
+    .eyebrow {
+      margin-top: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--eyebrow);
+    }
+
+    .modal--mobile .eyebrow { font-size: 11px; margin-top: 20px; }
+
+    .headline {
+      margin-top: 12px;
+      font-family: "Bodoni Moda", Georgia, serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--noir);
+    }
+
+    .modal--mobile .headline { font-size: 24px; }
+
+    .body {
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--body);
+    }
+
+    .modal--mobile .body { font-size: 15px; }
+
+    .field {
+      margin-top: 24px;
+      width: 100%;
+      padding: 14px 16px;
+      font-family: Cabin, sans-serif;
+      font-size: 16px;
+      color: var(--noir);
+      background: #fff;
+      border: 1px solid var(--hairline);
+      border-radius: 2px;
+    }
+
+    .field::placeholder { color: rgba(42, 42, 42, 0.45); }
+
+    .btn {
+      margin-top: 12px;
+      display: block;
+      width: 100%;
+      padding: 14px 20px;
+      font-family: Cabin, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      background: var(--crimson);
+      border: none;
+      border-radius: 2px;
+      cursor: default;
+    }
+
+    .trust {
+      margin-top: 20px;
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+      color: var(--eyebrow);
+    }
+
+    .modal--mobile .trust { font-size: 11px; }
+
+    .success-icon {
+      width: 48px;
+      height: 48px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: rgba(184, 32, 36, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--crimson);
+    }
+
+    .subline {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--body);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">Klaviyo Weekly Gift Popup</h1>
+  <p class="page-sub">DISURI Claude Design · Forbidden Red · Paste copy into Klaviyo Sign-up forms</p>
+
+  <div class="artboards">
+    <!-- Desktop signup -->
+    <div class="artboard-wrap">
+      <span class="artboard-label">Desktop · Signup</span>
+      <span class="artboard-size">480px modal · 32px padding</span>
+      <div class="canvas canvas--desktop" id="desktop-signup">
+        <div class="canvas-bg" aria-hidden="true"></div>
+        <div class="modal modal--desktop">
+          <span class="close" aria-hidden="true">×</span>
+          <img
+            class="gift-image"
+            src="https://disuribeauty.com/cdn/shop/files/GLOSSY-BLAST-LG-61-1_1.jpg?v=1728533150&width=600"
+            alt="Forbidden Red lip gloss"
+            width="600"
+            height="450"
+          />
+          <div class="modal-inner">
+            <p class="eyebrow">Gift of the week</p>
+            <h2 class="headline">Get the weekly free lip gloss alert.</h2>
+            <p class="body">Every Thursday we feature a new shade. Spend $25 on skincare and it is yours, free. We will email you the shade, the claim link, and a short list of what to add if you are close to $25.</p>
+            <input class="field" type="email" placeholder="Your email address" readonly aria-label="Email" />
+            <button type="button" class="btn">Send me the weekly gift</button>
+            <p class="trust">Made in Korea · Unsubscribe anytime · No spam</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop success -->
+    <div class="artboard-wrap">
+      <span class="artboard-label">Desktop · Success</span>
+      <span class="artboard-size">480px modal</span>
+      <div class="canvas canvas--desktop" id="desktop-success">
+        <div class="canvas-bg" aria-hidden="true"></div>
+        <div class="modal modal--desktop">
+          <span class="close" aria-hidden="true">×</span>
+          <div class="modal-inner" style="padding-top: 40px;">
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <p class="eyebrow" style="margin-top: 20px;">Gift of the week</p>
+            <h2 class="headline">You are on the list.</h2>
+            <p class="body">This week's gift is live. See the shade and how to claim it.</p>
+            <button type="button" class="btn" style="margin-top: 24px;">See this week's gift →</button>
+            <p class="subline">Spend $25 on skincare · gloss added free at checkout.</p>
+            <p class="trust">Made in Korea · Unsubscribe anytime · No spam</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile signup -->
+    <div class="artboard-wrap">
+      <span class="artboard-label">Mobile · Signup</span>
+      <span class="artboard-size">340px modal · 390px viewport</span>
+      <div class="canvas canvas--mobile" id="mobile-signup">
+        <div class="canvas-bg" aria-hidden="true"></div>
+        <div class="modal modal--mobile">
+          <span class="close" aria-hidden="true">×</span>
+          <img
+            class="gift-image"
+            src="https://disuribeauty.com/cdn/shop/files/GLOSSY-BLAST-LG-61-1_1.jpg?v=1728533150&width=600"
+            alt="Forbidden Red lip gloss"
+            width="600"
+            height="450"
+          />
+          <div class="modal-inner">
+            <p class="eyebrow">Gift of the week</p>
+            <h2 class="headline">Get the weekly free lip gloss alert.</h2>
+            <p class="body">Every Thursday we feature a new shade. Spend $25 on skincare and it is yours, free. We will email you the shade, the claim link, and a short list of what to add if you are close to $25.</p>
+            <input class="field" type="email" placeholder="Your email address" readonly aria-label="Email" />
+            <button type="button" class="btn">Send me the weekly gift</button>
+            <p class="trust">Made in Korea · Unsubscribe anytime · No spam</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
