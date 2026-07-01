@@ -25,28 +25,24 @@
       "catalogId": "toner",
       "shopifyHandle": "triple-collagen-firming-toner",
       "kbFile": "6-Product-Library/Triple-Collagen-Firming-Toner.md",
-      "optional": true,
       "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
     },
     {
       "catalogId": "foam",
       "shopifyHandle": "triple-collagen-korean-face-wash",
       "kbFile": "6-Product-Library/Triple-Collagen-Firming-Foam.md",
-      "optional": true,
       "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
     },
     {
       "catalogId": "eye",
       "shopifyHandle": "triple-collagen-eye-cream-korean-anti-aging",
       "kbFile": "6-Product-Library/Triple-Collagen-Firming-Eye-Cream.md",
-      "optional": true,
       "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
     },
     {
       "catalogId": "essence",
       "shopifyHandle": "triple-collagen-firming-essence",
       "kbFile": "6-Product-Library/Triple-Collagen-Firming-Essence.md",
-      "optional": true,
       "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
     }
   ],
