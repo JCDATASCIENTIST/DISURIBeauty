@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "kbRoot": "reference/kb/3-Resources/DISURI-Beauty-Knowledge-Base",
+  "catalogPath": "DISURI Beauty/design-kit/claude-design/catalog.js",
+  "products": [
+    {
+      "catalogId": "snail",
+      "shopifyHandle": "disuri-beauty-ultimate-snail-mucin-cream",
+      "kbFile": "6-Product-Library/Ultimate-Snail-Mucin-Cream.md",
+      "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
+    },
+    {
+      "catalogId": "collagen",
+      "shopifyHandle": "triple-collagen-firming-cream",
+      "kbFile": "6-Product-Library/Triple-Collagen-Firming-Cream.md",
+      "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
+    },
+    {
+      "catalogId": "ha",
+      "shopifyHandle": "hyaluronic-acid-intense-hydration-firming-cream",
+      "kbFile": "6-Product-Library/Hyaluronic-Acid-Intense-Hydration-Cream.md",
+      "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
+    },
+    {
+      "catalogId": "toner",
+      "shopifyHandle": "triple-collagen-firming-toner",
+      "kbFile": "6-Product-Library/Triple-Collagen-Firming-Toner.md",
+      "optional": true,
+      "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
+    },
+    {
+      "catalogId": "foam",
+      "shopifyHandle": "triple-collagen-korean-face-wash",
+      "kbFile": "6-Product-Library/Triple-Collagen-Firming-Foam.md",
+      "optional": true,
+      "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
+    },
+    {
+      "catalogId": "eye",
+      "shopifyHandle": "triple-collagen-eye-cream-korean-anti-aging",
+      "kbFile": "6-Product-Library/Triple-Collagen-Firming-Eye-Cream.md",
+      "optional": true,
+      "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
+    },
+    {
+      "catalogId": "essence",
+      "shopifyHandle": "triple-collagen-firming-essence",
+      "kbFile": "6-Product-Library/Triple-Collagen-Firming-Essence.md",
+      "optional": true,
+      "fields": ["name", "price", "size", "benefit", "benefitEs", "ingredients", "ingredientsEs", "usage"]
+    }
+  ],
+  "bundles": [
+    {
+      "catalogId": "complete-system",
+      "shopifyHandle": "the-complete-disuri-system",
+      "kbFile": "6-Product-Library/Bundle-Complete-DISURI-System.md",
+      "fields": ["name", "price", "benefit", "benefitEs", "description", "usage"]
+    },
+    {
+      "catalogId": "anti-aging-duo",
+      "shopifyHandle": "the-anti-aging-power-duo",
+      "kbFile": "6-Product-Library/Bundle-Anti-Aging-Power-Duo.md",
+      "fields": ["name", "price", "benefit", "benefitEs", "description", "usage"]
+    },
+    {
+      "catalogId": "barrier-rescue",
+      "shopifyHandle": "the-barrier-rescue-system",
+      "kbFile": "6-Product-Library/Bundle-Barrier-Rescue-System.md",
+      "fields": ["name", "price", "benefit", "benefitEs", "description", "usage"]
+    }
+  ],
+  "surfaces": []
+}

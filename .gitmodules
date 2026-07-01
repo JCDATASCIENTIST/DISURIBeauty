@@ -1,0 +1,3 @@
+[submodule "reference/kb"]
+	path = reference/kb
+	url = https://github.com/JCDATASCIENTIST/obsidian-vault.git

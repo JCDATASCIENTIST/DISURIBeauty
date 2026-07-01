@@ -13,8 +13,11 @@ const Nav = ({ route, setRoute, cartCount, lang, setLang }) => {
           <span className="nav-link" onClick={() => setRoute('home')}>Science</span>
           <span className="nav-link" onClick={() => setRoute('home')}>Journal</span>
         </div>
-        <div className="nav-logo" onClick={() => setRoute('home')} style={{ cursor: 'pointer' }}>
-          <img src="../../assets/logos/wordmark-light.png" alt="DISURI BEAUTY" />
+        <div className="nav-logo" onClick={() => setRoute('home')} style={{ cursor: 'pointer' }} aria-label="DISURI Beauty">
+          <span className="nav-wordmark" aria-hidden="true">
+            <span className="nav-wordmark__brand">DISURI</span>
+            <span className="nav-wordmark__label">BEAUTY</span>
+          </span>
         </div>
         <div className="nav-actions">
           <span className="lang-toggle">

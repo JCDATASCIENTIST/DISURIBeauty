@@ -14,6 +14,7 @@
     },
     "concern": {
       "concern-dryness": { "label_en": "Dryness", "label_es": "Sequedad" },
+      "concern-eczema-prone": { "label_en": "Eczema-prone skin", "label_es": "Piel propensa al eccema" },
       "concern-texture": { "label_en": "Breakouts & texture", "label_es": "Brotes y textura" },
       "concern-dullness": { "label_en": "Dullness", "label_es": "Opacidad" },
       "concern-firmness": { "label_en": "Loss of firmness", "label_es": "Pérdida de firmeza" },

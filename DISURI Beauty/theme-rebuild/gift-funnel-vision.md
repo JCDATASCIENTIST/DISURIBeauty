@@ -200,11 +200,13 @@ Brunson order bump sits **before** checkout. DISURI candidates:
 
 ### Phase 2 — OCU #1 Complete System (Claude Code + Zipify or Shopify post-purchase)
 
-- [x] Playbook: [zipify-ocu-complete-system-playbook.md](zipify-ocu-complete-system-playbook.md)
-- [ ] Confirm Zipify OCU app status ([app-uninstall-walkthrough.md](app-uninstall-walkthrough.md) — evaluate before remove)
-- [ ] Build post-purchase offer page: system image, savings line, one-click accept
-- [ ] Trigger: first order with gift discount; exclude if `the-complete-disuri-system` in cart
-- [ ] QA: test order → OCU → tag `system-buyer`
+- [x] Playbook: [zipify-ocu-complete-system-playbook.md](zipify-ocu-complete-system-playbook.md) (skincare-only copy, no gloss)
+- [x] Admin walkthrough: [zipify-ocu-admin-walkthrough.md](zipify-ocu-admin-walkthrough.md) — Funnels A/B/C + cart drawer
+- [x] Klaviyo tags: [zipify-ocu-klaviyo-tags-playbook.md](zipify-ocu-klaviyo-tags-playbook.md)
+- [x] Baseline metrics: [zipify-ocu-baseline-metrics.md](zipify-ocu-baseline-metrics.md)
+- [x] Theme: cart-drawer OCU embed ON; global app-embed OFF (In Checkout blocked checkout)
+- [ ] **Joel:** Publish funnels in Zipify admin per walkthrough Step 0–8
+- [ ] QA: test order → post-purchase → tag `system-buyer` / `duo-buyer` / `barrier-buyer`
 
 ### Phase 3 — OCU #2 Subscription (Claude Code)
 

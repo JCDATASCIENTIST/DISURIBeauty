@@ -19,10 +19,22 @@ DISURI's mission is to be the **source of skincare knowledge** — not just a pr
 
 | Asset | Purpose |
 |-------|---------|
-| `sections/skin-guide.liquid` | Homepage concern tabs, education, product cards, bundle CTA, ask form |
-| `assets/disuri-skin-guide.js` | Tab switching; prepends selected concern to contact form |
+| `sections/skin-guide.liquid` | Concern card grid, bundle-first result panel, ritual strip, compact singles, collapsed education + ask form |
+| `snippets/disuri-skin-guide-concern-card.liquid` | Picker card (label + hint) |
+| `snippets/disuri-skin-guide-bundle-hero.liquid` | Bundle hero — **Add ritual primary**, view details link, GWP line |
+| `snippets/disuri-skin-guide-product-row.liquid` | Compact single-SKU rows with quick-add |
+| `assets/disuri-skin-guide.js` | Tab switching; mobile scroll-to-result; concern prefix on ask form |
 | `locales/en.default.json` + `es.json` | All copy under `disuri.skin_guide` |
-| `templates/index.json` | Section order: after `science_strip`, before `featured_bundles` |
+| `templates/index.json` | Section order: after `science_strip`, before `testimonials` (no empty bestsellers block) |
+
+## CRO checklist (homepage skin guide)
+
+- [ ] **Primary CTA = Add to bag** on bundle hero (not PDP-first)
+- [ ] **GWP line** at decision point (`gwp_line` + live shade metafield)
+- [ ] Panel title = **"Your matched ritual"** — not a repeat of the concern chip
+- [ ] No empty/redundant homepage section immediately after skin guide
+- [ ] Education in collapsed `<details>`; ask form in collapsed accordion
+- [ ] Singles are secondary (compact rows), bundle is hero
 
 ## Concern → bundle mapping (default)
 
@@ -37,8 +49,8 @@ Product handles live in section block settings — edit in Theme Editor or local
 ## Customer value journey
 
 ```
-Hero (promise) → Products (proof) → Science strip (ppm) → Skin guide (education + concern)
-  → Bundles (packaged AOV) → Testimonials → Queens → Newsletter
+Hero (promise) → Products (proof) → Bundles → Science strip (ppm) → Skin guide (concern → ritual)
+  → Testimonials → Newsletter → Queens
 ```
 
 ## When extending

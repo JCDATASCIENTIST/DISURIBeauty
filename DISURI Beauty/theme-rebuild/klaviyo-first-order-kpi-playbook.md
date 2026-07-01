@@ -154,7 +154,9 @@ Add breakdown by **UTM source** if popup traffic is tagged.
 | `weekly-gift-signup` | Popup / newsletter submit (existing) |
 | `first-order-25-plus` | First qualifying GWP order (this doc) |
 | `gift-redeemed` | Optional; gloss $0 line on qualifying order |
-| `system-buyer` | Zipify OCU #1 accept — see [zipify-ocu-complete-system-playbook.md](zipify-ocu-complete-system-playbook.md) |
+| `system-buyer` | Zipify OCU Complete System accept — see [zipify-ocu-complete-system-playbook.md](zipify-ocu-complete-system-playbook.md) |
+| `duo-buyer` | Zipify OCU Anti-Aging Duo accept — see [zipify-ocu-klaviyo-tags-playbook.md](zipify-ocu-klaviyo-tags-playbook.md) |
+| `barrier-buyer` | Zipify OCU Barrier Rescue accept — see [zipify-ocu-klaviyo-tags-playbook.md](zipify-ocu-klaviyo-tags-playbook.md) |
 
 ---
 

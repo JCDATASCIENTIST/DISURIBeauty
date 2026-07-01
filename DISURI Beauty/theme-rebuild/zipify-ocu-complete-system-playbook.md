@@ -1,8 +1,10 @@
-# Zipify OCU #1 — Complete System Build Sheet
+# Zipify OCU #1 — Complete System Build Sheet (Funnel C)
 
 **Owner:** Claude Code (Zipify admin + Klaviyo tag hook)  
-**Companion:** [gift-funnel-vision.md](gift-funnel-vision.md), [klaviyo-first-order-kpi-playbook.md](klaviyo-first-order-kpi-playbook.md)  
+**Companion:** [gift-funnel-vision.md](gift-funnel-vision.md), [zipify-ocu-admin-walkthrough.md](zipify-ocu-admin-walkthrough.md), [klaviyo-first-order-kpi-playbook.md](klaviyo-first-order-kpi-playbook.md)  
 **Store:** `7874da-0f.myshopify.com` · App: **Zipify OCU** (`ocu-in-checkout-1008`)
+
+**Placement:** Post-purchase only (Funnel C catch-all). **In Checkout OFF.**
 
 ---
 
@@ -13,70 +15,75 @@
 | **Product** | [The Complete DISURI System](https://disuribeauty.com/products/the-complete-disuri-system) |
 | **Handle** | `the-complete-disuri-system` |
 | **Price** | $101.97 (save $18 vs $119.97 retail) |
-| **Position** | Post-purchase OCU #1 (after first qualifying $25+ GWP order) |
+| **Position** | Post-purchase OCU #1 — Catch-all funnel (Priority 3) |
 | **Accept tag** | `system-buyer` |
-| **Decline** | Continue to OCU #2 slot (subscription placeholder until ReCharge) |
+| **Decline** | Downsell → Barrier Rescue at 10% off |
 
 ---
 
 ## Pre-flight checklist
 
-- [ ] **Theme Editor → App embeds:** Zipify OCU enabled ([checkout-ux-rollout.md](checkout-ux-rollout.md))
-- [ ] **Order Value Booster:** Disable false free-shipping messaging on PDPs (admin, not theme)
-- [ ] **Klaviyo flow** `first-order-25-plus` live or Shopify Flow tag `skincare-25-plus` active
-- [ ] Confirm post-purchase upsell (not cart-drawer only) is enabled in Zipify
+- [ ] **In Checkout funnels:** All paused (see [zipify-ocu-admin-walkthrough.md](zipify-ocu-admin-walkthrough.md))
+- [ ] **Theme app embed (global):** DISABLED
+- [ ] **Theme cart-drawer embed:** ENABLED
+- [ ] **Klaviyo flow** `first-order-25-plus` live
+- [ ] Post-purchase upsell enabled in Shopify checkout settings
 
 ---
 
 ## A. Zipify offer configuration
 
-**Path:** Zipify OCU app → **Post-purchase upsells** → **Create offer**
+**Path:** Zipify OCU app → **Post-purchase upsells** → Funnel C (Catch-all)
 
 ### A1. Trigger rules
 
 | Rule | Value |
 |------|-------|
 | Show after | **Order placed** (post-purchase page) |
-| Customer | First-time buyer OR order has tag `skincare-25-plus` OR customer has tag `first-order-25-plus` |
-| Minimum order | Skincare subtotal ≥ $25 (match GWP) |
-| Discount on front-end | Order must include BXGY gift discount (optional strict mode) |
+| Collection | Skincare |
+| Minimum order | Skincare subtotal **$25 – $60** |
+| Customer | First-time buyer OR tag `first-order-25-plus` |
+| Funnel priority | **3** (lowest — Barrier and Firming funnels win first) |
 
 ### A2. Exclusion rules
 
 | Exclusion | Reason |
 |-----------|--------|
-| Line item handle `the-complete-disuri-system` | Already purchased in cart |
+| Line item handle `the-complete-disuri-system` | Already purchased |
+| Any bundle handle in order | Already owns bundle |
+| Any lip/gloss product | GWP only — never upsell lip |
 | Customer tag `system-buyer` | Already accepted OCU |
-| Product in cart at checkout | System bundle already owned |
+| Skincare subtotal &gt; $60 | Route to Firming/Barrier funnels instead |
 
 ### A3. Product & pricing
 
 | Setting | Value |
 |---------|-------|
-| Upsell product | The Complete DISURI System |
+| Upsell 1 product | The Complete DISURI System |
+| Upsell 2 product | `triple-collagen-firming-toner` or `triple-collagen-firming-essence` |
+| Downsell product | `the-barrier-rescue-system` at **10% off** (~$60.73) |
 | Offer type | **One-click upsell** (no re-enter payment) |
-| Discount | None required (bundle price already reflects $18 savings) |
-| Quantity | 1 |
+| Upsell 1 discount | None (bundle price reflects $18 savings) |
 
 ---
 
 ## B. Copy — paste into Zipify fields
 
-**Tone:** Warm authority. No em dashes. No countdown. Appearance-only claims.
+**Tone:** Warm authority. No em dashes. No countdown. **No gloss/lip references** (gloss is GWP only).
 
-### Headline
+### Upsell 1 — Headline
 
 ```
-You unlocked this week's gloss. Complete the full 3-step ritual.
+You started the ritual. Complete all three steps and save $18.
 ```
 
-### Subhead
+### Upsell 1 — Subhead
 
 ```
 Repair · Hydrate · Firm. Three Korean creams designed to layer, not compete. Save $18 vs buying each step separately.
 ```
 
-### Body bullets
+### Upsell 1 — Body bullets
 
 ```
 • Step 1 (Copper): Ultimate Snail Mucin Cream · 1,000 ppm snail filtrate for barrier resilience
@@ -86,13 +93,37 @@ Repair · Hydrate · Firm. Three Korean creams designed to layer, not compete. S
 • 30-day money-back guarantee
 ```
 
-### Primary CTA
+### Upsell 1 — Primary CTA
 
 ```
 Yes, complete my ritual →
 ```
 
-### Decline link
+### Upsell 2 — Headline
+
+```
+Add the prep step your cream is missing.
+```
+
+### Upsell 2 — Primary CTA
+
+```
+Add toner to my order →
+```
+
+### Downsell — Headline
+
+```
+Try the Barrier Rescue System at 10% off.
+```
+
+### Downsell — Subhead
+
+```
+Repair + hydrate in two steps. One-time offer for new ritual starters.
+```
+
+### Decline link (all offers)
 
 ```
 No thanks, continue to order confirmation
@@ -104,7 +135,7 @@ No thanks, continue to order confirmation
 Helps improve the appearance of firmness, hydration, and barrier resilience with continued use. Cosmetic products, not treatments for medical conditions.
 ```
 
-**Source:** [`catalog.js`](../design-kit/claude-design/catalog.js) bundle `complete-system` (lines 237–277).
+**Source:** [`catalog.js`](../design-kit/claude-design/catalog.js) bundle `complete-system`.
 
 ---
 
@@ -120,26 +151,23 @@ Helps improve the appearance of firmness, hydration, and barrier resilience with
 
 ## D. Klaviyo integration on accept
 
-When customer accepts OCU:
+See [zipify-ocu-klaviyo-tags-playbook.md](zipify-ocu-klaviyo-tags-playbook.md).
 
-| Method | Action |
-|--------|--------|
-| Zipify → Klaviyo integration (if available) | Map accept event → tag `system-buyer` |
-| **Fallback:** Klaviyo flow | Trigger: **Placed Order** where order contains `the-complete-disuri-system` AND previous order had `first-order-25-plus` within 10 minutes → tag `system-buyer` |
-| Optional email | Branch in Welcome series: "Your ritual is complete" (defer until copy review) |
+| Accept | Tag |
+|--------|-----|
+| Upsell 1 Complete System | `system-buyer` |
+| Downsell Barrier Rescue | `barrier-buyer` |
 
 ---
 
-## E. OCU stack order (Zipify funnel)
+## E. OCU stack order (full funnel)
 
 ```
 Order confirmed
-  → OCU #1 Complete System (this doc)
+  → Funnel A/B/C post-purchase (priority resolves which)
   → OCU #2 Subscription (placeholder — ReCharge deferred)
   → OCU #3 Queens → /pages/cj-affiliate (Phase 4)
 ```
-
-Configure **decline path** on OCU #1 to advance to next offer, not hard-stop checkout confirmation.
 
 ---
 
@@ -147,32 +175,26 @@ Configure **decline path** on OCU #1 to advance to next offer, not hard-stop che
 
 | Step | Action | Expected |
 |------|--------|----------|
-| 1 | Add skincare $27+ to cart, complete checkout with test payment | Order succeeds |
-| 2 | Post-purchase page loads | OCU #1 shows Complete System |
-| 3 | Accept upsell | Second charge succeeds; order updated |
-| 4 | Klaviyo profile | Tag `system-buyer` within 5 min |
-| 5 | Repeat with system already in cart | OCU #1 **hidden** |
-| 6 | Decline upsell | Lands on order confirmation; no error |
+| 1 | Add skincare $27–$55 to cart, complete checkout | Order succeeds; no checkout overlay |
+| 2 | Post-purchase page loads | Funnel C shows Complete System |
+| 3 | Accept upsell 1 | Second charge; Upsell 2 (toner) appears |
+| 4 | Decline upsell 1 | Downsell Barrier Rescue at 10% off |
+| 5 | Klaviyo profile | Tag `system-buyer` or `barrier-buyer` within 5 min |
+| 6 | Repeat with system in cart | Funnel C **hidden** |
 
-**Verify:** Hard refresh not required for OCU (Shopify post-purchase). Document test order IDs in admin notes.
+Run: `node scripts/zipify-ocu-qa-checklist.mjs`
 
 ---
 
 ## G. Metrics to track
 
+See [zipify-ocu-baseline-metrics.md](zipify-ocu-baseline-metrics.md).
+
 | Metric | Tool |
 |--------|------|
 | OCU impression rate | Zipify analytics |
 | OCU accept rate | Zipify analytics |
-| Revenue per qualifying order | Shopify + Zipify |
-| `system-buyer` / `first-order-25-plus` ratio | Klaviyo segments |
+| RPV | Zipify analytics |
+| Tag conversion | Klaviyo segments |
 
-**Target benchmark:** Track baseline first week; optimize copy in Week 2 if accept rate &lt; 10%.
-
----
-
-## Handoff to Joel
-
-1. Publish offer in Zipify after QA.
-2. Confirm OCU #1 live with one real test order (refund after).
-3. Weekly: report accept rate alongside `first-order-25-plus` count.
+**Target benchmark:** Track baseline Week 1; optimize copy Week 2 if accept rate &lt; 10%.
