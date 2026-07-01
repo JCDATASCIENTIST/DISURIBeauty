@@ -168,8 +168,26 @@ async function shopifyGraphqlViaApi(query, variables = {}) {
   return json;
 }
 
+function resolveThemeDir() {
+  if (process.env.DISURI_THEME_DIR) return process.env.DISURI_THEME_DIR;
+  const candidates = [
+    join(REPO_ROOT, '../Documents/_1_DISURIBeauty/DISURI-Beauty-Theme'),
+    join(REPO_ROOT, '../DISURI-Beauty-Theme'),
+    REPO_ROOT,
+  ];
+  for (const dir of candidates) {
+    try {
+      readFileSync(join(dir, 'config', 'settings_schema.json'), 'utf8');
+      return dir;
+    } catch {
+      // try next
+    }
+  }
+  return REPO_ROOT;
+}
+
 function shopifyGraphqlViaCli(query, variables = {}) {
-  const themeDir = join(REPO_ROOT, '../DISURI-Beauty-Theme');
+  const themeDir = resolveThemeDir();
   const tmp = mkdtempSync(join(tmpdir(), 'disuri-gql-'));
   const queryFile = join(tmp, 'query.graphql');
   const varFile = join(tmp, 'variables.json');
@@ -191,10 +209,11 @@ function shopifyGraphqlViaCli(query, variables = {}) {
       varFile,
     ];
     if (allowMutations) args.push('--allow-mutations');
-    const out = execSync(args.map((a) => `"${a}"`).join(' '), {
+    const out = execSync(args.join(' '), {
       encoding: 'utf8',
       cwd: themeDir,
       maxBuffer: 10 * 1024 * 1024,
+      shell: '/bin/bash',
     });
     return JSON.parse(out);
   } finally {
