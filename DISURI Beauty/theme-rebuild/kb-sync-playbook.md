@@ -124,9 +124,11 @@ Missing sections are skipped — sync does not blank existing catalog fields.
 | foam | Triple-Collagen-Firming-Foam.md | triple-collagen-korean-face-wash |
 | eye | Triple-Collagen-Firming-Eye-Cream.md | triple-collagen-eye-cream-korean-anti-aging |
 | essence | Triple-Collagen-Firming-Essence.md | triple-collagen-firming-essence |
-| complete-system | The-Complete-DISURI-System.md | the-complete-disuri-system |
-| anti-aging-duo | The-Anti-Aging-Power-Duo.md | the-anti-aging-power-duo |
-| barrier-rescue | The-Barrier-Rescue-System.md | the-barrier-rescue-system |
+| `6-Product-Library/Bundle-Complete-DISURI-System.md` | complete-system | the-complete-disuri-system |
+| `6-Product-Library/Bundle-Anti-Aging-Power-Duo.md` | anti-aging-duo | the-anti-aging-power-duo |
+| `6-Product-Library/Bundle-Barrier-Rescue-System.md` | barrier-rescue | the-barrier-rescue-system |
+
+**Vault format (v2 parser):** reads `## The Product`, `## Ingredient Profile`, `## How to Use` from EN files; merges `.es.md` companions for Spanish fields. Optional `KB_ROOT=/path/to/Obsidian Vault` for local authoring without submodule update.
 
 Map source of truth: `scripts/kb-sync-map.json`
 
