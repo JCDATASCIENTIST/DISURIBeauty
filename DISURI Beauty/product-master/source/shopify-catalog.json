@@ -1,0 +1,3023 @@
+[
+  {
+    "id": "gid://shopify/Product/8767428755695",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Clear Diamonds (S1)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-clear-diamonds-s1",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46059358453999",
+        "title": "Default Title",
+        "sku": "850064314007",
+        "barcode": "850064314007"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767562285295",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Pink Candy (S2)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pink-candy-s2",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45866354868463",
+        "title": "Light Pink Shimmer",
+        "sku": "850064314014",
+        "barcode": "850064314014"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767677595887",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Bubblegum Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-bubblegum-26-bold-bubblegum-boost",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45866813915375",
+        "title": "Mango",
+        "sku": "850064676259",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767683789039",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Peach Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-peach-25-vigorous-peach-volumizer",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45866839277807",
+        "title": "Default Title",
+        "sku": "850064676242",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767685722351",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Blueberry Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-blueberry-24-dynamic-blueberry-plump",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45944382980335",
+        "title": "Default Title",
+        "sku": "850064676235",
+        "barcode": "00850064676235"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767689031919",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Passion Fruit Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-passion-fruit-13-strong-passion-fruit-lift",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45866861658351",
+        "title": "Default Title",
+        "sku": "850064676228",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767691620591",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Pomegranate Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-pomegranate-12-potent-pomegranate-swell",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45866871750895",
+        "title": "Default Title",
+        "sku": "850064676211",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767705809135",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Strawberry Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-strawberry-11-enhanced-strawberry-fullness",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867014553839",
+        "title": "Default Title",
+        "sku": "850064676204",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767709151471",
+    "title": "DISURI Beauty Plumping Lip Gloss - Cherry Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-cherry-9-powerful-cherry-volume",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45943768809711",
+        "title": "Cherry",
+        "sku": "",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767738544367",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Citrus Queen (S3)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-citrus-queen-s3",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867315462383",
+        "title": "Warm Orange Shimmer",
+        "sku": "850064314021",
+        "barcode": "850064314021"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767743230191",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Champagne Kiss (S4)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-champagne-kiss-s4",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867464261871",
+        "title": "Champagne Gold Shimmer",
+        "sku": "850064314038",
+        "barcode": "850064314038"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767758106863",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Love of My Life (S5)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-love-of-my-life-s5",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867532255471",
+        "title": "Soft Pink Shimmer",
+        "sku": "850064314045",
+        "barcode": "850064314045"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767765283055",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Mango Pop",
+    "handle": "disuri-beauty-ultra-plumping-blast-lip-gloss-mango-8-intense-mango-plump",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867605819631",
+        "title": "Default Title",
+        "sku": "850066107195",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767766135023",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Kiss the Moon Tonight (S6)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-kiss-the-moon-tonight-s6",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867626856687",
+        "title": "Sheer Silver Shimmer",
+        "sku": "850064314052",
+        "barcode": "850064314052"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767767511279",
+    "title": "DISURI Beauty Plumping Lip Gloss - Bubblegum Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-bubblegum-26-classic-bubblegum-delight",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867642290415",
+        "title": "Default Title",
+        "sku": "850064676174",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767770788079",
+    "title": "DISURI Beauty Plumping Lip Gloss - Peach Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-peach-25-succulent-peach-kiss",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867694227695",
+        "title": "Plumping Blast - Peach",
+        "sku": "850064676167",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767773835503",
+    "title": "DISURI Beauty Plumping Lip Gloss - Blueberry Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-blueberry-24-vibrant-blueberry-blend",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46094881587439",
+        "title": "Default Title",
+        "sku": "850064676150",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767777177839",
+    "title": "DISURI Beauty Plumping Lip Gloss - Passion Fruit Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-passion-fruit-13-exotic-passion-fruit-flavor",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867792433391",
+        "title": "Passion Fruit",
+        "sku": "850064676143",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767781142767",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Toast to Life (S14)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-toast-to-life-s14",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867905515759",
+        "title": "Bronze Shimmer",
+        "sku": "850064314069",
+        "barcode": "850064314069"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767789760751",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Baby Sue (S15)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-baby-sue-s15",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868090884335",
+        "title": "Light Peach Shimmer",
+        "sku": "850064314076",
+        "barcode": "850064314076"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767791399151",
+    "title": "DISURI Beauty Plumping Lip Gloss - Pomegranate Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-pomegranate-12-antioxidant-rich-pomegranate",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45867969478895",
+        "title": "Pomegranate",
+        "sku": "",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767800803567",
+    "title": "DISURI Beauty Plumping Lip Gloss - Strawberry Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-strawberry-11-sweet-strawberry-essence",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868077187311",
+        "title": "Strawberry",
+        "sku": "850064676129",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767802638575",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Queen's Ambition (S16)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-queens-ambition-s16",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868085379311",
+        "title": "Rich Red Shimmer",
+        "sku": "850064314083",
+        "barcode": "850064314083"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767808831727",
+    "title": "DISURI Beauty Ultra Plumping Lip Gloss - Cherry Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-cherry-9-juicy-cherry-boost",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868126208239",
+        "title": "Default Title",
+        "sku": "850064676112",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767810896111",
+    "title": "DISURI Beauty Plumping Lip Gloss - Mango Pop",
+    "handle": "disuri-beauty-plumping-blast-lip-gloss-mango-8-tropical-mango-infusion",
+    "status": "ARCHIVED",
+    "product_type": "Lip Plumping Treatments",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868134727919",
+        "title": "Mango",
+        "sku": "850064676181",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767812272367",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Tropical Burst (S17)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-tropical-burst-s17",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868140822767",
+        "title": "Bright Coral Shimmer",
+        "sku": "850064314090",
+        "barcode": "850064314090"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767820366063",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Boss Babe (S18)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-boss-babe-s18",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868168937711",
+        "title": "Deep Plum Shimmer",
+        "sku": "850064314106",
+        "barcode": "850064314106"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767822987503",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Shar (S19)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-shar-s19",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868180603119",
+        "title": "Soft Lavender Shimmer",
+        "sku": "850064314113",
+        "barcode": "850064314113"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767826165999",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Sexy Berry Dreams (S20)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-sexy-berry-dreams-s20",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868193644783",
+        "title": "Deep Berry Shimmer",
+        "sku": "850066107157",
+        "barcode": "850066107157"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8767996494063",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Wild Desire (S21)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-wild-desire-s21",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868710658287",
+        "title": "Bold Red Shimmer",
+        "sku": "850066107164",
+        "barcode": "850066107164"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768009208047",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Pinky Promise (S22)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pinky-promise-s22",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868767543535",
+        "title": "Hot Pink Shimmer",
+        "sku": "850064314120",
+        "barcode": "850064314120"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768052297967",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Napa Valley (S23)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-napa-valley-s23",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45868910444783",
+        "title": "Wine Shimmer",
+        "sku": "850064314137",
+        "barcode": "850064314137"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768537166063",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Honeybun (S24)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-honeybun-s24",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870463582447",
+        "title": "Honey Nude Shimmer",
+        "sku": "850064314144",
+        "barcode": "850064314144"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768539361519",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Honey Goddess (S25)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-honey-goddess-s25",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870479180015",
+        "title": "Golden Honey Shimmer",
+        "sku": "850064314151",
+        "barcode": "850064314151"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768540475631",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Sugar Pie (S26)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-sugar-pie-s26",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870483276015",
+        "title": "Warm Pink Shimmer",
+        "sku": "850064314168",
+        "barcode": "850064314168"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768542933231",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Suheris (S27)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-suheris-s27",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870501265647",
+        "title": "Bright Coral Shimmer",
+        "sku": "850064314175",
+        "barcode": "850064314175"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768545652975",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Cinnamon Kiss (S28)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-cinnamon-kiss-s28",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870534689007",
+        "title": "Warm Cinnamon Shimmer",
+        "sku": "850064314182",
+        "barcode": "850064314182"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768546930927",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Rosé All Day (S29)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-rose-all-day-s29",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870541897967",
+        "title": "Rosy Pink Shimmer",
+        "sku": "850064314199",
+        "barcode": "850064314199"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768547979503",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Ice Queen (S30)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-ice-queen-s30",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870549795055",
+        "title": "Icy Blue Shimmer",
+        "sku": "850064314205",
+        "barcode": "850064314205"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768549159151",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Unbreakable (S31)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-unbreakable-s31",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870560510191",
+        "title": "Bright Red Shimmer",
+        "sku": "850064314212",
+        "barcode": "850064314212"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768551059695",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Pink Gold (S44)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pink-gold-s44",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870570897647",
+        "title": "Pink Gold Shimmer",
+        "sku": "850064314229",
+        "barcode": "850064314229"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768553812207",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Berry Kiss (S53)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-berry-kiss-s53",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45870591803631",
+        "title": "Deep Berry Shimmer",
+        "sku": "850064314236",
+        "barcode": "850064314236"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768729907439",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Never Send Nudes (S65)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-never-send-nudes-s65",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871531884783",
+        "title": "Soft Nude Shimmer",
+        "sku": "850064314267",
+        "barcode": "850064314267"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768733479151",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Kiss and Tell (S66)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-kiss-and-tell-s66",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871550529775",
+        "title": "Peach Shimmer",
+        "sku": "850064314274",
+        "barcode": "850064314274"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768734822639",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Cold Crush (S68)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-cold-crush-s68",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46115727474927",
+        "title": "Default Title",
+        "sku": "850064314281",
+        "barcode": "850064314281"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768735543535",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Moonlight Kiss (S69)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-moonlight-kiss-s69",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871564390639",
+        "title": "Soft Blue Shimmer",
+        "sku": "850064314298",
+        "barcode": "850064314298"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768737673455",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Green Crush (S71)",
+    "handle": "disuri-beauty-shimmer-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-green-crush-s71",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871581266159",
+        "title": "Shimmering Green",
+        "sku": "850066107201",
+        "barcode": "850066107201"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768744128751",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Cocoa Crush (M7)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-cocoa-crush-m7",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871628255471",
+        "title": "Default Title",
+        "sku": "850064314304",
+        "barcode": "850064314304"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768745734383",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Lola (M8)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-lola-m8",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871643918575",
+        "title": "Default Title",
+        "sku": "850064314311",
+        "barcode": "850064314311"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768748781807",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Pink Cupcake (M9)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pink-cupcake-m9",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871659679983",
+        "title": "Default Title",
+        "sku": "850064314328",
+        "barcode": "850064314328"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768756089071",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Watermelon Rush (M10)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-watermelon-rush-m10",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871727214831",
+        "title": "Default Title",
+        "sku": "850064314335",
+        "barcode": "850064314335"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768758022383",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Hot Cocoa (M11)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-hot-cocoa-m11",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871743303919",
+        "title": "Default Title",
+        "sku": "850064314342",
+        "barcode": "850064314342"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768760774895",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Pie in The Sky (M12)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pie-in-the-sky-m12",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871758508271",
+        "title": "Default Title",
+        "sku": "850064314359",
+        "barcode": "850064314359"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768767885551",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Glossy Pop (M13)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-glossy-pop-m13",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45875031245039",
+        "title": "Default Title",
+        "sku": "850064314366",
+        "barcode": "850064314366"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768776667375",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Coral Rose (M32)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-coral-rose-m32",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871814213871",
+        "title": "Default Title",
+        "sku": "850064314373",
+        "barcode": "850064314373"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768785449199",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Tropical Twist (M34)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-tropical-twist-m34",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871854551279",
+        "title": "Default Title",
+        "sku": "850064314397",
+        "barcode": "850064314397"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768787218671",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Mocha (M35)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-mocha-m35",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871873655023",
+        "title": "Default Title",
+        "sku": "850064314403",
+        "barcode": "850064314403"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768792199407",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Schnicker (M36)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-schnicker-m36",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871909372143",
+        "title": "Default Title",
+        "sku": "850064314410",
+        "barcode": "850064314410"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768795836655",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Jigga (M37)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pink-fire-m37",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871929196783",
+        "title": "Default Title",
+        "sku": "850064314427",
+        "barcode": "850064314427"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768799080687",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Una Noche en Medellín (M38)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-medellin-m38",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871941353711",
+        "title": "Default Title",
+        "sku": "850064314434",
+        "barcode": "850064314434"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768808943855",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Viola (M39)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-miami-splash-m39",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45871987720431",
+        "title": "Default Title",
+        "sku": "850064314441",
+        "barcode": "850064314441"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8768815235311",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - I Used to Love Him (M33)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-i-used-to-love-him-m33",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45875044778223",
+        "title": "Default Title",
+        "sku": "850064314380",
+        "barcode": "850064314380"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769903427823",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Keep It Thoro (M40)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-sweet-fantasy-m40",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876189233391",
+        "title": "Default Title",
+        "sku": "850064314458",
+        "barcode": "850064314458"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769905950959",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Ruby Rosa (M41)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-ruby-rose-m41",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876197589231",
+        "title": "Default Title",
+        "sku": "850064314465",
+        "barcode": "850064314465"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769908310255",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Real Love (M42)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-hot-romance-m42",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876205551855",
+        "title": "Default Title",
+        "sku": "850064314472",
+        "barcode": "850064314472"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769910800623",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Keep It Movin' (M43)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pink-notes-m43",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876213842159",
+        "title": "Default Title",
+        "sku": "850064314489",
+        "barcode": "850064314489"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769915093231",
+    "title": "Lip Gloss Collection > Glossy Blast Lip Gloss (M7-M73) for non-shimmery, ultra-shiny options.",
+    "handle": "lip-gloss-collection-glossy-blast-lip-gloss-m7-m73-for-non-shimmery-ultra-shiny-options",
+    "status": "ARCHIVED",
+    "product_type": "Personal Care",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876229308655",
+        "title": "Default Title",
+        "sku": "850064314496",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769922990319",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Frosted Cake (M46)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-frosted-cake-m46",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876252541167",
+        "title": "Default Title",
+        "sku": "850064314502",
+        "barcode": "850064314502"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769925906671",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Astoria (M47)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-astoria-m47",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876257718511",
+        "title": "Default Title",
+        "sku": "850064314519",
+        "barcode": "850064314519"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769929871599",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Cafe Con Leche (M48)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-cafe-con-leche-m48",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876265353455",
+        "title": "Default Title",
+        "sku": "850064314526",
+        "barcode": "850064314526"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769933148399",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Mo Money' (M49)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-peanut-butter-kisses-m49",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876273316079",
+        "title": "Default Title",
+        "sku": "850064314533",
+        "barcode": "850064314533"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769937866991",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Nana (M50)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-nana-m50",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876291633391",
+        "title": "Default Title",
+        "sku": "850064314540",
+        "barcode": "850064314540"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769942126831",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Light Nude (M51)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-soft-spoken-m51",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876303495407",
+        "title": "Default Title",
+        "sku": "850064314557",
+        "barcode": "850064314557"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769945272559",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Light Sauce (M52)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-light-sauce-m52",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876309295343",
+        "title": "Default Title",
+        "sku": "850064314564",
+        "barcode": "850064314564"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769950187759",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Griselda (M56)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-widows-kiss-m56",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876317913327",
+        "title": "Default Title",
+        "sku": "850064314571",
+        "barcode": "850064314571"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769953595631",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Pink Berry Pie (M57)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-pink-berry-pie-m57",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876326465775",
+        "title": "Default Title",
+        "sku": "850064314588",
+        "barcode": "850064314588"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769958052079",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Brown Sugar Blush (M58)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-brown-sugar-blush-m58",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876337869039",
+        "title": "Default Title",
+        "sku": "850064314595",
+        "barcode": "850064314595"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769963262191",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Vice (M59)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-seductive-sin-m59",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876350615791",
+        "title": "Default Title",
+        "sku": "850064314601",
+        "barcode": "850064314601"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769972928751",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Queens (M60)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-royal-red-m60",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876369981679",
+        "title": "Default Title",
+        "sku": "850064314618",
+        "barcode": "850064314618"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769977778415",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Forbidden Red (M61)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-forbidden-red-m61",
+    "status": "ACTIVE",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876380893423",
+        "title": "Default Title",
+        "sku": "850064314625",
+        "barcode": "850064314625"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769981022447",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - La Brechadora (M62)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-passion-wine-m62",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876390035695",
+        "title": "Default Title",
+        "sku": "850064314632",
+        "barcode": "850064314632"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769983152367",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Kiss Me (M63)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-kiss-me-m63",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876397113583",
+        "title": "Default Title",
+        "sku": "850064314649",
+        "barcode": "850064314649"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769984987375",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - No Games Please (M64)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-no-games-please-m64",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876400652527",
+        "title": "Default Title",
+        "sku": "850064314656",
+        "barcode": "850064314656"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769989705967",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Uptown (M67)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-lust-in-the-city-m67",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876414251247",
+        "title": "Default Title",
+        "sku": "850064314663",
+        "barcode": "850064314663"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769996357871",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Baby Pink (M70)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-baby-pink-m70-soft-baby-pink",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876427194607",
+        "title": "Default Title",
+        "sku": "850064314670",
+        "barcode": "850064314670"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8769998684399",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Harlem (M72)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-purple-dazzle-m72",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876431913199",
+        "title": "Default Title",
+        "sku": "850064314687",
+        "barcode": "850064314687"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770001666287",
+    "title": "DISURI Beauty Glossy Blast Lip Gloss - Brooklyn (M73)",
+    "handle": "disuri-beauty-glossy-blast-lip-gloss-ultra-shiny-non-sticky-vegan-cruelty-free-formula-selena-m73",
+    "status": "UNLISTED",
+    "product_type": "Glossy Lip Stain",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876438302959",
+        "title": "Default Title",
+        "sku": "850064314694",
+        "barcode": "850064314694"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770008809711",
+    "title": "DISURI Beauty Liquid Lipstick - Blood Orange (2)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-blood-orange-2",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876464681199",
+        "title": "Default Title",
+        "sku": "850064314700",
+        "barcode": "850064314700"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770010480879",
+    "title": "DISURI Beauty Liquid Lipstick - Delicious (6)",
+    "handle": "disuri-beauty-matte-blast-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-delicious-6",
+    "status": "ACTIVE",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876469006575",
+        "title": "Default Title",
+        "sku": "850064314717",
+        "barcode": "850064314717"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770012840175",
+    "title": "DISURI Beauty Liquid Lipstick - Malvada (7)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-dropped-out-of-heaven-7",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45960478327023",
+        "title": "Default Title",
+        "sku": "850064314724",
+        "barcode": "850064314724"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770014609647",
+    "title": "DISURI Beauty Liquid Lipstick - Seductive (9)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-seductive-9",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876480770287",
+        "title": "Default Title",
+        "sku": "850064314731",
+        "barcode": "850064314731"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770016542959",
+    "title": "DISURI Beauty Liquid Lipstick - Santo (10)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-midnight-mocha-10",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876486766831",
+        "title": "Default Title",
+        "sku": "850064314748",
+        "barcode": "850064314748"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770019361007",
+    "title": "DISURI Beauty Liquid Lipstick - Berry Temptation (11)",
+    "handle": "disuri-beauty-liquid-lipstick-berry-temptation-11",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876492271855",
+        "title": "Default Title",
+        "sku": "850064314755",
+        "barcode": "850064314755"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770021556463",
+    "title": "DISURI Beauty Liquid Lipstick - Blush Hour (12)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-blush-hour-12",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876498497775",
+        "title": "Default Title",
+        "sku": "850064314762",
+        "barcode": "850064314762"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770024964335",
+    "title": "DISURI Beauty Liquid Lipstick - Crave Me (13)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-crave-me-13",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876511342831",
+        "title": "Default Title",
+        "sku": "850064314779",
+        "barcode": "850064314779"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770027520239",
+    "title": "DISURI Beauty Liquid Lipstick - Whats Poppin? (19)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-whats-poppin-19",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876519633135",
+        "title": "Default Title",
+        "sku": "850064314786",
+        "barcode": "850064314786"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770028437743",
+    "title": "DISURI Beauty Liquid Lipstick - Georgia Peach (26)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-sneaky-cute-26",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876525334767",
+        "title": "Default Title",
+        "sku": "850064314793",
+        "barcode": "850064314793"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770034499823",
+    "title": "DISURI Beauty Liquid Lipstick - Devil in a New Dress (27)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-devil-in-a-new-dress-27",
+    "status": "ACTIVE",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876541423855",
+        "title": "Default Title",
+        "sku": "850064314809",
+        "barcode": "850064314809"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770035810543",
+    "title": "DISURI Beauty Liquid Lipstick - Blue Ambition (31)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-blue-ambition-31",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876549746927",
+        "title": "Default Title",
+        "sku": "850064314816",
+        "barcode": "850064314816"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770037973231",
+    "title": "DISURI Beauty Liquid Lipstick - Boss Status (36)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-boss-status-35",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876556103919",
+        "title": "Default Title",
+        "sku": "850064314823",
+        "barcode": "850064314823"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770040070383",
+    "title": "DISURI Beauty Liquid Lipstick - Los Angeles (37)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-los-angeles-37",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876562067695",
+        "title": "Default Title",
+        "sku": "850066107171",
+        "barcode": "850066107171"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770042069231",
+    "title": "DISURI Beauty Liquid Lipstick - Don't Make Me Regret It (39)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-don-t-make-me-regret-it-39",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876567474415",
+        "title": "Default Title",
+        "sku": "850064314830",
+        "barcode": "850064314830"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770043314415",
+    "title": "DISURI Beauty Liquid Lipstick - Toasty (41)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-don-t-test-me-41",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876571242735",
+        "title": "Default Title",
+        "sku": "850064314847",
+        "barcode": "850064314847"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770045968623",
+    "title": "DISURI Beauty Liquid Lipstick - The Red Wedding (44)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-ms-popular-44",
+    "status": "ACTIVE",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876576551151",
+        "title": "Default Title",
+        "sku": "850064314854",
+        "barcode": "850064314854"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770048000239",
+    "title": "DISURI Beauty Liquid Lipstick - Williamsburg Bridge Plaza (45)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-too-focused-45",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876583039215",
+        "title": "Default Title",
+        "sku": "850064314861",
+        "barcode": "850064314861"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770050031855",
+    "title": "DISURI Beauty Liquid Lipstick - Celia (47)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-celia-47",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876590084335",
+        "title": "Default Title",
+        "sku": "850064314878",
+        "barcode": "850064314878"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770052325615",
+    "title": "DISURI Beauty Liquid Lipstick - Baddest Girl on The Block (48)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-baddest-girl-on-the-block-48",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876599423215",
+        "title": "Default Title",
+        "sku": "850064314885",
+        "barcode": "850064314885"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770054684911",
+    "title": "DISURI Beauty Liquid Lipstick - Royal Purple (50)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-royal-purple-50",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876614267119",
+        "title": "Default Title",
+        "sku": "850064314892",
+        "barcode": "850064314892"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770057666799",
+    "title": "DISURI Beauty Liquid Lipstick - Greatest Summer of My Life (51)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-greatest-summer-of-my-life-51",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876631961839",
+        "title": "Default Title",
+        "sku": "850064314908",
+        "barcode": "850064314908"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770060484847",
+    "title": "DISURI Beauty Liquid Lipstick - Red Wine (53)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-red-wine-53",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876640743663",
+        "title": "Default Title",
+        "sku": "850064314915",
+        "barcode": "850064314915"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770063401199",
+    "title": "DISURI Beauty Liquid Lipstick - Miami Nights (55)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-miami-nights-55",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876663714031",
+        "title": "Default Title",
+        "sku": "850064314922",
+        "barcode": "850064314922"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770066186479",
+    "title": "DISURI Beauty Liquid Lipstick - Sweet Honeybun (59)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-sweet-honeybun-59",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45876675346671",
+        "title": "Default Title",
+        "sku": "850064314939",
+        "barcode": "850064314939"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770719285487",
+    "title": "DISURI Beauty Liquid Lipstick - Don't Play With Me (64)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-dont-play-with-me-64",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878427222255",
+        "title": "Default Title",
+        "sku": "850064314946",
+        "barcode": "850064314946"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770722332911",
+    "title": "DISURI Beauty Liquid Lipstick - Upper West Side (65)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-peanut-butter-65",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878436135151",
+        "title": "Default Title",
+        "sku": "850064314953",
+        "barcode": "850064314953"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770724561135",
+    "title": "DISURI Beauty Liquid Lipstick - Gramercy Park (66)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-hazelnut-crush-66",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878440329455",
+        "title": "Default Title",
+        "sku": "850064314960",
+        "barcode": "850064314960"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770726265071",
+    "title": "DISURI Beauty Liquid Lipstick - Chocolate Cake (68)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-chocolate-cake-68",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878445605103",
+        "title": "Default Title",
+        "sku": "850064314977",
+        "barcode": "850064314977"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770729181423",
+    "title": "DISURI Beauty Liquid Lipstick - Sin City",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-sin-city-73",
+    "status": "ARCHIVED",
+    "product_type": "Personal Care",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878453469423",
+        "title": "Default Title",
+        "sku": "",
+        "barcode": "850064314984"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770731770095",
+    "title": "DISURI Beauty Liquid Lipstick - Ain't Worried Bout' Nothin' (82)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-aint-worried-bout-nothin-82",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878458024175",
+        "title": "Default Title",
+        "sku": "850064314991",
+        "barcode": "850064314991"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770734129391",
+    "title": "DISURI Beauty Liquid Lipstick - Soho (84)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-life-in-the-city-84",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878461628655",
+        "title": "Default Title",
+        "sku": "850064676006",
+        "barcode": "850064676006"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770736161007",
+    "title": "DISURI Beauty Liquid Lipstick - Hov (86)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-pretty-girl-86",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878465069295",
+        "title": "Default Title",
+        "sku": "850064676013",
+        "barcode": "850064676013"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770737766639",
+    "title": "DISURI Beauty Liquid Lipstick - Brooklyn (91)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-brooklyn-91",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878470148335",
+        "title": "Default Title",
+        "sku": "850064676020",
+        "barcode": "850064676020"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770740289775",
+    "title": "DISURI Beauty Liquid Lipstick - Bushwick (93)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-love-affair-93",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878477455599",
+        "title": "Default Title",
+        "sku": "850064676037",
+        "barcode": "850064676037"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770742419695",
+    "title": "DISURI Beauty Liquid Lipstick - Uptown Haze (94)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-uptown-girl-94",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878482829551",
+        "title": "Default Title",
+        "sku": "850064676044",
+        "barcode": "850064676044"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770746581231",
+    "title": "DISURI Beauty Liquid Lipstick - Wild Girl (96)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-wild-girl-96",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878490661103",
+        "title": "Default Title",
+        "sku": "850064676051",
+        "barcode": "850064676051"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770748874991",
+    "title": "DISURI Beauty Liquid Lipstick - At My Worst (104)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-at-my-worst-104",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878494593263",
+        "title": "Default Title",
+        "sku": "850064676068",
+        "barcode": "850064676068"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770751332591",
+    "title": "DISURI Beauty Liquid Lipstick - Glamour (112)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-room-112-112",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878498263279",
+        "title": "Default Title",
+        "sku": "850064676075",
+        "barcode": "850064676075"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770753921263",
+    "title": "DISURI Beauty Liquid Lipstick - La Mortificadora (99)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-i-was-made-for-loving-you-99",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878503276783",
+        "title": "Default Title",
+        "sku": "850064676082",
+        "barcode": "850064676082"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8770755657967",
+    "title": "DISURI Beauty Liquid Lipstick - Jada Kiss (100)",
+    "handle": "disuri-beauty-liquid-lipstick-non-sticky-vegan-cruelty-free-formula-there-she-goes-100",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45878509011183",
+        "title": "Default Title",
+        "sku": "850064676099",
+        "barcode": "850064676099"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8779307385071",
+    "title": "DISURI Beauty Shimmer & Glam Collection",
+    "handle": "shimmer-glam-collection",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46186066346223",
+        "title": "Default Title",
+        "sku": "850066107270",
+        "barcode": "850066107270"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8783585214703",
+    "title": "DISURI Beauty Candy Crush Collection",
+    "handle": "candy-crush-collection",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45928830238959",
+        "title": "Default Title",
+        "sku": "850066107263",
+        "barcode": "850066107263"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8784427811055",
+    "title": "DISURI Beauty 2-in-1 Liquid Lipstick & Lip Liner Kit - Pink Minaj (#4)",
+    "handle": "disuri-beauty-2-in-1-liquid-lipstick-lip-liner-kit-pink-minaj-4",
+    "status": "UNLISTED",
+    "product_type": "2-in-1 Lipstick Lip Liner Kit",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45932548784367",
+        "title": "Default Title",
+        "sku": "850064676785",
+        "barcode": "850064676785"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8785167614191",
+    "title": "DISURI Beauty Cold Crush Shimmer Blast - 3-Pack",
+    "handle": "cold-crush-shimmer-blast-3-pack",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45944225628399",
+        "title": "Default Title",
+        "sku": "850066107300",
+        "barcode": "850066107300"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8785168990447",
+    "title": "DISURI Beauty Cold Crush Shimmer Blast - 5-Pack",
+    "handle": "cold-crush-shimmer-blast-5-pack",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45935458681071",
+        "title": "Default Title",
+        "sku": "850066107256",
+        "barcode": "850066107256"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8785170399471",
+    "title": "DISURI Beauty Cold Crush Shimmer Blast - 10-Pack",
+    "handle": "cold-crush-shimmer-blast-10-pack",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45935466938607",
+        "title": "Default Title",
+        "sku": "850066107294",
+        "barcode": "850066107294"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8786711544047",
+    "title": "DISURI Beauty Pink Berry Diamonds Collection",
+    "handle": "pink-berry-diamonds-collection",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/45944157864175",
+        "title": "Default Title",
+        "sku": "850066107287",
+        "barcode": "850066107287"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8806267584751",
+    "title": "DISURI Beauty 2-in-1 Liquid Lipstick & Lip Liner Kit - Brown Sugar (#14)",
+    "handle": "disuri-beauty-2-in-1-lipstick-lip-liner-kit-brown-sugar-14",
+    "status": "UNLISTED",
+    "product_type": "2-in-1 Lipstick Lip Liner Kit",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46011438825711",
+        "title": "Default Title",
+        "sku": "850064676792",
+        "barcode": "850064676792"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8806291472623",
+    "title": "DISURI Beauty 2-in-1 Liquid Lipstick & Lip Liner Kit - Sweet Honey (#16)",
+    "handle": "disuri-beauty-2-in-1-lipstick-lip-liner-kit-sweet-honey-16",
+    "status": "UNLISTED",
+    "product_type": "2-in-1 Lipstick Lip Liner Kit",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46011565768943",
+        "title": "Default Title",
+        "sku": "850064676808",
+        "barcode": "850064676808"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8810927456495",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Sunset Glow",
+    "handle": "disuri-beauty-shimmer-lip-gloss-sunset-glow",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46024019706095",
+        "title": "Default Title",
+        "sku": "850066107317",
+        "barcode": "850066107317"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8810959175919",
+    "title": "DISURI Beauty Shimmer Blast Lip Gloss - Sugar Pop (S55)",
+    "handle": "disuri-beauty-shimmer-lip-gloss-sugar-pop",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46024258978031",
+        "title": "Champagne Gold Shimmer",
+        "sku": "850064314250",
+        "barcode": "850064314250"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8822322954479",
+    "title": "DISURI Beauty Lip Mask & Scrub Set - Strawberry (DIS-LIP-STRAW-S1)",
+    "handle": "disuri-beauty-lip-mask-and-lip-scrub-set-strawberry-nourishing-strawberry-treatment",
+    "status": "UNLISTED",
+    "product_type": "Lip Mask & Scrub Set",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46056294383855",
+        "title": "Default Title",
+        "sku": "850064676266",
+        "barcode": "850064676266"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8823034839279",
+    "title": "DISURI Beauty 2-in-1 Liquid Lipstick & Lip Liner Kit - Pink Sugar (#17)",
+    "handle": "disuri-beauty-2-in-1-lipstick-lip-liner-kit-pink-sugar-17",
+    "status": "UNLISTED",
+    "product_type": "2-in-1 Lipstick Lip Liner Kit",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46058438459631",
+        "title": "Default Title",
+        "sku": "850064676815",
+        "barcode": "850064676815"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8823035363567",
+    "title": "DISURI Beauty 2-in-1 Liquid Lipstick & Lip Liner Kit - Uptown Purple (#18)",
+    "handle": "disuri-beauty-2-in-1-lipstick-lip-liner-kit-uptown-purple-18",
+    "status": "UNLISTED",
+    "product_type": "2-in-1 Lipstick Lip Liner Kit",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46058441277679",
+        "title": "Default Title",
+        "sku": "850064676822",
+        "barcode": "850064676822"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8827125072111",
+    "title": "DISURI Beauty Lip Mask & Scrub Set - Orange (DIS-LIP-ORNG-S2)",
+    "handle": "lip-mask-scrub-set-orange-nourishing-lip-treatment",
+    "status": "UNLISTED",
+    "product_type": "Lip Mask & Scrub Set",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46070965305583",
+        "title": "Default Title",
+        "sku": "850064676273",
+        "barcode": "850064676273"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8830374478063",
+    "title": "DISURI Beauty Lip Mask & Scrub Set - Blueberry (DIS-LIP-BLUE-S3)",
+    "handle": "lip-mask-scrub-set-blueberry-nourishing-treatment",
+    "status": "UNLISTED",
+    "product_type": "Lip Mask & Scrub Set",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46081152057583",
+        "title": "Default Title",
+        "sku": "850064676303",
+        "barcode": "850064676303"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8830377656559",
+    "title": "DISURI Beauty Lip Mask & Scrub Set - Grape (DIS-LIP-GRAP-S4)",
+    "handle": "lip-mask-scrub-set-grape-nourishing-treatment",
+    "status": "UNLISTED",
+    "product_type": "Lip Mask & Scrub Set",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46081188790511",
+        "title": "Default Title",
+        "sku": "850064676280",
+        "barcode": "850064676280"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8830378377455",
+    "title": "DISURI Beauty Lip Mask & Scrub Set - Vanilla (S6)",
+    "handle": "lip-mask-scrub-set-vanilla-nourishing-treatment",
+    "status": "UNLISTED",
+    "product_type": "Lip Mask & Scrub Set",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46081191149807",
+        "title": "Default Title",
+        "sku": "850064676297",
+        "barcode": "850064676297"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8833018527983",
+    "title": "DISURI Beauty Color Pop Lip Liner - Sunset Passion (LLSP8)",
+    "handle": "sunset-passion-color-pop-lip-liner",
+    "status": "UNLISTED",
+    "product_type": "Lip Liner Pencil",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46091525882095",
+        "title": "Default Title",
+        "sku": "850066107331",
+        "barcode": "850066107331"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8833018986735",
+    "title": "DISURI Beauty Color Pop Lip Liner - Nude Mood (LLNM)",
+    "handle": "nude-mood-color-pop-lip-liner",
+    "status": "UNLISTED",
+    "product_type": "Lip Liner Pencil",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46091530633455",
+        "title": "Default Title",
+        "sku": "850066107355",
+        "barcode": "850066107355"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8833019805935",
+    "title": "DISURI Beauty Color Pop Lip Liner - Blush Blossom (LLBB6)",
+    "handle": "blush-blossom-color-pop-lip-liner",
+    "status": "UNLISTED",
+    "product_type": "Lip Liner Pencil",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46091533877487",
+        "title": "Default Title",
+        "sku": "850066107348",
+        "barcode": "850066107348"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8833020068079",
+    "title": "DISURI Beauty Color Pop Lip Liner - Rouge Rush Berry (LLRR12)",
+    "handle": "rouge-rush-berry-color-pop-lip-liner",
+    "status": "UNLISTED",
+    "product_type": "Lip Liner Pencil",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46091536957679",
+        "title": "Default Title",
+        "sku": "850066107324",
+        "barcode": "850066107324"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8833022165231",
+    "title": "DISURI Beauty Color Pop Lip Liner - Berry Temptation (LLBT10)",
+    "handle": "berry-temptation-color-pop-liner",
+    "status": "UNLISTED",
+    "product_type": "Lip Liner Pencil",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46091542462703",
+        "title": "Default Title",
+        "sku": "850066107218",
+        "barcode": "850066107218"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8841563341039",
+    "title": "Lash Max: Unlock Maximum Growth | Eyelash Enhancer Serum with Hyaluronic Acid",
+    "handle": "lash-max-vegan-eyelash-growth-serum-waterproof",
+    "status": "ARCHIVED",
+    "product_type": "Eyelash Primers",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46117949997295",
+        "title": "Default Title",
+        "sku": "LashMax",
+        "barcode": "850066107133"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8847966273775",
+    "title": "DISURI Beauty Voluminous Makeup Lash Envy Mascara",
+    "handle": "voluminous-lash-envy-mascara",
+    "status": "ARCHIVED",
+    "product_type": "Eyelash Primers",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46135685185775",
+        "title": "Default Title",
+        "sku": "LEMASCARA",
+        "barcode": "850066107140"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8849098408175",
+    "title": "Gift card",
+    "handle": "rise-ai-giftcard",
+    "status": "ARCHIVED",
+    "product_type": "",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46138285916399",
+        "title": "$50",
+        "sku": "",
+        "barcode": ""
+      },
+      {
+        "id": "gid://shopify/ProductVariant/46138285949167",
+        "title": "$100",
+        "sku": "",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8859217527023",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Power Play (#01)",
+    "handle": "matte-lipstick-power-play-01",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46168546050287",
+        "title": "Default Title",
+        "sku": "850064676839",
+        "barcode": "850064676839"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8859226341615",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Midnight Muse (#02)",
+    "handle": "matte-lipstick-midnight-muse-02",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46168577343727",
+        "title": "Default Title",
+        "sku": "850064676846",
+        "barcode": "850064676846"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8859227783407",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Sienna Spark (#03)",
+    "handle": "matte-lipstick-sienna-spark-03",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46168581177583",
+        "title": "Default Title",
+        "sku": "850064676853",
+        "barcode": "850064676853"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8859229454575",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Daring Desire (#04)",
+    "handle": "matte-lipstick-daring-desire-04",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46168583897327",
+        "title": "Default Title",
+        "sku": "850064676860",
+        "barcode": "850064676860"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8859230437615",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Spicy Coral (#05)",
+    "handle": "matte-lipstick-spicy-coral-05",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46168584945903",
+        "title": "Default Title",
+        "sku": "850064676877",
+        "barcode": "850064676877"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860816539887",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Ruby Fever (#06)",
+    "handle": "matte-lipstick-ruby-fever-06",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172031975663",
+        "title": "Default Title",
+        "sku": "850064676884",
+        "barcode": "850064676884"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860820537583",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Sunset Rush (#07)",
+    "handle": "matte-lipstick-sunset-rush-07",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172036202735",
+        "title": "Default Title",
+        "sku": "850064676891",
+        "barcode": "850064676891"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860821717231",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Bold Garnet (#08)",
+    "handle": "matte-lipstick-bold-garnet-08",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172037873903",
+        "title": "Default Title",
+        "sku": "850064676907",
+        "barcode": "850064676907"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860823257327",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Peachy Bliss (#09)",
+    "handle": "matte-lipstick-peachy-bliss-09",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172041478383",
+        "title": "Default Title",
+        "sku": "850064676914",
+        "barcode": "850064676914"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860825714927",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Fiery Coral (#10)",
+    "handle": "matte-lipstick-fiery-coral-10",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172044689647",
+        "title": "Default Title",
+        "sku": "850064676921",
+        "barcode": "850064676921"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860827746543",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Crimson Luxe (#11)",
+    "handle": "matte-lipstick-crimson-luxe-11",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172049375471",
+        "title": "Default Title",
+        "sku": "850064676938",
+        "barcode": "850064676938"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860831252719",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Rose Petal (#12)",
+    "handle": "matte-lipstick-rose-petal-12",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172053537007",
+        "title": "Default Title",
+        "sku": "850064676945",
+        "barcode": "850064676945"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860833448175",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Lavender Lust (#13)",
+    "handle": "matte-lipstick-lavender-lust-13",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172055699695",
+        "title": "Default Title",
+        "sku": "850064676952",
+        "barcode": "850064676952"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860837609711",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Tangerine Dream (#14)",
+    "handle": "matte-lipstick-tangerine-dream-14",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172064317679",
+        "title": "Default Title",
+        "sku": "850064676969",
+        "barcode": "850064676969"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860838854895",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Slate Chic (#15)",
+    "handle": "matte-lipstick-slate-chic-15",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172066087151",
+        "title": "Default Title",
+        "sku": "850064676976",
+        "barcode": "850064676976"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860840427759",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Sapphire Glow (#16)",
+    "handle": "matte-lipstick-sapphire-glow-16",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172068511983",
+        "title": "Default Title",
+        "sku": "850064676983",
+        "barcode": "850064676983"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860841410799",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Golden Hour (#17)",
+    "handle": "matte-lipstick-golden-hour-17",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172070838511",
+        "title": "Default Title",
+        "sku": "850064676990",
+        "barcode": "850064676990"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860842590447",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Mauve Magic (#18)",
+    "handle": "matte-lipstick-mauve-magic-18",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172072149231",
+        "title": "Default Title",
+        "sku": "850066107003",
+        "barcode": "850066107003"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860843671791",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Ruby Noir (#19)",
+    "handle": "matte-lipstick-ruby-noir-19",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172073623791",
+        "title": "Default Title",
+        "sku": "850066107010",
+        "barcode": "850066107010"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860844982511",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Petal Kiss (#20)",
+    "handle": "matte-lipstick-petal-kiss-20",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172075917551",
+        "title": "Default Title",
+        "sku": "850066107027",
+        "barcode": "850066107027"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860847309039",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Aqua Bloom (#21)",
+    "handle": "matte-lipstick-aqua-bloom-21",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172079227119",
+        "title": "Default Title",
+        "sku": "850066107034",
+        "barcode": "850066107034"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860848750831",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Plum Allure (#22)",
+    "handle": "matte-lipstick-plum-allure-22",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172081750255",
+        "title": "Default Title",
+        "sku": "850066107041",
+        "barcode": "850066107041"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860849635567",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Mystic Slate (#23)",
+    "handle": "matte-lipstick-mystic-slate-23",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172083192047",
+        "title": "Default Title",
+        "sku": "850066107058",
+        "barcode": "850066107058"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860850553071",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Rosewood Charm (#24)",
+    "handle": "matte-lipstick-rosewood-charm-24",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172084666607",
+        "title": "Default Title",
+        "sku": "850066107065",
+        "barcode": "850066107065"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860851241199",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Steel Grace (#25)",
+    "handle": "matte-lipstick-steel-grace-25",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172087124207",
+        "title": "Default Title",
+        "sku": "850066107072",
+        "barcode": "850066107072"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860852191471",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Amethyst Whisper (#26)",
+    "handle": "matte-lipstick-amethyst-whisper-26",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172088598767",
+        "title": "Default Title",
+        "sku": "850066107089",
+        "barcode": "850066107089"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860855238895",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Frosted Pearl (#27)",
+    "handle": "matte-lipstick-frosted-pearl-27",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172095152367",
+        "title": "Default Title",
+        "sku": "850066107096",
+        "barcode": "850066107096"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860858056943",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Sunset Glow (#28)",
+    "handle": "matte-lipstick-sunset-glow-28",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172101378287",
+        "title": "Default Title",
+        "sku": "850066107102",
+        "barcode": "850066107102"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8860860678383",
+    "title": "DISURI Beauty Matte Bullet Lipstick - Obsidian Charm (#29)",
+    "handle": "matte-lipstick-obsidian-charm-29",
+    "status": "UNLISTED",
+    "product_type": "Matte Lipstick",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46172110487791",
+        "title": "Default Title",
+        "sku": "850066107119",
+        "barcode": "850066107119"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8866005844207",
+    "title": "Shimmer & Glam Collection - 3-Pack Shimmer Lip Gloss",
+    "handle": "shimmer-glam-lip-gloss",
+    "status": "UNLISTED",
+    "product_type": "Shimmer Lip Gloss",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46186042228975",
+        "title": "Default Title",
+        "sku": "",
+        "barcode": "SGC"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8937618440431",
+    "title": "Jigga Sweater – Vegan Pastel Lavender Nail Polish | Cruelty-Free Crème Finish by DISURI Beauty",
+    "handle": "vegan-lavender-nail-polish-jigga-sweater",
+    "status": "ARCHIVED",
+    "product_type": "Nail Polish",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46386989662447",
+        "title": "Default Title",
+        "sku": "DIS-JIGGA-BC8FD3-CRM",
+        "barcode": "850064676594"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8939991302383",
+    "title": "DISURI Beauty Ultimate Snail Mucin Cream",
+    "handle": "disuri-beauty-ultimate-snail-mucin-cream",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46394410270959",
+        "title": "Default Title",
+        "sku": "850064676372",
+        "barcode": "850064676372"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8941107052783",
+    "title": "DISURI Beauty Vegan Nail Polish – La La Land (#5D9ED2 Sky Blue, 0.7 oz)",
+    "handle": "vegan-sky-blue-nail-polish-la-la-land",
+    "status": "ARCHIVED",
+    "product_type": "Nail Polish",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46396797223151",
+        "title": "Default Title",
+        "sku": "DSR-LL02-15ML",
+        "barcode": "850064676402"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8941115146479",
+    "title": "DISURI Beauty Vegan Nail Polish – Violet Skies (#829FDC Lavender Gloss, 15 ml)",
+    "handle": "vegan-lavender-nail-polish-violet-skies",
+    "status": "ARCHIVED",
+    "product_type": "Nail Polish",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46396814819567",
+        "title": "Default Title",
+        "sku": "DSR-VS01-15ML",
+        "barcode": "850064676426"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8941118456047",
+    "title": "DISURI Beauty Vegan Nail Polish – Every Time I Close My Eyes (#EDCAC7 Rose Nude Gloss, 15 ml)",
+    "handle": "vegan-deep-plum-nail-polish-every-time-i-close-my-eyes",
+    "status": "ARCHIVED",
+    "product_type": "Nail Polish",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46396820881647",
+        "title": "Default Title",
+        "sku": "DSR-EC03-15ML",
+        "barcode": "850064676778"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8947519422703",
+    "title": "Triple Collagen Firming Essence – Anti-Aging, 5.07 oz | DISURI Beauty",
+    "handle": "triple-collagen-firming-essence",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46413260423407",
+        "title": "Default Title",
+        "sku": "850066107188",
+        "barcode": "850066107188"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8947522568431",
+    "title": "DISURI Triple Collagen Firming Toner – Hydrating & Firming Toner with 3,500ppm Collagen (8.45 oz)",
+    "handle": "triple-collagen-firming-toner",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46413267828975",
+        "title": "Default Title",
+        "sku": "850064676327",
+        "barcode": "850064676327"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8974232060143",
+    "title": "DISURI Hyaluronic Acid Intense Hydration Cream – Korean Barrier-Boosting Moisturizer with Triple HA + 2% Niacinamide",
+    "handle": "hyaluronic-acid-intense-hydration-firming-cream",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46499721380079",
+        "title": "Default Title",
+        "sku": "850064676310",
+        "barcode": "850064676310"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8979359465711",
+    "title": "DISURI Triple Collagen Firming Foam - Korean Anti-Aging Cleanser with 3,000ppm Collagen Complex",
+    "handle": "triple-collagen-korean-face-wash",
+    "status": "ACTIVE",
+    "product_type": "",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46525960323311",
+        "title": "Default Title",
+        "sku": "850064676365",
+        "barcode": "850064676365"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8980145733871",
+    "title": "Triple Collagen Firming Eye Cream",
+    "handle": "triple-collagen-eye-cream-korean-anti-aging",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46529339850991",
+        "title": "Default Title",
+        "sku": "850064676341",
+        "barcode": "850064676341"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/8982360654063",
+    "title": "DISURI Beauty Vegan Nail Polish – Baby Pink Skirt (#F9D6DC Soft Pink Gloss, 15 ml)",
+    "handle": "vegan-baby-pink-nail-polish-disuri",
+    "status": "ARCHIVED",
+    "product_type": "Nail Polish",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46536232042735",
+        "title": "Default Title",
+        "sku": "DIS-BPS-8500",
+        "barcode": "850064676587"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/9013586198767",
+    "title": "DISURI Beauty Vegan Nail Polish – Cafe Con Leche (#D6B9A1 Creamy Caramel Gloss, 15 ml)",
+    "handle": "vegan-cafe-con-leche-nail-polish-disuri",
+    "status": "ARCHIVED",
+    "product_type": "Nail Polish",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46622807654639",
+        "title": "Default Title",
+        "sku": "DIS-CCL-8500",
+        "barcode": "850064314526"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/9144295162095",
+    "title": "The Barrier Rescue System",
+    "handle": "the-barrier-rescue-system",
+    "status": "ARCHIVED",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/47191396155631",
+        "title": "Default Title",
+        "sku": "",
+        "barcode": ""
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/9144295522543",
+    "title": "The Anti-Aging Power Duo",
+    "handle": "the-anti-aging-power-duo",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/47191396614383",
+        "title": "Default Title",
+        "sku": "850066107379",
+        "barcode": "850066107379"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/9144296145135",
+    "title": "The Complete DISURI System 3-Step Korean Skincare Routine",
+    "handle": "the-complete-disuri-system",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/47191398383855",
+        "title": "Default Title",
+        "sku": "850066107362",
+        "barcode": "850066107362"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/9144296505583",
+    "title": "The Glass Skin Starter",
+    "handle": "the-glass-skin-starter",
+    "status": "ACTIVE",
+    "product_type": "Personal Care",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/47191400513775",
+        "title": "Default Title",
+        "sku": "850066107386",
+        "barcode": "850066107386"
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/9145030213871",
+    "title": "DISURI Beauty Triple Collagen Firming Cream – Firming, Smoothing & Hydrating Treatment (Made in Korea)",
+    "handle": "triple-collagen-firming-cream",
+    "status": "ACTIVE",
+    "product_type": "Face Moisturizer",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/47195660484847",
+        "title": "Default Title",
+        "sku": "850064676334",
+        "barcode": "850064676334"
+      }
+    ]
+  }
+]

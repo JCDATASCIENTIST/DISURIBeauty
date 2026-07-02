@@ -16,6 +16,38 @@
 
 ## Open Handoffs → Cursor (theme)
 
+- **SKU/name sync — DONE incl. bundles (2026-07-02).** Product master + scripts in
+ `DISURI Beauty/product-master/` + `scripts/build-product-master.py`,
+ `scripts/shopify-name-sku-sync.mjs`, `scripts/build-gs1-import.py`; skill:
+ `.cursor/skills/disuri-sku-sync/`. Shopify: 173 products renamed/UPC'd (SKU=barcode=UPC),
+ verified converged; 16 plumpers + `shimmer-glam-lip-gloss` dup archived. GS1 corrected
+ file uploaded; bundle GTINs confirmed: Complete System 850066107362, Anti-Aging Duo
+ 850066107379, Glass Skin Starter 850066107386. Joel's remaining manual items:
+ (1) Data Hub edit of 850066107386 Barrier→Glass (see `gs1-386-edit-instructions.md`),
+ (2) archive dup GTINs 850066107188 (Essence) + 850066107195 (Ultra Plumping Mango),
+ (3) skim `conflict-review.md` (74 GS1-default shade conflicts; Citrus Queen + Sugar Pie
+ confirmed GS1-correct). Shopify auth: CLI 4.2.0 stored session (`store auth`); 4.3.0
+ can't read it — stay on 4.2.0.
+
+- **Barrier Rescue System ELIMINATED → Glass Skin Starter (2026-07-02).** Joel keeps
+ Glass Skin Starter ($67.48 snail+HA duo, now ACTIVE); Barrier Rescue archived on
+ Shopify and swapped everywhere: theme (skin-guide, collection cards, catalog snippets,
+ locales, filter education — pushed live), Obsidian KB vault (notes moved to
+ `4-Archives/DISURI-Product-Library/`, new `Bundle-Glass-Skin-Starter.md/.es.md`,
+ pushed to vault main), `catalog.js` (`glass-starter` id), `kb-sync-map.json`,
+ `update-product-descriptions.mjs`. Never resurrect handle `the-barrier-rescue-system`.
+ Still referencing it (Claude Code/admin side): Zipify OCU funnels + Klaviyo abandon
+ emails + historical playbooks in `theme-rebuild/`.
+
+- **PDP gallery fixed (2026-07-02).** Root cause: `disuri-pdp.js` targeted wrong id
+ (`pdp-featured-image` exists now; also cleared `srcset` on swap) — thumbnails now
+ switch main image; click-to-zoom lightbox added (`.pdp-lightbox` in
+ `disuri-shopify.css`). Verified live via browser. Theme repo re-pulled fresh to
+ `~/Documents/_1_DISURIBeauty/DISURI-Beauty-Theme/` (old copy had vanished) —
+ now a fresh local-only git repo (no remote yet; old origin was read-only
+ skeleton-theme). Create a GitHub remote before relying on it as backup.
+ Live theme on Shopify (#161833353455) is the source of truth.
+
 - **Auto-rotate Gift-of-Week by date — DONE (2026-07-01).** Theme uses
   `snippets/disuri-gift-week-line.liquid` (Thu 00:00 ET windows, matches BXGY + Klaviyo).
   Launch schedule: `DISURI Beauty/theme-rebuild/gift-rotation-calendar.md`.
@@ -40,4 +72,4 @@
 - Collection filters use curated catalog-based tags (`disuri-product-filter-tags.liquid` + JS), not raw Shopify product tags alone.
 - Gift funnel primary KPI: first **$25+ Skincare** order; post-checkout **Zipify OCU** stack = Complete System → subscription → Queens community.
 - **Zipify OCU relaunch (2026-07-01):** In Checkout OFF (blocked checkout). Post-purchase funnels A/B/C + cart drawer only. Global OCU app-embed OFF; cart-drawer embed ON. Admin: `DISURI Beauty/theme-rebuild/zipify-ocu-admin-walkthrough.md`. QA: `node scripts/zipify-ocu-qa-checklist.mjs`.
-- Theme repo `DISURI-Beauty-Theme` git `origin` still points to read-only `Shopify/skeleton-theme` (403 on push)—repoint to owner GitHub before backup push.
+- Theme repo `DISURI-Beauty-Theme`: old clone (with skeleton-theme origin) vanished from disk; re-pulled fresh from live theme 2026-07-02 and re-initialized as a local-only git repo — needs a GitHub remote for backup.

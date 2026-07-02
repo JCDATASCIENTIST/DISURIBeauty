@@ -38,7 +38,7 @@ const HANDLE_TO_CATALOG = {
   'triple-collagen-firming-essence': 'essence',
   'the-complete-disuri-system': 'complete-system',
   'the-anti-aging-power-duo': 'anti-aging-duo',
-  'the-barrier-rescue-system': 'barrier-rescue',
+  'the-glass-skin-starter': 'glass-starter',
 };
 
 const FIND_QUERY = `

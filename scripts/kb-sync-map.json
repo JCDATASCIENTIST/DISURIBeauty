@@ -60,9 +60,9 @@
       "fields": ["name", "price", "benefit", "benefitEs", "description", "usage"]
     },
     {
-      "catalogId": "barrier-rescue",
-      "shopifyHandle": "the-barrier-rescue-system",
-      "kbFile": "6-Product-Library/Bundle-Barrier-Rescue-System.md",
+  "catalogId": "glass-starter",
+   "shopifyHandle": "the-glass-skin-starter",
+   "kbFile": "6-Product-Library/Bundle-Glass-Skin-Starter.md",
       "fields": ["name", "price", "benefit", "benefitEs", "description", "usage"]
     }
   ],
