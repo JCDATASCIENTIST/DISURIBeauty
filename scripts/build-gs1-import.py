@@ -47,7 +47,15 @@ def next_gtins(last_gtin12, count):
     return out
 
 
-# The three skincare bundles to register (Shopify handles + display names).
+# Registered manually in Data Hub 2026-07-03 with exactly these GTINs
+# (850066107362/379/386) — do NOT append them to the import file again.
+BUNDLES_REGISTERED = True
+
+# GTINs archived in Data Hub 2026-07-03 (duplicates); excluded from the
+# import file so the upload cannot error on or reactivate them.
+SKIP_GTINS = {'850066107188', '850066107195'}
+
+# The three skincare bundles (kept for the record; see BUNDLES_REGISTERED).
 BUNDLES = [
     {
         'handle': 'the-complete-disuri-system',
@@ -87,12 +95,16 @@ def main():
     skipped_archived = 0
     max_gtin = ''
 
+    rows_to_delete = []
     for row in ws.iter_rows(min_row=2):
         upc = str(row[col['GTIN-12 (U.P.C.)'] - 1].value or '').strip()
         if not upc:
             continue
         if upc > max_gtin:
             max_gtin = upc
+        if upc in SKIP_GTINS:
+            rows_to_delete.append(row[0].row)
+            continue
         status = str(row[col['Status Label'] - 1].value or '').strip()
         if status == 'Archived':
             skipped_archived += 1
@@ -109,26 +121,31 @@ def main():
             sku_cell.value = m['internal_code']
             sku_filled += 1
 
-    # Append bundle rows, copying defaults from the last existing row.
+    # Drop rows for GTINs archived directly in Data Hub (SKIP_GTINS).
+    for r in sorted(rows_to_delete, reverse=True):
+        ws.delete_rows(r)
+
+    # Append bundle rows only if they are not already registered in Data Hub.
     new_gtins = next_gtins(max_gtin, len(BUNDLES))
-    for bundle, gtin in zip(BUNDLES, new_gtins):
-        vals = [''] * len(hdr)
-        vals[col['GS1 Company Prefix'] - 1] = '0850066107'
-        vals[col['GTIN'] - 1] = '00' + gtin
-        vals[col['GTIN-12 (U.P.C.)'] - 1] = gtin
-        vals[col['Brand Name'] - 1] = 'DISURI BEAUTY'
-        vals[col['Brand 1 Language'] - 1] = 'en'
-        vals[col['Product Description'] - 1] = bundle['description']
-        vals[col['Desc 1 Language'] - 1] = 'en'
-        vals[col['Product Industry'] - 1] = 'General'
-        vals[col['Packaging Level'] - 1] = 'Each'
-        vals[col['Is Variable'] - 1] = 'N'
-        vals[col['Is Purchasable'] - 1] = 'Y'
-        vals[col['Status Label'] - 1] = 'In Use'
-        vals[col['SKU'] - 1] = bundle['sku']
-        vals[col['GPC Brick'] - 1] = '99999999 - Temporary Classification'
-        vals[col['Target Markets'] - 1] = 'US'
-        ws.append(vals)
+    if not BUNDLES_REGISTERED:
+        for bundle, gtin in zip(BUNDLES, new_gtins):
+            vals = [''] * len(hdr)
+            vals[col['GS1 Company Prefix'] - 1] = '0850066107'
+            vals[col['GTIN'] - 1] = '00' + gtin
+            vals[col['GTIN-12 (U.P.C.)'] - 1] = gtin
+            vals[col['Brand Name'] - 1] = 'DISURI BEAUTY'
+            vals[col['Brand 1 Language'] - 1] = 'en'
+            vals[col['Product Description'] - 1] = bundle['description']
+            vals[col['Desc 1 Language'] - 1] = 'en'
+            vals[col['Product Industry'] - 1] = 'General'
+            vals[col['Packaging Level'] - 1] = 'Each'
+            vals[col['Is Variable'] - 1] = 'N'
+            vals[col['Is Purchasable'] - 1] = 'Y'
+            vals[col['Status Label'] - 1] = 'In Use'
+            vals[col['SKU'] - 1] = bundle['sku']
+            vals[col['GPC Brick'] - 1] = '99999999 - Temporary Classification'
+            vals[col['Target Markets'] - 1] = 'US'
+            ws.append(vals)
 
     wb.save(OUT_XLSX)
 
@@ -140,8 +157,10 @@ def main():
         f'- Descriptions corrected: {changed}',
         f'- Blank SKU fields filled with internal codes: {sku_filled}',
         f'- Archived rows left untouched: {skipped_archived}',
-        '- New bundle GTINs proposed (verify Data Hub assigns these exact numbers,',
-        '  or use "next available" in the UI and update the master afterwards):',
+        f'- Data Hub-archived duplicate rows excluded from file: {len(rows_to_delete)}',
+        '- Bundles registered manually in Data Hub 2026-07-03 (not in this file):'
+        if BUNDLES_REGISTERED else
+        '- New bundle GTINs proposed (verify Data Hub assigns these exact numbers):',
     ]
     for bundle, gtin in zip(BUNDLES, new_gtins):
         checklist.append(f'  - `{gtin}` -> {bundle["description"]} (SKU {bundle["sku"]})')
@@ -170,7 +189,10 @@ def main():
     print(f'Wrote {OUT_XLSX}')
     print(f'  descriptions corrected: {changed}')
     print(f'  SKUs filled: {sku_filled}')
-    print(f'  bundles appended: {[g for g in new_gtins]}')
+    if BUNDLES_REGISTERED:
+        print('  bundles: already registered in Data Hub, not in file')
+    else:
+        print(f'  bundles appended: {[g for g in new_gtins]}')
     print(f'Checklist -> {OUT_MD}')
 
 

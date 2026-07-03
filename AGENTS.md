@@ -7,12 +7,11 @@
 - After theme pushes, verify changes with a hard refresh (`Cmd+Shift+R`) on disuribeauty.com.
 - The active theme to update is **DISURI Beauty Theme v1** (`#161833353455`); do not confuse it with duplicate draft copies in admin.
 - Core skincare SKUs must stay on the **Shopify Collective** shipping profile for retailer network sales—do not reassign them to General profile.
-- Storefront promo, gift-strip, and weekly-gift messaging must reflect only the real **$25 Skincare → free lip gloss** offer (single tier; keep gift-strip section).
+- Storefront promo, gift-strip, and weekly-gift messaging must reflect only the real **$25 Skincare → free lip gloss** offer (single tier; keep gift-strip section); the weekly gift Klaviyo popup (admin-side, not theme) likewise drives weekly gloss alerts toward a first **$25+ Skincare** order—not generic welcome copy.
 - Homepage hero style is **`rested`** ("Skin that looks / rested. Every day."), not `ritual`.
-- Weekly gift Klaviyo popup (admin-side, not theme) should drive weekly gloss alerts toward a first **$25+ Skincare** order—not generic welcome copy.
-- Add-to-bag CTAs must be always visible—full-width primary buttons, not ghost `btn-tertiary` on dark/noir sections.
-- Checkout after add must be obvious: inline **Checkout** on skin-guide bundle hero; pinned **Checkout · $total** in cart drawer; skin-guide bundle quick-add does not auto-open the drawer.
+- Add-to-bag CTAs must be always visible (full-width primary buttons, not ghost `btn-tertiary` on dark/noir sections), and checkout after add must be obvious: inline **Checkout** on skin-guide bundle hero; pinned **Checkout · $total** in cart drawer; skin-guide bundle quick-add does not auto-open the drawer.
 - Do not create git commits unless explicitly asked.
+- Verify external manual steps (e.g. GS1 Data Hub uploads) against the actual system state before recording them as done—do not trust recall or prior session reports (the 2026-07-02 "GS1 uploaded" claim proved false on 2026-07-03).
 
 ## Open Handoffs → Cursor (theme)
 
@@ -20,14 +19,18 @@
  `DISURI Beauty/product-master/` + `scripts/build-product-master.py`,
  `scripts/shopify-name-sku-sync.mjs`, `scripts/build-gs1-import.py`; skill:
  `.cursor/skills/disuri-sku-sync/`. Shopify: 173 products renamed/UPC'd (SKU=barcode=UPC),
- verified converged; 16 plumpers + `shimmer-glam-lip-gloss` dup archived. GS1 corrected
- file uploaded; bundle GTINs confirmed: Complete System 850066107362, Anti-Aging Duo
- 850066107379, Glass Skin Starter 850066107386. Joel's remaining manual items:
- (1) Data Hub edit of 850066107386 Barrier→Glass (see `gs1-386-edit-instructions.md`),
- (2) archive dup GTINs 850066107188 (Essence) + 850066107195 (Ultra Plumping Mango),
- (3) skim `conflict-review.md` (74 GS1-default shade conflicts; Citrus Queen + Sugar Pie
- confirmed GS1-correct). Shopify auth: CLI 4.2.0 stored session (`store auth`); 4.3.0
- can't read it — stay on 4.2.0.
+ verified converged; 16 plumpers + `shimmer-glam-lip-gloss` dup archived (Joel does not
+ want to sell plumpers — keep them archived).
+ **GS1 Data Hub DONE 2026-07-03 (registration + dupes):** 3 bundles registered manually
+ in order, auto-assigned GTINs matched Shopify exactly (850066107362 Complete /
+ 850066107379 Duo / 850066107386 Glass, SKUs DIS-SYS-*); dup GTINs 850066107188 +
+ 850066107195 archived (keepers 850064676358 / 850064676181 untouched); Barrier Rescue
+ never created in GS1. Joel's remaining manual item:
+ (1) bulk-import `gs1-import-corrected.xlsx` (regenerated 2026-07-03: 231 corrected
+ descriptions + 91 SKU fills; bundle rows and archived dupes excluded — safe to upload),
+ Shade conflicts CLOSED 2026-07-03: Joel reviewed all 74 — GS1 wins every row, zero
+ overrides; live names are final. Shopify auth: CLI 4.2.0 stored session (`store auth`);
+ 4.3.0 can't read it — stay on 4.2.0.
 
 - **Barrier Rescue System ELIMINATED → Glass Skin Starter (2026-07-02).** Joel keeps
  Glass Skin Starter ($67.48 snail+HA duo, now ACTIVE); Barrier Rescue archived on
